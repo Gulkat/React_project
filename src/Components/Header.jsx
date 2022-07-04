@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const StyledHeader = styled.div`
   background-color: #f7f7fc;
   margin: 0;
@@ -10,7 +11,9 @@ const StyledHeader = styled.div`
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding-top: 15px;
+    padding: 20px 0 0 0;
+    margin: 0;
+    width: 100%;
   }
   .headerItem {
     list-style-type: none;

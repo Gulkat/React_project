@@ -1,37 +1,36 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import PersonalDetails from 'Components/PersonalDetails';
-import Result from '../Components/Result';
-import Header from "../Components/Header";
-import styled from 'styled-components';
+import Header from 'Components/Header';
+
 
 export const MyContext = React.createContext('Oops error default value');
 
-const StyledApp = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+const StyledResumeForm = styled.div`
+  padding: 0;
+  background-color: #f7f7fc;
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  left: 0;
 `
 
-const StyledResumeForm = styled.div`
-  margin-right: 50px;
-  padding: 15px;
-  background-color: #f7f7fc;
-  
-`
+/**
+ * @example
+ *
+ */
 
 class ResumeForm extends React.PureComponent {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     header: 'Создай своё идеальное резюме!',
-        //
-        // }
     }
     render() {
         return (
-            <StyledApp className='app'>
                 <StyledResumeForm>
                     <div>
                         <Header></Header>
@@ -39,15 +38,9 @@ class ResumeForm extends React.PureComponent {
                     <div className='body'>
                         <PersonalDetails>
                         </PersonalDetails>
-
-                        <button onClick={(e) => {this.setState({header:'Not header'})}}>Click me!</button>
                     </div>
                     <div className='footer'></div>
                 </StyledResumeForm>
-                <Result>
-
-                </Result>
-            </StyledApp>
         )
     }
 
