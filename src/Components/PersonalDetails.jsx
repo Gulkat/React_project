@@ -1,10 +1,17 @@
 import React from 'react';
-import { MyContext } from '../Scenes/ResumeForm';
 import styled from 'styled-components'
 
-const StyledPersonalDetails = styled.h1`
-  color: darkred;
-  font-size: 16px;
+const StyledPersonalDetails = styled.div`
+ 
+  .sectionName {
+    color: black;
+    font-size: 50px;
+  }
+  .description {
+    color: #7e8bc4;
+    font-size: 18px;
+    
+  }
 `
 
 class PersonalDetails extends React.PureComponent {
@@ -14,18 +21,14 @@ class PersonalDetails extends React.PureComponent {
 
     render() {
         return (
-            <div className={'header'}>
-                <h1>Введите вашу контактную информацию</h1>
-                <h2>Это позволит работодатель узнать, как с вами можно связаться</h2>
+            <StyledPersonalDetails>
+                <h1 className={'sectionName'}>Введите вашу контактную информацию</h1>
+                <h2 className={'description'}>Это позволит работодателю узнать, как с вами можно связаться</h2>
                 <input type={'text'} placeholder={'Name'}/>
-            </div>
-            // <div className={'body'}>
-            //     <MyContext.Consumer>
-            //         {/*{value => <div>{value}</div>}*/}
-            //     </MyContext.Consumer>
-            // </div>
+            </StyledPersonalDetails>
+
         )
     }
 }
 
-export default PersonalDetails
+export default PersonalDetails;

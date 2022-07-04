@@ -1,6 +1,8 @@
 import React from 'react';
 
-import ResumeForm from 'Scenes/ResumeForm'
+import ResumeForm from 'Scenes/ResumeForm';
+import GlobalThemeProvider from "./HOC/GlobalThemeProvider";
+import Result from "./Components/Result";
 
 class App extends React.PureComponent {
     constructor(props) {
@@ -8,9 +10,14 @@ class App extends React.PureComponent {
     }
 
     render() {
-        <div className={'app'}>
-            <ResumeForm/>
-        </div>
+        return (
+            <div className={'app'}>
+                <GlobalThemeProvider>
+                    <ResumeForm/>
+                    <Result/>
+                </GlobalThemeProvider>
+            </div>
+        )
     }
 }
 
