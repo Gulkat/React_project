@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import PersonalDetails from 'Components/PersonalDetails';
 import Header from 'Components/Header';
+import Dropdown from 'Components/Dropdown';
 
 
 export const MyContext = React.createContext('Oops error default value');
@@ -33,11 +34,11 @@ class ResumeForm extends React.PureComponent {
         return (
                 <StyledResumeForm>
                     <div>
-                        <Header></Header>
+                        <Header/>
                     </div>
                     <div className='body'>
-                        <PersonalDetails>
-                        </PersonalDetails>
+                        <Dropdown/>
+                        <PersonalDetails/>
                     </div>
                     <div className='footer'></div>
                 </StyledResumeForm>
