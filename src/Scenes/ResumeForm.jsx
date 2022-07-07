@@ -29,8 +29,17 @@ class ResumeForm extends React.PureComponent {
     constructor(props) {
         super(props);
 
+        this.state = {
+            resumeForm: [],
+        }
     }
+
+    addPersonalDetails(detailsData) {
+        this.setState(state => {return({ResumeForm: [...state.ResumeForm, detailsData]})});
+    }
+
     render() {
+        const {resumeForm} = this.state
         return (
                 <StyledResumeForm>
                     <div>
@@ -38,7 +47,11 @@ class ResumeForm extends React.PureComponent {
                     </div>
                     <div className='body'>
                         <Dropdown/>
-                        <PersonalDetails/>
+                        {!!resumeForm.length &&
+                            resumeForm.map(form => (
+                                <PersonalDetails {...form}/>
+                            ))
+                        }
                     </div>
                     <div className='footer'></div>
                 </StyledResumeForm>

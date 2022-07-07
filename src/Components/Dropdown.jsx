@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PersonalDetails from "./PersonalDetails";
 
 const StyledDropdown = styled.form`
   padding: 50px 0 20px 50px;
@@ -34,7 +35,9 @@ const StyledDropdown = styled.form`
 class Dropdown extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: ' '};
+        this.state = {
+            value: ''
+    };
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -42,6 +45,8 @@ class Dropdown extends React.Component {
     handleChange(event) {
         this.setState({value: event.target.value});
     }
+
+    add() {<PersonalDetails/>}
 
     render() {
         return (
@@ -56,7 +61,7 @@ class Dropdown extends React.Component {
                         <option value='about'>Об</option>
                     </select>
                 </label>
-                <input className={'button'} type='submit' value='Выбрать'/>
+                <input className={'button'} type='submit' value='Выбрать' onClick={() => this.add()}/>
             </StyledDropdown>
         );
     }
