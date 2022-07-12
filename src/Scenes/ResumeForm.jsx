@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 import PersonalDetails from 'Components/PersonalDetails';
 import Header from 'Components/Header';
-import Dropdown from 'Components/Dropdown';
+import DropdownColor from 'Components/Dropdown/DropdownColor';
+import DropdownFont from 'Components/Dropdown/DropdownFont';
+import Dropdown from "../Components/Dropdown/Dropdown";
 
 
 export const MyContext = React.createContext('Oops error default value');
@@ -34,12 +36,7 @@ class ResumeForm extends React.PureComponent {
         }
     }
 
-    addPersonalDetails(detailsData) {
-        this.setState(state => {return({ResumeForm: [...state.ResumeForm, detailsData]})});
-    }
-
     render() {
-        const {resumeForm} = this.state
         return (
                 <StyledResumeForm>
                     <div>
@@ -47,11 +44,6 @@ class ResumeForm extends React.PureComponent {
                     </div>
                     <div className='body'>
                         <Dropdown/>
-                        {!!resumeForm.length &&
-                            resumeForm.map(form => (
-                                <PersonalDetails {...form}/>
-                            ))
-                        }
                     </div>
                     <div className='footer'></div>
                 </StyledResumeForm>

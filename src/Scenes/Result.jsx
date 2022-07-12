@@ -18,6 +18,30 @@ const StyledResult = styled.div`
     width: 70%;
     height: 100%;
   }
+  .resultHeader {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    padding-top: 50px;
+  }
+  .contact {
+    display: flex;
+    gap: 10px;
+  }
+  .resultContent {
+    display: flex;
+    margin: 30px 0 0 50px;
+  }
+  .profile {
+    margin-right: 100px;
+    flex-shrink: 0;
+  }
+  
+  .workBox {
+    
+  }
   
 `
 
@@ -29,7 +53,52 @@ class Result extends React.Component {
     render() {
         return (
             <StyledResult className={'resultForm'}>
-                <div className={'result'}></div>
+                <div className={'result'}>
+                    <div className={'resultHeader'}>
+                        <div className={'userPhoto'}>Photo</div>
+                        <div className={'resultBox'}>
+                            <h1 className={'resultName'}>Катерина Гулешова</h1>
+                            <p className={'resultSpeciality'}>Front-end developer</p>
+                        </div>
+                    </div>
+                    <div className={'resultContent'}>
+                        <div className={'profile'}>
+                            <div className={'profileBox'}>
+                                <h2 className={'titleBox'}>Контакты</h2>
+                                <div className={'contact'}>
+                                    <div className={'contactIcon'}>иконка</div>
+                                    <div className={'contactText'}>данные</div>
+                                </div>
+                                <div className={'contact'}>
+                                    <div className={'contactIcon'}>иконка</div>
+                                    <div className={'contactText'}>данные</div>
+                                </div>
+                                <div className={'contact'}>
+                                    <div className={'contactIcon'}>иконка</div>
+                                    <div className={'contactText'}>данные</div>
+                                </div>
+                            </div>
+                            <div className={'profileBox'}>
+                                <h2 className={'titleBox'}>Навыки</h2>
+                                <div className={'skill'}></div>
+                            </div>
+                        </div>
+                        <div className={'work'}>
+                            <div className={'workBox'}>
+                                <h2 className={'titleBox'}>Обо мне</h2>
+                                <div className={'summery'}></div>
+                            </div>
+                            <div className={'workBox'}>
+                                <h2 className={'titleBox'}>Опыт работы</h2>
+                                <div className={'experience'}></div>
+                            </div>
+                            <div className={'workBox'}>
+                                <h2 className={'titleBox'}>Образование</h2>
+                                <div className={'education'}></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </StyledResult>
         )
     }

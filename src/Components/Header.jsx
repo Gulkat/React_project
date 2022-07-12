@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PersonalDetails from "./PersonalDetails";
+
 
 
 const StyledHeader = styled.div`
@@ -19,6 +21,7 @@ const StyledHeader = styled.div`
     list-style-type: none;
   }
   .headerLink {
+    font-family: "Century Gothic";
     text-decoration: none;
     color: #7e8bc4;
     font-size: 20px;
@@ -34,17 +37,23 @@ class Header extends React.Component {
         super(props);
     }
 
+    state = { render:false }
+    add = () => {
+        this.setState({render: !this.state.render})
+    }
+
     render() {
         return (
             <StyledHeader>
                 <nav className={'headerNav'}>
                     <ul className={'headerMenu'}>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Контакты</a></li>
+                        <li className={'headerItem'}><a href={''} className={'headerLink'} onClick={() => this.add()}>Контакты</a></li>
+                        {this.state.render &&
+                            <PersonalDetails/>}
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Опыт</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Образование</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Навыки</a></li>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Об</a></li>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Закончить</a></li>
+                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Обо мне</a></li>
                     </ul>
                 </nav>
             </StyledHeader>
