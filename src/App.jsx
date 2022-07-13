@@ -3,7 +3,7 @@ import React from 'react';
 import ResumeForm from 'Scenes/ResumeForm';
 import Result from 'Scenes/Result';
 import GlobalThemeProvider from 'HOC/GlobalThemeProvider';
-import MainLayout from "./Layouts/MainLayout";
+import MainLayout from './Layouts/MainLayout';
 
 class App extends React.PureComponent {
     constructor(props) {
