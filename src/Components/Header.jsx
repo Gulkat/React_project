@@ -35,9 +35,12 @@ const StyledHeader = styled.div`
 class Header extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            render: false
+        }
     }
 
-    state = { render:false }
     add = () => {
         this.setState({render: !this.state.render})
     }
@@ -47,9 +50,9 @@ class Header extends React.Component {
             <StyledHeader>
                 <nav className={'headerNav'}>
                     <ul className={'headerMenu'}>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'} onClick={() => this.add()}>Контакты</a></li>
-                        {this.state.render &&
-                            <PersonalDetails/>}
+                        <li className={'headerItem'}><a href={''} className={'headerLink'} onClick={() => this.add()}>Контакты</a>
+                            {this.state.render && <PersonalDetails/>}
+                        </li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Опыт</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Образование</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Навыки</a></li>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const StyledResult = styled.div`
   background-color: #e5e4ea;
   height: 100%;
@@ -45,62 +46,56 @@ const StyledResult = styled.div`
   
 `
 
-class Result extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <StyledResult className={'resultForm'}>
-                <div className={'result'}>
-                    <div className={'resultHeader'}>
-                        <div className={'userPhoto'}>Photo</div>
-                        <div className={'resultBox'}>
-                            <h1 className={'resultName'}>Катерина Гулешова</h1>
-                            <p className={'resultSpeciality'}>Front-end developer</p>
+const Result = ({name}) => {
+    return (
+        <StyledResult className={'resultForm'}>
+            <div className={'result'}>
+                <div className={'resultHeader'}>
+                    <div className={'userPhoto'}>Photo</div>
+                    <div className={'resultBox'}>
+                        <h1 className={'resultName'}>{name}</h1>
+                        <p className={'resultSpeciality'}>Front-end developer</p>
+                    </div>
+                </div>
+                <div className={'resultContent'}>
+                    <div className={'profile'}>
+                        <div className={'profileBox'}>
+                            <h2 className={'titleBox'}>Контакты</h2>
+                            <div className={'contact'}>
+                                <div className={'contactIcon'}>иконка</div>
+                                <div className={'contactText'}>данные</div>
+                            </div>
+                            <div className={'contact'}>
+                                <div className={'contactIcon'}>иконка</div>
+                                <div className={'contactText'}>данные</div>
+                            </div>
+                            <div className={'contact'}>
+                                <div className={'contactIcon'}>иконка</div>
+                                <div className={'contactText'}>данные</div>
+                            </div>
+                        </div>
+                        <div className={'profileBox'}>
+                            <h2 className={'titleBox'}>Навыки</h2>
+                            <div className={'skill'}></div>
                         </div>
                     </div>
-                    <div className={'resultContent'}>
-                        <div className={'profile'}>
-                            <div className={'profileBox'}>
-                                <h2 className={'titleBox'}>Контакты</h2>
-                                <div className={'contact'}>
-                                    <div className={'contactIcon'}>иконка</div>
-                                    <div className={'contactText'}>данные</div>
-                                </div>
-                                <div className={'contact'}>
-                                    <div className={'contactIcon'}>иконка</div>
-                                    <div className={'contactText'}>данные</div>
-                                </div>
-                                <div className={'contact'}>
-                                    <div className={'contactIcon'}>иконка</div>
-                                    <div className={'contactText'}>данные</div>
-                                </div>
-                            </div>
-                            <div className={'profileBox'}>
-                                <h2 className={'titleBox'}>Навыки</h2>
-                                <div className={'skill'}></div>
-                            </div>
+                    <div className={'work'}>
+                        <div className={'workBox'}>
+                            <h2 className={'titleBox'}>Обо мне</h2>
+                            <div className={'summery'}></div>
                         </div>
-                        <div className={'work'}>
-                            <div className={'workBox'}>
-                                <h2 className={'titleBox'}>Обо мне</h2>
-                                <div className={'summery'}></div>
-                            </div>
-                            <div className={'workBox'}>
-                                <h2 className={'titleBox'}>Опыт работы</h2>
-                                <div className={'experience'}></div>
-                            </div>
-                            <div className={'workBox'}>
-                                <h2 className={'titleBox'}>Образование</h2>
-                                <div className={'education'}></div>
-                            </div>
+                        <div className={'workBox'}>
+                            <h2 className={'titleBox'}>Опыт работы</h2>
+                            <div className={'experience'}></div>
+                        </div>
+                        <div className={'workBox'}>
+                            <h2 className={'titleBox'}>Образование</h2>
+                            <div className={'education'}></div>
                         </div>
                     </div>
                 </div>
-            </StyledResult>
-        )
-    }
+            </div>
+        </StyledResult>
+    )
 }
 export default Result

@@ -4,6 +4,7 @@ import ResumeForm from 'Scenes/ResumeForm';
 import Result from 'Scenes/Result';
 import GlobalThemeProvider from 'HOC/GlobalThemeProvider';
 import MainLayout from './Layouts/MainLayout';
+import Wrapper from './Scenes/Wrapper';
 
 class App extends React.PureComponent {
     constructor(props) {
@@ -15,8 +16,7 @@ class App extends React.PureComponent {
             <div className={'app'}>
                 <GlobalThemeProvider>
                     <MainLayout>
-                        <ResumeForm/>
-                        <Result/>
+                        <Wrapper/>
                     </MainLayout>
                 </GlobalThemeProvider>
             </div>

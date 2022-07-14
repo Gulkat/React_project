@@ -1,10 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 import PersonalDetails from 'Components/PersonalDetails';
 import Header from 'Components/Header';
-import DropdownColor from 'Components/Dropdown/DropdownColor';
-import DropdownFont from 'Components/Dropdown/DropdownFont';
 import Dropdown from "../Components/Dropdown/Dropdown";
 
 
@@ -27,29 +25,25 @@ const StyledResumeForm = styled.div`
  *
  */
 
-class ResumeForm extends React.PureComponent {
-    constructor(props) {
-        super(props);
+const ResumeForm = () => {
+    const[name, setName] = useState('')
 
-        this.state = {
-            resumeForm: [],
-        }
+    const handleNameChange = (value) => {
+        setName(value)
     }
 
-    render() {
-        return (
-                <StyledResumeForm>
-                    <div>
-                        <Header/>
-                    </div>
-                    <div className='body'>
-                        <Dropdown/>
-                    </div>
-                    <div className='footer'></div>
-                </StyledResumeForm>
-        )
-    }
-
+    return (
+        <StyledResumeForm>
+            <div>
+                <Header/>
+            </div>
+            <div className='body'>
+                <Dropdown/>
+                <PersonalDetails onChange={handleNameChange}/>
+            </div>
+            <div className='footer'></div>
+        </StyledResumeForm>
+    )
 }
 
 export default ResumeForm;

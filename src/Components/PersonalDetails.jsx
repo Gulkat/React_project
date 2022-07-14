@@ -1,25 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const StyledPersonalDetails = styled.div`
-  padding-left: 50px;
-  font-family: 'Berlin Sans FB';
+  font-family: 'Century Gothic';
+  text-align: center;
+  box-sizing: border-box;
   
   .sectionName {
     color: #33334f;
     font-size: 50px;
-    margin: 50px 0 15px 0;
+    margin: 0;
   }
   .description {
     color: #7e8bc4;
     font-size: 22px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
   .form {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    align-content: center;
+    width: 100%;
   }
   .box {
     width: 50%;
@@ -30,7 +31,7 @@ const StyledPersonalDetails = styled.div`
     padding: 0 5px;
     position: absolute;
     top: -8px;
-    left: 31px;
+    left: 130px;
     z-index: 1;
     font-size: 15px;
     letter-spacing: 0.2px;
@@ -56,7 +57,6 @@ const StyledPersonalDetails = styled.div`
   }
   .input {
     position: relative;
-    display: block;
     width: 50%;
     overflow: hidden;
     font-size: 15px;
@@ -71,28 +71,21 @@ const StyledPersonalDetails = styled.div`
   }
 `
 
-class PersonalDetails extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            sectionName: 'Введите контактную информацию',
-            description: 'Это позволит работодателю узнать, как с вами можно связаться',
-
-        }
+const PersonalDetails = ({onChange}) => {
+    const handleNameChange = (event) => {
+        onChange(event.target.value)
     }
 
-    render() {
         return (
             <StyledPersonalDetails>
-                <h1 className={'sectionName'}>{this.state.sectionName}</h1>
-                <p className={'description'}>{this.state.description}</p>
+                <h1 className={'sectionName'}>Введите контактную информацию</h1>
+                <p className={'description'}>Это позволит работодателю узнать, как с вами можно связаться</p>
                 <form className={'form'}>
                     <div className={'box'}>
                         <label className={'label'}><span>Имя</span>
                         <div className={'overlay_background'}></div>
                         </label>
-                        <input className={'input'} type={'text'}/>
+                        <input className={'input'} type={'text'} onChange={handleNameChange}/>
                     </div>
                     <div className={'box'}>
                         <label className={'label'}><span>Фамилия</span>
@@ -101,7 +94,7 @@ class PersonalDetails extends React.PureComponent {
                         <input className={'input'} type={'text'}/>
                     </div>
                     <div className={'box'}>
-                        <label className={'label'}><span>Электронная почта</span>
+                        <label className={'label'}><span>Email</span>
                         <div className={'overlay_background'}></div>
                         </label>
                         <input className={'input'} type={'text'}/>
@@ -112,11 +105,21 @@ class PersonalDetails extends React.PureComponent {
                         </label>
                         <input className={'input'} type={'text'}/>
                     </div>
+                    <div className={'box'}>
+                        <label className={'label'}><span>Город</span>
+                            <div className={'overlay_background'}></div>
+                        </label>
+                        <input className={'input'} type={'text'}/>
+                    </div>
+                    <div className={'box'}>
+                        <label className={'label'}><span>Должность</span>
+                            <div className={'overlay_background'}></div>
+                        </label>
+                        <input className={'input'} type={'text'}/>
+                    </div>
                 </form>
             </StyledPersonalDetails>
-
         )
-    }
 }
 
 export default PersonalDetails;
