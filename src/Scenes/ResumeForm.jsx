@@ -3,8 +3,9 @@ import styled from 'styled-components';
 
 import PersonalDetails from 'Components/PersonalDetails';
 import Header from 'Components/Header';
-import Dropdown from "../Components/Dropdown/Dropdown";
-
+import Dropdown from 'Components/Dropdown/Dropdown';
+import Employment from 'Components/Employment';
+import Education from 'Components/Education'
 
 export const MyContext = React.createContext('Oops error default value');
 
@@ -25,13 +26,11 @@ const StyledResumeForm = styled.div`
  *
  */
 
-const ResumeForm = () => {
-    const[name, setName] = useState('')
+function ResumeForm ({handle}) {
 
-    const handleNameChange = (value) => {
-        setName(value)
-    }
-
+    const handleClick = text => {
+        handle(text)
+    };
     return (
         <StyledResumeForm>
             <div>
@@ -39,7 +38,9 @@ const ResumeForm = () => {
             </div>
             <div className='body'>
                 <Dropdown/>
-                <PersonalDetails onChange={handleNameChange}/>
+                <PersonalDetails handleClick={handleClick} />
+                <Employment/>
+                <Education/>
             </div>
             <div className='footer'></div>
         </StyledResumeForm>

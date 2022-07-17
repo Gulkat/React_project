@@ -12,6 +12,7 @@
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "babel-loader": "^8.2.5",
     "html-webpack-plugin": "^5.5.0",
     "prop-types": "^15.8.1",

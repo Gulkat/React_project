@@ -46,14 +46,14 @@ const StyledResult = styled.div`
   
 `
 
-const Result = ({name}) => {
+function Result({userName}) {
     return (
         <StyledResult className={'resultForm'}>
             <div className={'result'}>
                 <div className={'resultHeader'}>
                     <div className={'userPhoto'}>Photo</div>
                     <div className={'resultBox'}>
-                        <h1 className={'resultName'}>{name}</h1>
+                        <h1 className={'resultName'}>{userName}</h1>
                         <p className={'resultSpeciality'}>Front-end developer</p>
                     </div>
                 </div>
