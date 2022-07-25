@@ -21,14 +21,9 @@ const StyledResumeForm = styled.div`
   left: 0;
 `
 
-/**
- * @example
- *
- */
-
 function ResumeForm ({handle}) {
 
-    const handleClick = text => {
+    const getValue = text => {
         handle(text)
     };
     return (
@@ -38,9 +33,9 @@ function ResumeForm ({handle}) {
             </div>
             <div className='body'>
                 <Dropdown/>
-                <PersonalDetails handleClick={handleClick} />
-                <Employment/>
-                <Education/>
+                <PersonalDetails getValue={getValue} />
+                {/*<Employment/>*/}
+                {/*<Education/>*/}
             </div>
             <div className='footer'></div>
         </StyledResumeForm>

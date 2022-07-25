@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 import Footer from "./Footer";
@@ -83,7 +83,7 @@ const StyledPersonalDetails = styled.div`
   }
 `
 
-function  PersonalDetails ({handleClick}) {
+function  PersonalDetails ({getValue}) {
 
     return (
         <StyledPersonalDetails>
@@ -94,7 +94,7 @@ function  PersonalDetails ({handleClick}) {
                     <label className={'label'}><span>Имя</span>
                         <div className={'overlay_background'}></div>
                     </label>
-                    <input className={'input'} type={'text'}  onChange={event => handleClick(event.target.value)} />
+                    <input className={'input'} type={'text'}  onChange={event => getValue(event.target.value)} />
                 </div>
                 <div className={'box'}>
                     <label className={'label'}><span>Фамилия</span>

@@ -37,12 +37,12 @@ class Header extends React.Component {
         super(props);
 
         this.state = {
-            render: false
+            RenderComponentState: false
         }
     }
 
-    add = () => {
-        this.setState({render: !this.state.render})
+    addComponent = () => {
+        this.setState({RenderComponentState: true})
     }
 
     render() {
@@ -50,16 +50,16 @@ class Header extends React.Component {
             <StyledHeader>
                 <nav className={'headerNav'}>
                     <ul className={'headerMenu'}>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'} onClick={() => this.add()}>Контакты</a>
-                            {this.state.render && <PersonalDetails/>}
-                        </li>
+                        <li className={'headerItem'}><a href={''} className={'headerLink'} onClick={this.addComponent}>Контакты</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Опыт</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Образование</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Навыки</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Обо мне</a></li>
                     </ul>
                 </nav>
+                {this.state.RenderComponentState && <PersonalDetails/>}
             </StyledHeader>
+
         );
     }
 }

@@ -48,7 +48,7 @@ const StyledResult = styled.div`
 
 function Result({userName}) {
     return (
-        <StyledResult className={'resultForm'}>
+        <StyledResult>
             <div className={'result'}>
                 <div className={'resultHeader'}>
                     <div className={'userPhoto'}>Photo</div>
