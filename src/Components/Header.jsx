@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PersonalDetails from "./PersonalDetails";
 
-
-
 const StyledHeader = styled.div`
   background-color: #f7f7fc;
   margin: 0;

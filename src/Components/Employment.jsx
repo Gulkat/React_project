@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import Footer from "./Footer";
 
 const StyledEmployment = styled.div`
   font-family: 'Century Gothic';
-  text-align: center;
   box-sizing: border-box;
-  padding: 20px 70px 70px;
+  padding: 20px 50px 50px;
+  
+  .section {
+    text-align: center;
+  }
 
   .sectionName {
     color: #33334f;
@@ -34,7 +36,7 @@ const StyledEmployment = styled.div`
     background: transparent;
     border-right: 0;
     border-left: 0;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
   .addBtn:hover {
     background-color: rgba(0, 153, 218, 0.05);
@@ -43,23 +45,30 @@ const StyledEmployment = styled.div`
   .iconBtn {
     margin-right: 5px;
   }
-  .form {
+  .form_box {
     display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    width: 100%;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: -18px;
+    margin-right: -18px;
     margin-bottom: 30px;
   }
   .box {
-    width: 50%;
     margin-bottom: 35px;
     position: relative;
+    padding-left: 18px;
+    padding-right: 18px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 46%;
+    
   }
   .label {
     padding: 0 5px;
     position: absolute;
     top: -8px;
-    left: 80px;
+    left: 50px;
     z-index: 1;
     font-size: 15px;
     letter-spacing: 0.2px;
@@ -85,7 +94,7 @@ const StyledEmployment = styled.div`
   }
   .input {
     position: relative;
-    width: 50%;
+    width: 90%;
     overflow: hidden;
     font-size: 15px;
     line-height: 24px;
@@ -96,23 +105,30 @@ const StyledEmployment = styled.div`
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
     box-shadow: none;
-    min-width: 270px;
+
   }
   .boxDate {
     display: flex;
     position: relative;
+    z-index: 150;
+  }
+  .dateStart {
+    width: 50%;
+    margin-right: 3%;
+  }
+  .dateFinish {
+    width: 50%;
   }
   .inputDate {
     position: relative;
-    width: 50%;
     overflow: hidden;
     font-size: 15px;
     line-height: 24px;
     letter-spacing: 0.2px;
-    border-radius: 3px;
+    border-radius: 4px;
     border: 2px solid rgb(230, 230, 255);
     background-color: rgb(255, 255, 255);
-    padding: 13px 35px 9px 16px;
+    padding: 13px 15px 9px 15px;
     color: rgb(72, 72, 112);
     box-shadow: none;
   }
@@ -120,7 +136,7 @@ const StyledEmployment = styled.div`
     padding: 0 5px;
     position: absolute;
     top: -8px;
-    left: 40px;
+    left: 30px;
     z-index: 1;
     font-size: 12px;
     letter-spacing: 0.2px;
@@ -148,23 +164,62 @@ const StyledEmployment = styled.div`
     line-height: 20px;
     margin-bottom: calc(8px);
   }
-  .aaa {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    align-content: center;
-    
-  }
-  
+`
+const StyledFooterBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 
+  .btnBack {
+    width: auto;
+    cursor: pointer;
+    will-change: box-shadow;
+    border-radius: 4px;
+    background: transparent;
+    border: 0;
+    font-weight: 900;
+    font-family: Century Gothic;
+    font-size: 20px;
+    color: rgb(113, 113, 166);
+    display: flex;
+  }
+  .btnBack:hover {
+    color: rgb(0, 153, 218);
+  }
+  .iconBack {
+    margin-right: 10px;
+  }
+  .btnNext {
+    padding: 15px;
+    font-weight: 900;
+    position: relative;
+    border: none;
+    background: rgb(33, 150, 243);
+    color: rgb(255, 255, 255);
+    width: auto;
+    font-family: Century Gothic;
+    font-size: 20px;
+    cursor: pointer;
+    will-change: box-shadow;
+    border-radius: 4px;
+  }
+  .btnNext:hover {
+    background-color: rgb(22, 136, 254);
+  }
+  .iconNext {
+    margin-left: 10px;
+  }
 `
 
 const Employment = () => {
 
     return (
         <StyledEmployment>
-            <h1 className={'sectionName'}>Расскажите о своем опыте</h1>
-            <p className={'description'}>Начните с вашей недавней работы</p>
+            <div className={'section'}>
+                <h1 className={'sectionName'}>Расскажите о своем опыте</h1>
+                <p className={'description'}>Начните с вашей недавней работы</p>
+            </div>
             <button className={'addBtn'}>
                 <span className={'innerBtn'}>
                     <span className={'iconBtn'}>+</span>
@@ -173,43 +228,47 @@ const Employment = () => {
             </button>
 
             <form className={'form'}>
-                <div className={'box'}>
+                <div className={'form_box'}>
+                    <div className={'box'}>
                     <label className={'label'}><span>Должность</span>
                         <div className={'overlay_background'}></div>
                     </label>
                     <input className={'input'} type={'text'}/>
                 </div>
-                <div className={'box'}>
+                    <div className={'box'}>
                     <label className={'label'}><span>Работодатель</span>
                         <div className={'overlay_background'}></div>
                     </label>
                     <input className={'input'} type={'text'}/>
                 </div>
-                <div className={'aaa'}>
-                <div className={'boxDate'}>
-                    <div className={'dateStart'}>
-                        <label className={'labelDateStart'}><span>Дата начала</span>
+                    <div className={'box'}>
+                        <div className={'boxDate'}>
+                            <div className={'dateStart'}>
+                                <label className={'labelDateStart'}><span>Дата начала</span>
+                                <div className={'overlay_background'}></div>
+                            </label>
+                                <input className={'inputDate'} type={'text'} placeholder={'Выберите дату'}/>
+                            </div>
+                            <div className={'dateFinish'}>
+                                <label className={'labelDateFinish'}><span>Дата окончания</span>
+                                <div className={'overlay_background'}></div>
+                                </label>
+                                <input className={'inputDate'} type={'text'}/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={'box'}>
+                        <label className={'label'}><span>Город</span>
                             <div className={'overlay_background'}></div>
                         </label>
-                        <input className={'inputDate'} type={'text'}/>
+                        <input className={'input'} type={'text'}/>
                     </div>
-                    <div className={'dateFinish'}>
-                        <label className={'labelDateFinish'}><span>Дата окончания</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'inputDate'} type={'text'}/>
-                    </div>
-                </div>
-                <div className={'box'}>
-                    <label className={'label'}><span>Город</span>
-                        <div className={'overlay_background'}></div>
-                    </label>
-                    <input className={'input'} type={'text'}/>
-                </div>
                 </div>
             </form>
-            <Footer></Footer>
-
+            <StyledFooterBtn className={'footer'}>
+                <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>
+                <button className={'btnNext'}>Перейти к образование <span className={'iconNext'}>🠆</span></button>
+            </StyledFooterBtn>
         </StyledEmployment>
     )
 }

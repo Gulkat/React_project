@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Footer from "./Footer";
+
 
 const StyledEducation = styled.div`
   font-family: 'Century Gothic';
@@ -58,8 +58,6 @@ const Education = () => {
                     <span className={'titleBtn'}>Добавить образование</span>
                 </span>
             </button>
-            <Footer></Footer>
-
         </StyledEducation>
     )
 }

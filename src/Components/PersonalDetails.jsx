@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
-import Footer from "./Footer";
 
 const StyledPersonalDetails = styled.div`
   font-family: 'Century Gothic';
-  text-align: center;
   box-sizing: border-box;
-  padding: 20px 70px 70px;
+  padding: 20px 50px 50px;
+
+  .section {
+    text-align: center;
+  }
 
   .sectionName {
     color: #33334f;
@@ -21,25 +22,31 @@ const StyledPersonalDetails = styled.div`
     margin-bottom: 50px;
   }
 
-  .form {
+  .form_box {
     display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    width: 100%;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: -18px;
+    margin-right: -18px;
     margin-bottom: 30px;
   }
 
   .box {
-    width: 50%;
     margin-bottom: 35px;
     position: relative;
+    padding-left: 18px;
+    padding-right: 18px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 46%;
   }
 
   .label {
     padding: 0 5px;
     position: absolute;
     top: -8px;
-    left: 80px;
+    left: 50px;
     z-index: 1;
     font-size: 15px;
     letter-spacing: 0.2px;
@@ -68,7 +75,7 @@ const StyledPersonalDetails = styled.div`
 
   .input {
     position: relative;
-    width: 50%;
+    width: 90%;
     overflow: hidden;
     font-size: 15px;
     line-height: 24px;
@@ -79,7 +86,52 @@ const StyledPersonalDetails = styled.div`
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
     box-shadow: none;
-    min-width: 270px;
+  }
+`
+const StyledFooterBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .btnBack {
+    width: auto;
+    cursor: pointer;
+    will-change: box-shadow;
+    border-radius: 4px;
+    background: transparent;
+    border: 0;
+    font-weight: 900;
+    font-family: Century Gothic;
+    font-size: 20px;
+    color: rgb(113, 113, 166);
+    display: flex;
+  }
+  .btnBack:hover {
+    color: rgb(0, 153, 218);
+  }
+  .iconBack {
+    margin-right: 10px;
+  }
+  .btnNext {
+    padding: 15px;
+    font-weight: 900;
+    position: relative;
+    border: none;
+    background: rgb(33, 150, 243);
+    color: rgb(255, 255, 255);
+    width: auto;
+    font-family: Century Gothic;
+    font-size: 20px;
+    cursor: pointer;
+    will-change: box-shadow;
+    border-radius: 4px;
+  }
+  .btnNext:hover {
+    background-color: rgb(22, 136, 254);
+  }
+  .iconNext {
+    margin-left: 10px;
   }
 `
 
@@ -87,47 +139,55 @@ function  PersonalDetails ({getValue}) {
 
     return (
         <StyledPersonalDetails>
-            <h1 className={'sectionName'}>Введите контактную информацию</h1>
-            <p className={'description'}>Это позволит работодателю узнать, как с вами можно связаться</p>
+            <div className={'section'}>
+                <h1 className={'sectionName'}>Введите контактную информацию</h1>
+                <p className={'description'}>Это позволит работодателю узнать, как с вами можно связаться</p>
+            </div>
             <form className={'form'}>
-                <div className={'box'}>
-                    <label className={'label'}><span>Имя</span>
-                        <div className={'overlay_background'}></div>
-                    </label>
-                    <input className={'input'} type={'text'}  onChange={event => getValue(event.target.value)} />
+                <div className={'form_box'}>
+                    <div className={'box'}>
+                        <label className={'label'}><span>Имя</span>
+                            <div className={'overlay_background'}></div>
+                        </label>
+                        <input className={'input'} type={'text'}  onChange={event => getValue(event.target.value)} />
+                    </div>
+                    <div className={'box'}>
+                        <label className={'label'}><span>Фамилия</span>
+                            <div className={'overlay_background'}></div>
+                        </label>
+                        <input className={'input'} type={'text'}/>
+                    </div>
+                    <div className={'box'}>
+                        <label className={'label'}><span>Email</span>
+                            <div className={'overlay_background'}></div>
+                        </label>
+                        <input className={'input'} type={'text'}/>
+                    </div>
+                    <div className={'box'}>
+                        <label className={'label'}><span>Телефон</span>
+                            <div className={'overlay_background'}></div>
+                        </label>
+                        <input className={'input'} type={'text'}/>
+                    </div>
+                    <div className={'box'}>
+                        <label className={'label'}><span>Город</span>
+                            <div className={'overlay_background'}></div>
+                        </label>
+                        <input className={'input'} type={'text'}/>
+                    </div>
+                    <div className={'box'}>
+                        <label className={'label'}><span>Должность</span>
+                            <div className={'overlay_background'}></div>
+                        </label>
+                        <input className={'input'} type={'text'}/>
+                    </div>
                 </div>
-                <div className={'box'}>
-                    <label className={'label'}><span>Фамилия</span>
-                        <div className={'overlay_background'}></div>
-                    </label>
-                    <input className={'input'} type={'text'}/>
-                </div>
-                <div className={'box'}>
-                    <label className={'label'}><span>Email</span>
-                        <div className={'overlay_background'}></div>
-                    </label>
-                    <input className={'input'} type={'text'}/>
-                </div>
-                <div className={'box'}>
-                    <label className={'label'}><span>Телефон</span>
-                        <div className={'overlay_background'}></div>
-                    </label>
-                    <input className={'input'} type={'text'}/>
-                </div>
-                <div className={'box'}>
-                    <label className={'label'}><span>Город</span>
-                        <div className={'overlay_background'}></div>
-                    </label>
-                    <input className={'input'} type={'text'}/>
-                </div>
-                <div className={'box'}>
-                    <label className={'label'}><span>Должность</span>
-                        <div className={'overlay_background'}></div>
-                    </label>
-                    <input className={'input'} type={'text'}/>
-                </div>
+
             </form>
-            <Footer/>
+            <StyledFooterBtn className={'footer'}>
+                <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>
+                <button className={'btnNext'}>Перейти к опыт <span className={'iconNext'}>🠆</span></button>
+            </StyledFooterBtn>
         </StyledPersonalDetails>
     )
 }

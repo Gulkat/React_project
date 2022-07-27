@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import PersonalDetails from 'Components/PersonalDetails';
 import Header from 'Components/Header';
-import Dropdown from 'Components/Dropdown/Dropdown';
 import Employment from 'Components/Employment';
 import Education from 'Components/Education'
+import DropdownMenu from "Components/Dropdown/DropdownMenu";
 
 export const MyContext = React.createContext('Oops error default value');
 
@@ -32,9 +32,9 @@ function ResumeForm ({handle}) {
                 <Header/>
             </div>
             <div className='body'>
-                <Dropdown/>
+                <DropdownMenu/>
                 <PersonalDetails getValue={getValue} />
-                {/*<Employment/>*/}
+                <Employment/>
                 {/*<Education/>*/}
             </div>
             <div className='footer'></div>
