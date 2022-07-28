@@ -22,7 +22,7 @@ const StyledHeader = styled.div`
     font-family: "Century Gothic";
     text-decoration: none;
     color: #7e8bc4;
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
   }
   .headerLink:hover {

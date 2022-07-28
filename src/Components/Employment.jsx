@@ -12,12 +12,12 @@ const StyledEmployment = styled.div`
   
   .sectionName {
     color: #33334f;
-    font-size: 50px;
+    font-size: 35px;
     margin: 0;
   }
   .description {
     color: #7e8bc4;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 50px;
   }
   .addBtn {
@@ -181,7 +181,7 @@ const StyledEmployment = styled.div`
   .inputDescription {
     position: relative;
     width: 90%;
-    height: 250px;
+    height: 170px;
     overflow: hidden;
     font-size: 15px;
     line-height: 24px;
@@ -302,7 +302,7 @@ const Employment = () => {
             </form>
             <StyledFooterBtn className={'footer'}>
                 <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>
-                <button className={'btnNext'}>Перейти к образование <span className={'iconNext'}>🠆</span></button>
+                <button className={'btnNext'}>Перейти к Образование <span className={'iconNext'}>🠆</span></button>
             </StyledFooterBtn>
         </StyledEmployment>
     )

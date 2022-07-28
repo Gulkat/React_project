@@ -5,13 +5,13 @@ const StyledDropdown = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 0 50px 0;
+  padding: 30px 0 30px 0;
   margin-right: 100px;
   
   .labelText {
     font-family: 'Century Gothic';
     color: #7e8bc4;
-    font-size: 22px;
+    font-size: 18px;
     min-width: 240px;
     text-align: center;
   }

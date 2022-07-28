@@ -12,7 +12,7 @@ const StyledPersonalDetails = styled.div`
 
   .sectionName {
     color: #33334f;
-    font-size: 50px;
+    font-size: 35px;
     margin: 0;
   }
 
@@ -137,6 +137,7 @@ const StyledFooterBtn = styled.div`
 
 function  PersonalDetails ({getValue}) {
 
+
     return (
         <StyledPersonalDetails>
             <div className={'section'}>
@@ -186,7 +187,7 @@ function  PersonalDetails ({getValue}) {
             </form>
             <StyledFooterBtn className={'footer'}>
                 <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>
-                <button className={'btnNext'}>Перейти к опыт <span className={'iconNext'}>🠆</span></button>
+                <button className={'btnNext'}>Перейти к Опыт <span className={'iconNext'}>🠆</span></button>
             </StyledFooterBtn>
         </StyledPersonalDetails>
     )
