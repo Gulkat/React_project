@@ -46,9 +46,9 @@ const StyledPersonalDetails = styled.div`
     padding: 0 5px;
     position: absolute;
     top: -8px;
-    left: 50px;
+    left: 30px;
     z-index: 1;
-    font-size: 15px;
+    font-size: 12px;
     letter-spacing: 0.2px;
     text-align: center;
     background: #f7f7fc;
@@ -85,7 +85,7 @@ const StyledPersonalDetails = styled.div`
     background-color: rgb(255, 255, 255);
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
-    box-shadow: none;
+    font-family: "Century Gothic";
   }
 `
 const StyledFooterBtn = styled.div`

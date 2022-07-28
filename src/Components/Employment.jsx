@@ -9,7 +9,7 @@ const StyledEmployment = styled.div`
   .section {
     text-align: center;
   }
-
+  
   .sectionName {
     color: #33334f;
     font-size: 50px;
@@ -62,15 +62,14 @@ const StyledEmployment = styled.div`
     flex-grow: 0;
     flex-shrink: 0;
     width: 46%;
-    
   }
   .label {
     padding: 0 5px;
     position: absolute;
     top: -8px;
-    left: 50px;
+    left: 30px;
     z-index: 1;
-    font-size: 15px;
+    font-size: 12px;
     letter-spacing: 0.2px;
     text-align: center;
     background: #f7f7fc;
@@ -80,10 +79,12 @@ const StyledEmployment = styled.div`
     line-height: 20px;
     margin-bottom: calc(8px);
   }
+  
   span {
     position: relative;
     z-index: 10;
   }
+  
   .overlay_background {
     background: white;
     width: 100%;
@@ -92,6 +93,7 @@ const StyledEmployment = styled.div`
     height: 10px;
     left: 0;
   }
+  
   .input {
     position: relative;
     width: 90%;
@@ -104,21 +106,24 @@ const StyledEmployment = styled.div`
     background-color: rgb(255, 255, 255);
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
-    box-shadow: none;
-
+    font-family: "Century Gothic";
   }
+  
   .boxDate {
     display: flex;
     position: relative;
     z-index: 150;
   }
+  
   .dateStart {
     width: 50%;
-    margin-right: 3%;
+    margin-right: 12%;
   }
+  
   .dateFinish {
     width: 50%;
   }
+  
   .inputDate {
     position: relative;
     overflow: hidden;
@@ -129,14 +134,14 @@ const StyledEmployment = styled.div`
     border: 2px solid rgb(230, 230, 255);
     background-color: rgb(255, 255, 255);
     padding: 13px 15px 9px 15px;
-    color: rgb(72, 72, 112);
-    box-shadow: none;
+    font-family: "Century Gothic";
   }
+  
   .labelDateStart {
     padding: 0 5px;
     position: absolute;
     top: -8px;
-    left: 30px;
+    left: 15px;
     z-index: 1;
     font-size: 12px;
     letter-spacing: 0.2px;
@@ -163,6 +168,30 @@ const StyledEmployment = styled.div`
     display: block;
     line-height: 20px;
     margin-bottom: calc(8px);
+  }
+  .boxDescription {
+    margin-bottom: 35px;
+    position: relative;
+    padding-left: 18px;
+    padding-right: 18px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 101.5%;
+  }
+  .inputDescription {
+    position: relative;
+    width: 90%;
+    height: 250px;
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    border-radius: 3px;
+    border: 2px solid rgb(230, 230, 255);
+    background-color: rgb(255, 255, 255);
+    padding: 13px 35px 9px 16px;
+    color: rgb(72, 72, 112);
+    font-family: "Century Gothic";
   }
 `
 const StyledFooterBtn = styled.div`
@@ -253,7 +282,7 @@ const Employment = () => {
                                 <label className={'labelDateFinish'}><span>Дата окончания</span>
                                 <div className={'overlay_background'}></div>
                                 </label>
-                                <input className={'inputDate'} type={'text'}/>
+                                <input className={'inputDate'} type={'text'} placeholder={'Выберите дату'}/>
                             </div>
                         </div>
                     </div>
@@ -262,6 +291,12 @@ const Employment = () => {
                             <div className={'overlay_background'}></div>
                         </label>
                         <input className={'input'} type={'text'}/>
+                    </div>
+                    <div className={'boxDescription'}>
+                        <label className={'label'}><span>Описание</span>
+                            <div className={'overlay_background'}></div>
+                        </label>
+                        <input className={'inputDescription'} type={'text'}/>
                     </div>
                 </div>
             </form>

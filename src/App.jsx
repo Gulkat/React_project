@@ -1,10 +1,10 @@
 import React from 'react';
+import { BrowserRouter } from "react-router-dom";
 
-import ResumeForm from 'Scenes/ResumeForm';
-import Result from 'Scenes/Result';
 import GlobalThemeProvider from 'HOC/GlobalThemeProvider';
 import MainLayout from './Layouts/MainLayout';
 import Wrapper from './Scenes/Wrapper';
+import RootRoute from "./Routes/RootRoute";
 
 class App extends React.PureComponent {
     constructor(props) {
@@ -14,11 +14,13 @@ class App extends React.PureComponent {
     render() {
         return (
             <div className={'app'}>
-                <GlobalThemeProvider>
-                    <MainLayout>
-                        <Wrapper/>
-                    </MainLayout>
-                </GlobalThemeProvider>
+                <BrowserRouter>
+                    <GlobalThemeProvider>
+                        <MainLayout>
+                            <RootRoute/>
+                        </MainLayout>
+                    </GlobalThemeProvider>
+                </BrowserRouter>
             </div>
         )
     }
