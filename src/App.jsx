@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
 
 import GlobalThemeProvider from 'HOC/GlobalThemeProvider';
 import MainLayout from './Layouts/MainLayout';
-import Wrapper from './Scenes/Wrapper';
-import RootRoute from "./Routes/RootRoute";
+import RootRoute from './Routes/RootRoute';
 
 class App extends React.PureComponent {
     constructor(props) {

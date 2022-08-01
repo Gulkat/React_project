@@ -16,17 +16,17 @@ class DropdownMenu extends React.PureComponent {
     }
 
     handleColorSelect(colorId) {
-        setNewTextColor(COLOR.find(color => colorId === colorId).hexNumber)
+        this.props.setColor(COLOR.find(color => color.colorId === colorId).hexNumber)
     }
     handleFontSelect(fontId) {
-        setNewTextFont(FONT.find(font => fontId === fontId).font)
+        this.props.setFont(FONT.find(font => font.fontId === fontId).font)
     }
 
     render() {
         return (
             <StyledDropdownMenu>
-                <Dropdown options={COLOR} idKey={'colorId'} nameKey={'name'} handleSelect={this.handleColorSelect} label={'Цвет оформления'}/>
-                <Dropdown options={FONT} idKey={'fontId'} nameKey={'name'} handleSelect={this.handleFontSelect} label={'Шрифт оформления'}/>
+                <Dropdown options={COLOR} idKey={'colorId'} nameKey={'name'} handleSelect={this.handleColorSelect.bind(this)} label={'Цвет оформления'}/>
+                <Dropdown options={FONT} idKey={'fontId'} nameKey={'name'} handleSelect={this.handleFontSelect.bind(this)} label={'Шрифт оформления'}/>
             </StyledDropdownMenu>
         )
     }

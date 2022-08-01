@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import PersonalDetails from 'Components/PersonalDetails';
 import Header from 'Components/Header';
 import Employment from 'Components/Employment';
 import Education from 'Components/Education'
-import DropdownMenu from "Components/Dropdown/DropdownMenu";
-import Skills from "../Components/Skills";
-import Summary from "../Components/Summary";
+import DropdownMenu from 'Components/Dropdown/DropdownMenu';
+import Skills from 'Components/Skills';
+import Summary from 'Components/Summary';
 
 export const MyContext = React.createContext('Oops error default value');
 
@@ -23,7 +23,7 @@ const StyledResumeForm = styled.div`
   left: 0;
 `
 
-function ResumeForm ({handle}) {
+function ResumeForm ({handle, setColor, setFont}) {
 
     const getValue = text => {
         handle(text)
@@ -34,7 +34,7 @@ function ResumeForm ({handle}) {
                 <Header/>
             </div>
             <div className='body'>
-                <DropdownMenu/>
+                <DropdownMenu setColor={setColor} setFont={setFont}/>
                 <PersonalDetails getValue={getValue} />
                 <Employment/>
                 <Education/>

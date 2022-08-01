@@ -12,13 +12,13 @@ const StyledSummary = styled.div `
 
   .sectionName {
     color: #33334f;
-    font-size: 50px;
+    font-size: 35px;
     margin: 0;
   }
   
   .description {
     color: #7e8bc4;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 50px;
   }
   

@@ -12,6 +12,8 @@ const StyledResult = styled.div`
   overflow-x: hidden;
   padding-top: 20px;
   right: 0;
+  color: ${props => props.color};
+  font-family: ${props => props.font};
   
   .result {
     background-color: #fff;
@@ -46,9 +48,9 @@ const StyledResult = styled.div`
   
 `
 
-function Result({userName}) {
+function Result({userName, color, font}) {
     return (
-        <StyledResult>
+        <StyledResult color={color} font={font}>
             <div className={'result'}>
                 <div className={'resultHeader'}>
                     <div className={'userPhoto'}>Photo</div>

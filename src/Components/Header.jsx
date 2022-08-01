@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PersonalDetails from "./PersonalDetails";
+import PersonalDetails from './PersonalDetails';
 
 const StyledHeader = styled.div`
   background-color: #f7f7fc;
@@ -46,6 +46,10 @@ class Header extends React.Component {
     render() {
         return (
             <StyledHeader>
+                <div className={'header'}>
+                    <div className={'theme'}></div>
+                    <div className={'loginIcon'}></div>
+                </div>
                 <nav className={'headerNav'}>
                     <ul className={'headerMenu'}>
                         <li className={'headerItem'}><a href={''} className={'headerLink'} onClick={this.addComponent}>Контакты</a></li>

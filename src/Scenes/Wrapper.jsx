@@ -5,6 +5,8 @@ import Result from 'Scenes/Result';
 
 const Wrapper = () => {
     const [name, setName] = useState('');
+    const [color,setColor] = useState('black');
+    const [font, setFont] = useState('centery gothic')
 
     const handleChange = text => {
         setName(text);
@@ -12,8 +14,8 @@ const Wrapper = () => {
 
     return (
         <div>
-            <ResumeForm handle={handleChange} />
-            <Result userName={name} />
+            <ResumeForm handle={handleChange} setColor={setColor} setFont={setFont}/>
+            <Result userName={name} color={color} font={font}/>
         </div>
     )
 }
