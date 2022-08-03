@@ -1,7 +1,10 @@
-import React from "react";
-import {Routes, Route} from "react-router-dom";
+import React from 'react';
+
+import { Routes, Route } from 'react-router-dom';
+
+import {ROUTES} from "../constants/routes";
+
 import MainLayout from "../Layouts/MainLayout";
-import Wrapper from "../Scenes/Wrapper";
 
 class RootRoute extends React.PureComponent {
     constructor(props) {
@@ -11,8 +14,9 @@ class RootRoute extends React.PureComponent {
     render() {
         return (
             <Routes>
-                <Route path={'/main'} element={<Wrapper/>}/>
-                <Route path={'*'} element={"Страница не найдена!"}/>
+                <Route path={ROUTES.initialPage} element={<MainLayout/>}/>
+                <Route path={ROUTES.loginPage} element={<LoginPage/>}/>
+                <Route path={'*'} element={'Страница не найдена!'}/>
             </Routes>
         )
     }

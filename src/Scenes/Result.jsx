@@ -8,7 +8,6 @@ const StyledResult = styled.div`
   width: 50%;
   position: fixed;
   z-index: 1;
-  top: 0;
   overflow-x: hidden;
   padding-top: 20px;
   right: 0;
@@ -18,7 +17,7 @@ const StyledResult = styled.div`
   .result {
     background-color: #fff;
     margin: 30px auto ;
-    width: 70%;
+    width: 85%;
     height: 100%;
   }
   .resultHeader {

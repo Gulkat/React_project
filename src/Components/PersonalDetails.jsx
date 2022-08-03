@@ -135,8 +135,7 @@ const StyledFooterBtn = styled.div`
   }
 `
 
-function  PersonalDetails ({getValue}) {
-
+const PersonalDetails = ({getValue}) => {
 
     return (
         <StyledPersonalDetails>

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 import PersonalDetails from 'Components/PersonalDetails';
-import Header from 'Components/Header';
+import Header from 'Scenes/ResmeForm/Components/Header';
 import Employment from 'Components/Employment';
 import Education from 'Components/Education'
 import DropdownMenu from 'Components/Dropdown/DropdownMenu';
@@ -18,30 +18,30 @@ const StyledResumeForm = styled.div`
   width: 50%;
   position: fixed;
   z-index: 1;
-  top: 0;
   overflow-x: hidden;
   left: 0;
 `
 
 function ResumeForm ({handle, setColor, setFont}) {
+    // const [renderComponents, setRenderComponents] = useState('');
 
     const getValue = text => {
         handle(text)
     };
     return (
         <StyledResumeForm>
-            <div>
+            <header>
                 <Header/>
-            </div>
-            <div className='body'>
+            </header>
+            <main>
                 <DropdownMenu setColor={setColor} setFont={setFont}/>
-                <PersonalDetails getValue={getValue} />
+                <PersonalDetails getValue={getValue}/>
                 <Employment/>
                 <Education/>
                 <Skills/>
                 <Summary/>
-            </div>
-            <div className='footer'></div>
+            </main>
+            <footer></footer>
         </StyledResumeForm>
     )
 }
