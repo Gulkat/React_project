@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import { Outlet } from 'react-router-dom'
 import Header from "./Components/Header";
-import RootRoute from "../Routes/RootRoute";
-import Wrapper from "../Scenes/Wrapper";
+
 
 const StyledMainLayout = styled.div`
   width: 100%;
@@ -30,7 +29,7 @@ class MainLayout extends React.Component {
             <StyledMainLayout>
                 <header><Header/></header>
                 <main className={'content'}>
-                    {this.props.children}
+                    <Outlet/>
                 </main>
                 <footer className={'footer'}/>
             </StyledMainLayout>

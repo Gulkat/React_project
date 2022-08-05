@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import GlobalThemeProvider from 'HOC/GlobalThemeProvider';
 import RootRoute from './Routes/RootRoute';
 import MainLayout from 'Layouts/MainLayout';
-import Wrapper from 'Scenes/Wrapper';
+import Wrapper from 'Layouts/Components/Wrapper';
 import GlobalErrorBoundary from "./HOC/GlobalErrorBoundary";
 
 class App extends React.PureComponent {
@@ -18,9 +18,7 @@ class App extends React.PureComponent {
             <BrowserRouter>
                 <GlobalThemeProvider>
                     <GlobalErrorBoundary>
-                        <MainLayout>
-                            <Wrapper/>
-                        </MainLayout>
+                        <RootRoute/>
                     </GlobalErrorBoundary>
                 </GlobalThemeProvider>
             </BrowserRouter>
