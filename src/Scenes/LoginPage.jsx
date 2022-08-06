@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Formik, Form } from 'formik';
+import FormikInput from "../Components/FormikInputs/FormikInput";
+
 
 const StyledLoginPage = styled.div`
 
@@ -29,9 +32,10 @@ const StyledLoginPage = styled.div`
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
     font-family: "Century Gothic";
-    margin-bottom: 30px;
+    margin-top: 30px;
   }
   .btnSubmit {
+    margin-top: 30px;
     padding: 15px;
     font-weight: 900;
     position: relative;
@@ -52,14 +56,42 @@ const StyledLoginPage = styled.div`
 `
 const LoginPage = () => {
 
+    const ValidateEmail = (mail) => {
+        return ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)))
+    }
+
+    const initialFormValues = {
+        email: "",
+        password: "",
+    }
+
+    const validateForm = (formValues) => {
+        let isValid = true;
+        let errorsObject = {};
+
+        if (!formValues.email) {
+            isValid = false;
+            errorsObject.email = 'Обязательно для заполнения';
+        } else if (!ValidateEmail(formValues.email)) {
+            isValid = false;
+            errorsObject.email = 'Поле заполнено некорректно'
+        }
+
+        if (!isValid) return errorsObject
+    }
+
     return (
         <StyledLoginPage>
-            <form className={'loginForm'}>
-                <h3 className={'formTitle'}>Вход на сайт</h3>
-                <input type={'email'} className={'email'} placeholder={'Email'}/>
-                <input type={'password'} className={'password'} placeholder={'Password'}/>
-                <button type={'submit'} className={'btnSubmit'}>Войти</button>
-            </form>
+            <Formik initialValues={initialFormValues}
+                    validate={validateForm}
+                    onSubmit={(formValues) => {console.log('form values', formValues)}}>
+                <Form className={'loginForm'}>
+                    <h3 className={'formTitle'}>Вход на сайт</h3>
+                    <FormikInput name={'email'} className={'email'} placeholder={'Email'}/>
+                    <FormikInput name={'password'} type={'password'} className={'password'} placeholder={'Password'}/>
+                    <button type={'submit'} className={'btnSubmit'}>Войти</button>
+                </Form>
+            </Formik>
         </StyledLoginPage>
     )
 }

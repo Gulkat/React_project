@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Formik, Form } from 'formik';
+
 const StyledEmployment = styled.div`
   font-family: 'Century Gothic';
   box-sizing: border-box;
@@ -243,63 +245,67 @@ const StyledFooterBtn = styled.div`
 
 const Employment = () => {
 
+    // const initialFormValues = {}
+
     return (
         <StyledEmployment>
             <div className={'section'}>
                 <h1 className={'sectionName'}>Расскажите о своем опыте</h1>
                 <p className={'description'}>Начните с вашей недавней работы</p>
             </div>
-            <button className={'addBtn'}>
+            {/*<Formik initialValues={} onSubmit={}>*/}
+                <form>
+                    <button type={'submit'} className={'addBtn'}>
                 <span className={'innerBtn'}>
                     <span className={'iconBtn'}>+</span>
                     <span className={'titleBtn'}>Добавить работу</span>
                 </span>
-            </button>
-
-            <form className={'form'}>
-                <div className={'form_box'}>
-                    <div className={'box'}>
-                    <label className={'label'}><span>Должность</span>
-                        <div className={'overlay_background'}></div>
-                    </label>
-                    <input className={'input'} type={'text'}/>
-                </div>
-                    <div className={'box'}>
-                    <label className={'label'}><span>Работодатель</span>
-                        <div className={'overlay_background'}></div>
-                    </label>
-                    <input className={'input'} type={'text'}/>
-                </div>
-                    <div className={'box'}>
-                        <div className={'boxDate'}>
-                            <div className={'dateStart'}>
-                                <label className={'labelDateStart'}><span>Дата начала</span>
+                    </button>
+                    <div className={'form_box'}>
+                        <div className={'box'}>
+                            <label className={'label'}><span>Должность</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                                <input className={'inputDate'} type={'text'} placeholder={'Выберите дату'}/>
-                            </div>
-                            <div className={'dateFinish'}>
-                                <label className={'labelDateFinish'}><span>Дата окончания</span>
+                            <input className={'input'} type={'text'}/>
+                        </div>
+                        <div className={'box'}>
+                            <label className={'label'}><span>Работодатель</span>
                                 <div className={'overlay_background'}></div>
-                                </label>
-                                <input className={'inputDate'} type={'text'} placeholder={'Выберите дату'}/>
+                            </label>
+                            <input className={'input'} type={'text'}/>
+                        </div>
+                        <div className={'box'}>
+                            <div className={'boxDate'}>
+                                <div className={'dateStart'}>
+                                    <label className={'labelDateStart'}><span>Дата начала</span>
+                                        <div className={'overlay_background'}></div>
+                                    </label>
+                                    <input className={'inputDate'} type={'text'} placeholder={'Выберите дату'}/>
+                                </div>
+                                <div className={'dateFinish'}>
+                                    <label className={'labelDateFinish'}><span>Дата окончания</span>
+                                        <div className={'overlay_background'}></div>
+                                    </label>
+                                    <input className={'inputDate'} type={'text'} placeholder={'Выберите дату'}/>
+                                </div>
                             </div>
                         </div>
+                        <div className={'box'}>
+                            <label className={'label'}><span>Город</span>
+                                <div className={'overlay_background'}></div>
+                            </label>
+                            <input className={'input'} type={'text'}/>
+                        </div>
+                        <div className={'boxDescription'}>
+                            <label className={'label'}><span>Описание</span>
+                                <div className={'overlay_background'}></div>
+                            </label>
+                            <input className={'inputDescription'} type={'text'}/>
+                        </div>
                     </div>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Город</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'text'}/>
-                    </div>
-                    <div className={'boxDescription'}>
-                        <label className={'label'}><span>Описание</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'inputDescription'} type={'text'}/>
-                    </div>
-                </div>
-            </form>
+                </form>
+            {/*</Formik>*/}
+
             <StyledFooterBtn className={'footer'}>
                 <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>
                 <button className={'btnNext'}>Перейти к Образование <span className={'iconNext'}>🠆</span></button>
