@@ -10,6 +10,13 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .logo {
+    color: #fff;
+    font-family: "Century Gothic";
+    font-size: 23px;
+    font-weight: 400;
+  }
   
   .loginLink {
     color: #fff;
@@ -17,11 +24,9 @@ const StyledHeader = styled.div`
     font-weight: 400;
     font-family: "Century Gothic";
     text-decoration: none;
-    width: 50px;
     padding-right: 100px;
   }
   .themeIcon {
-    width: 50px;
     padding-left: 100px;
   }
 `
@@ -33,7 +38,8 @@ const Header = () => {
             <div className={'themeIcon'}>
                 <button className={'themeBtn'}>Dark Theme</button>
             </div>
-            <Link to={ROUTES.loginPage} className={'loginLink'}>Войти</Link>
+            <p className={'logo'}>Создай своё идеальое резюме!</p>
+            <Link to={ROUTES.loginPage} className={'loginLink'}>Войти 🠆 </Link>
         </StyledHeader>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Formik, Form } from 'formik';
+import { Formik, Form, FieldArray } from 'formik';
 
 const StyledEmployment = styled.div`
   font-family: 'Century Gothic';
@@ -38,7 +38,7 @@ const StyledEmployment = styled.div`
     background: transparent;
     border-right: 0;
     border-left: 0;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
   .addBtn:hover {
     background-color: rgba(0, 153, 218, 0.05);
@@ -47,6 +47,19 @@ const StyledEmployment = styled.div`
   .iconBtn {
     margin-right: 5px;
   }
+  .deleteBtn {
+    margin-bottom: 40px;
+    border: 1px solid #7e8bc4;
+    background-color: #f7f7fc;
+    font-family: "Century Gothic";
+    font-size: 18px;
+    color: #7e8bc4;
+  }
+  .deleteBtn:hover {
+    color:darkred;
+    border: 1px solid darkred;
+  }
+
   .form_box {
     display: flex;
     flex-flow: row wrap;
@@ -245,7 +258,22 @@ const StyledFooterBtn = styled.div`
 
 const Employment = () => {
 
-    // const initialFormValues = {}
+    const initialFormValues = {
+        employment: []
+
+    }
+
+    const validateForm = (formValues) => {
+        let isValid = true;
+        let errorsObject = {};
+
+        if (!formValues.employment) {
+            isValid = false;
+            errorsObject.employment = '! Обязательно для заполнения';
+        }
+
+        if (!isValid) return errorsObject
+    }
 
     return (
         <StyledEmployment>
@@ -253,58 +281,76 @@ const Employment = () => {
                 <h1 className={'sectionName'}>Расскажите о своем опыте</h1>
                 <p className={'description'}>Начните с вашей недавней работы</p>
             </div>
-            {/*<Formik initialValues={} onSubmit={}>*/}
-                <form>
-                    <button type={'submit'} className={'addBtn'}>
-                <span className={'innerBtn'}>
-                    <span className={'iconBtn'}>+</span>
-                    <span className={'titleBtn'}>Добавить работу</span>
-                </span>
-                    </button>
-                    <div className={'form_box'}>
-                        <div className={'box'}>
-                            <label className={'label'}><span>Должность</span>
-                                <div className={'overlay_background'}></div>
-                            </label>
-                            <input className={'input'} type={'text'}/>
-                        </div>
-                        <div className={'box'}>
-                            <label className={'label'}><span>Работодатель</span>
-                                <div className={'overlay_background'}></div>
-                            </label>
-                            <input className={'input'} type={'text'}/>
-                        </div>
-                        <div className={'box'}>
-                            <div className={'boxDate'}>
-                                <div className={'dateStart'}>
-                                    <label className={'labelDateStart'}><span>Дата начала</span>
-                                        <div className={'overlay_background'}></div>
-                                    </label>
-                                    <input className={'inputDate'} type={'text'} placeholder={'Выберите дату'}/>
-                                </div>
-                                <div className={'dateFinish'}>
-                                    <label className={'labelDateFinish'}><span>Дата окончания</span>
-                                        <div className={'overlay_background'}></div>
-                                    </label>
-                                    <input className={'inputDate'} type={'text'} placeholder={'Выберите дату'}/>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={'box'}>
-                            <label className={'label'}><span>Город</span>
-                                <div className={'overlay_background'}></div>
-                            </label>
-                            <input className={'input'} type={'text'}/>
-                        </div>
-                        <div className={'boxDescription'}>
-                            <label className={'label'}><span>Описание</span>
-                                <div className={'overlay_background'}></div>
-                            </label>
-                            <input className={'inputDescription'} type={'text'}/>
-                        </div>
-                    </div>
-                </form>
-            {/*</Formik>*/}
+            <Formik initialValues={initialFormValues}
+                    validate={validateForm}
+                    onSubmit={(formValues) => {console.log('form values', formValues)}}
+            render={({values}) => {
+                return (
+                    <Form>
+                        <FieldArray
+                            name='employment'
+                            render={arrayHelpers => (
+                                <React.Fragment>
+                                    <button type={'submit'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
+                                                    <span className={'innerBtn'}>
+                                                    <span className={'iconBtn'}>+</span>
+                                                    <span className={'titleBtn'}>Добавить работу</span>
+                                                    </span>
+                                    </button>
+                                    {values.employment.map((name, index) => {
+                                        return (
+                                            <React.Fragment>
+                                                <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}>Delete</button>
+                                                <div className={'form_box'}>
+                                                    <div className={'box'}>
+                                                        <label className={'label'}><span>Должность</span>
+                                                            <div className={'overlay_background'}></div>
+                                                        </label>
+                                                        <input className={'input'} type={'text'} name={`employment.${index}.jobTitle`}/>
+                                                    </div>
+                                                    <div className={'box'}>
+                                                        <label className={'label'}><span>Работодатель</span>
+                                                            <div className={'overlay_background'}></div>
+                                                        </label>
+                                                        <input className={'input'} type={'text'} name={`employment.${index}.employer`}/>
+                                                    </div>
+                                                    <div className={'box'}>
+                                                        <div className={'boxDate'}>
+                                                            <div className={'dateStart'}>
+                                                                <label className={'labelDateStart'}><span>Дата начала</span>
+                                                                    <div className={'overlay_background'}></div>
+                                                                </label>
+                                                                <input className={'inputDate'} type={'date'} placeholder={'Выберите дату'}  name={`employment.${index}.startDate`}/>
+                                                            </div>
+                                                            <div className={'dateFinish'}>
+                                                                <label className={'labelDateFinish'}><span>Дата окончания</span>
+                                                                    <div className={'overlay_background'}></div>
+                                                                </label>
+                                                                <input className={'inputDate'} type={'date'} placeholder={'Выберите дату'}  name={`employment.${index}.endDate`}/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className={'box'}>
+                                                        <label className={'label'}><span>Город</span>
+                                                            <div className={'overlay_background'}></div>
+                                                        </label>
+                                                        <input className={'input'} type={'text'}  name={`employment.${index}.city`}/>
+                                                    </div>
+                                                    <div className={'boxDescription'}>
+                                                        <label className={'label'}><span>Описание</span>
+                                                            <div className={'overlay_background'}></div>
+                                                        </label>
+                                                        <input className={'inputDescription'} type={'text'} name={`employment.${index}.description`}/>
+                                                    </div>
+                                                </div>
+                                            </React.Fragment>
+                                        )
+                                    })}
+                                </React.Fragment>
+
+                            )}/>
+                    </Form>
+                )}}/>
 
             <StyledFooterBtn className={'footer'}>
                 <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>

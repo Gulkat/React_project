@@ -6,19 +6,22 @@ import FormikInput from "../Components/FormikInputs/FormikInput";
 
 
 const StyledLoginPage = styled.div`
+    margin: 100px auto;
+    width: 25%;
+    background-color: #f7f7fc;
 
   .loginForm {
-    border: 2px solid blue;
+    border: 2px solid rgb(230,230,255);
     height: 400px;
     width: 500px;
     text-align: center;
-    
     
   }
   .formTitle {
     font-size: 30px;
     font-weight: 500;
     font-family: "Century Gothic";
+    color: #7e8bc4;
   }
   input {
     width: 80%;
@@ -52,8 +55,8 @@ const StyledLoginPage = styled.div`
   .btnSubmit:hover {
     background-color: rgb(22, 136, 254);
   }
-  
 `
+
 const LoginPage = () => {
 
     const ValidateEmail = (mail) => {
@@ -71,10 +74,10 @@ const LoginPage = () => {
 
         if (!formValues.email) {
             isValid = false;
-            errorsObject.email = 'Обязательно для заполнения';
+            errorsObject.email = '! Обязательно для заполнения';
         } else if (!ValidateEmail(formValues.email)) {
             isValid = false;
-            errorsObject.email = 'Поле заполнено некорректно'
+            errorsObject.email = '! Поле заполнено некорректно'
         }
 
         if (!isValid) return errorsObject
