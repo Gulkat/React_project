@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Formik, Form, FieldArray } from 'formik';
+import FormikInput from './FormikInputs/FormikInput';
 
 const StyledEmployment = styled.div`
   font-family: 'Century Gothic';
@@ -259,11 +260,11 @@ const StyledFooterBtn = styled.div`
 const Employment = () => {
 
     const initialFormValues = {
-        employment: [{}]
-
+        employment: []
     }
 
     const validateForm = (formValues) => {
+        console.log('form values', formValues)
         let isValid = true;
         let errorsObject = {};
 
@@ -306,13 +307,13 @@ const Employment = () => {
                                                         <label className={'label'}><span>Должность</span>
                                                             <div className={'overlay_background'}></div>
                                                         </label>
-                                                        <input className={'input'} type={'text'} name={`employment.${index}.jobTitle`}/>
+                                                        <FormikInput className={'input'} type={'text'} name={`employment.${index}.jobTitle`}/>
                                                     </div>
                                                     <div className={'box'}>
                                                         <label className={'label'}><span>Работодатель</span>
                                                             <div className={'overlay_background'}></div>
                                                         </label>
-                                                        <input className={'input'} type={'text'} name={`employment.${index}.employer`}/>
+                                                        <FormikInput className={'input'} type={'text'} name={`employment.${index}.employer`}/>
                                                     </div>
                                                     <div className={'box'}>
                                                         <div className={'boxDate'}>
@@ -320,13 +321,13 @@ const Employment = () => {
                                                                 <label className={'labelDateStart'}><span>Дата начала</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <input className={'inputDate'} type={'date'} placeholder={'Выберите дату'}  name={`employment.${index}.startDate`}/>
+                                                                <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'}  name={`employment.${index}.startDate`}/>
                                                             </div>
                                                             <div className={'dateFinish'}>
                                                                 <label className={'labelDateFinish'}><span>Дата окончания</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <input className={'inputDate'} type={'date'} placeholder={'Выберите дату'}  name={`employment.${index}.endDate`}/>
+                                                                <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'}  name={`employment.${index}.endDate`}/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -334,13 +335,13 @@ const Employment = () => {
                                                         <label className={'label'}><span>Город</span>
                                                             <div className={'overlay_background'}></div>
                                                         </label>
-                                                        <input className={'input'} type={'text'}  name={`employment.${index}.city`}/>
+                                                        <FormikInput className={'input'} type={'text'}  name={`employment.${index}.city`}/>
                                                     </div>
                                                     <div className={'boxDescription'}>
                                                         <label className={'label'}><span>Описание</span>
                                                             <div className={'overlay_background'}></div>
                                                         </label>
-                                                        <input className={'inputDescription'} type={'text'} name={`employment.${index}.description`}/>
+                                                        <FormikInput className={'inputDescription'} type={'text'} name={`employment.${index}.description`}/>
                                                     </div>
                                                 </div>
                                             </React.Fragment>

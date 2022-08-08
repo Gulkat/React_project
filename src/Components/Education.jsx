@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { Formik, Form, FieldArray} from 'formik';
 
+import FormikInput from './FormikInputs/FormikInput';
+
 
 const StyledEducation = styled.div`
   font-family: 'Century Gothic';
@@ -260,31 +262,31 @@ const Education = () => {
                                                                 <label className={'label'}><span>Учебное заведение</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <input className={'input'} type={'text'}/>
+                                                                <FormikInput className={'input'} type={'text'}/>
                                                             </div>
                                                             <div className={'box'}>
                                                                 <label className={'label'}><span>Степень</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <input className={'input'} type={'text'}/>
+                                                                <FormikInput className={'input'} type={'text'}/>
                                                             </div>
                                                             <div className={'box'}>
                                                                 <label className={'label'}><span>Дата окончания</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <input className={'input'} type={'date'} placeholder={'Выберите дату'}/>
+                                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'}/>
                                                             </div>
                                                             <div className={'box'}>
                                                                 <label className={'label'}><span>Город</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <input className={'input'} type={'text'}/>
+                                                                <FormikInput className={'input'} type={'text'}/>
                                                             </div>
                                                             <div className={'boxDescription'}>
                                                                 <label className={'label'}><span>Описание</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <input className={'inputDescription'} type={'text'}/>
+                                                                <FormikInput className={'inputDescription'} type={'text'}/>
                                                             </div>
                                                         </div>
                                                     </React.Fragment>
