@@ -20,11 +20,21 @@ const StyledResult = styled.div`
     width: 85%;
     height: 100%;
   }
+  .resultBox {
+    display: flex;
+    align-items: center;
+  }
+  .space {
+    opacity: 0;
+  }
   .resultHeader {
     display: flex;
-    gap: 100px;
-    justify-content: center;
+    flex-direction: column;
+    text-align: center;
     align-items: center;
+
+
+
     font-weight: 700;
     padding-top: 50px;
   }
@@ -47,16 +57,16 @@ const StyledResult = styled.div`
   
 `
 
-function Result({userName, color, font}) {
+function Result({color, font, userName, userSurname, jobTitle}) {
     return (
         <StyledResult color={color} font={font}>
             <div className={'result'}>
                 <div className={'resultHeader'}>
-                    <div className={'userPhoto'}>Photo</div>
                     <div className={'resultBox'}>
-                        <h1 className={'resultName'}>{userName}</h1>
-                        <p className={'resultSpeciality'}>Front-end developer</p>
+                        <h1 className={'resultName'}>{userName}<span className={'space'}>f</span></h1>
+                        <h1 className={'resultName'}>{userSurname}</h1>
                     </div>
+                    <p className={'resultSpeciality'}>{jobTitle}</p>
                 </div>
                 <div className={'resultContent'}>
                     <div className={'profile'}>

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Formik, Form, FieldArray} from 'formik';
+
 
 const StyledEducation = styled.div`
   font-family: 'Century Gothic';
@@ -49,6 +51,19 @@ const StyledEducation = styled.div`
 
   .iconBtn {
     margin-right: 5px;
+  }
+
+  .deleteBtn {
+    margin-bottom: 40px;
+    border: 1px solid #7e8bc4;
+    background-color: #f7f7fc;
+    font-family: "Century Gothic";
+    font-size: 18px;
+    color: #7e8bc4;
+  }
+  .deleteBtn:hover {
+    color:darkred;
+    border: 1px solid darkred;
   }
 
   .form_box {
@@ -197,57 +212,93 @@ const StyledFooterBtn = styled.div `
 
 const Education = () => {
 
+    const initialFormValues = {
+        education: []
+
+    }
+
+    const validateForm = (formValues) => {
+        let isValid = true;
+        let errorsObject = {};
+
+        if (!formValues.education) {
+            isValid = false;
+            errorsObject.education = '! Обязательно для заполнения';
+        }
+
+        if (!isValid) return errorsObject
+    }
+
     return (
         <StyledEducation>
             <div className={'section'}>
                 <h1 className={'sectionName'}>Введите информацию о вашем образовании</h1>
                 <p className={'description'}>Сначала введите ваш последний диплом</p>
             </div>
-            <button className={'addBtn'}>
-                <span className={'innerBtn'}>
-                    <span className={'iconBtn'}>+</span>
-                    <span className={'titleBtn'}>Добавить образование</span>
-                </span>
-            </button>
+            <Formik initialValues={initialFormValues}
+                    validate={validateForm}
+                    onSubmit={(formValues) => {console.log('form values', formValues)}}
+                    render={({values}) => {
+                        return (
+                            <Form>
+                                <FieldArray
+                                    name='education'
+                                    render={arrayHelpers => (
+                                        <React.Fragment>
+                                            <button  type={'submit'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
+                                                <span className={'innerBtn'}>
+                                                    <span className={'iconBtn'}>+</span>
+                                                    <span className={'titleBtn'}>Добавить образование</span>
+                                                </span>
+                                            </button>
+                                            {values.education.map((name, index) => {
+                                                return (
+                                                    <React.Fragment>
+                                                        <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}>Delete</button>
+                                                        <div className={'form_box'}>
+                                                            <div className={'box'}>
+                                                                <label className={'label'}><span>Учебное заведение</span>
+                                                                    <div className={'overlay_background'}></div>
+                                                                </label>
+                                                                <input className={'input'} type={'text'}/>
+                                                            </div>
+                                                            <div className={'box'}>
+                                                                <label className={'label'}><span>Степень</span>
+                                                                    <div className={'overlay_background'}></div>
+                                                                </label>
+                                                                <input className={'input'} type={'text'}/>
+                                                            </div>
+                                                            <div className={'box'}>
+                                                                <label className={'label'}><span>Дата окончания</span>
+                                                                    <div className={'overlay_background'}></div>
+                                                                </label>
+                                                                <input className={'input'} type={'date'} placeholder={'Выберите дату'}/>
+                                                            </div>
+                                                            <div className={'box'}>
+                                                                <label className={'label'}><span>Город</span>
+                                                                    <div className={'overlay_background'}></div>
+                                                                </label>
+                                                                <input className={'input'} type={'text'}/>
+                                                            </div>
+                                                            <div className={'boxDescription'}>
+                                                                <label className={'label'}><span>Описание</span>
+                                                                    <div className={'overlay_background'}></div>
+                                                                </label>
+                                                                <input className={'inputDescription'} type={'text'}/>
+                                                            </div>
+                                                        </div>
+                                                    </React.Fragment>
+                                                    )
+                                                })}
+                                        </React.Fragment>
+                                    )}/>
+                            </Form>
+                        )}}/>
 
-            <form className={'form'}>
-                <div className={'form_box'}>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Учебное заведение</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'text'}/>
-                    </div>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Степень</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'text'}/>
-                    </div>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Дата окончания</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'text'} placeholder={'Выберите дату'}/>
-                    </div>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Город</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'text'}/>
-                    </div>
-                    <div className={'boxDescription'}>
-                        <label className={'label'}><span>Описание</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'inputDescription'} type={'text'}/>
-                    </div>
-                </div>
-            </form>
-            <StyledFooterBtn className={'footer'}>
-                <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>
-                <button className={'btnNext'}>Перейти к Навыки <span className={'iconNext'}>🠆</span></button>
-            </StyledFooterBtn>
+            {/*<StyledFooterBtn className={'footer'}>*/}
+            {/*    <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>*/}
+            {/*    <button className={'btnNext'}>Перейти к Навыки <span className={'iconNext'}>🠆</span></button>*/}
+            {/*</StyledFooterBtn>*/}
         </StyledEducation>
     )
 }

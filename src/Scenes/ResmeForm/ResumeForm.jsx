@@ -9,8 +9,6 @@ import DropdownMenu from 'Components/Dropdown/DropdownMenu';
 import Skills from 'Components/Skills';
 import Summary from 'Components/Summary';
 
-export const MyContext = React.createContext('Oops error default value');
-
 const StyledResumeForm = styled.div`
   padding: 0;
   background-color: #f7f7fc;
@@ -22,12 +20,18 @@ const StyledResumeForm = styled.div`
   left: 0;
 `
 
-function ResumeForm ({handle, setColor, setFont}) {
-    // const [renderComponents, setRenderComponents] = useState('');
+function ResumeForm ({handleName, handleSurname, handleJobTitle, setColor, setFont}) {
 
-    const getValue = text => {
-        handle(text)
+    const getValueName = text => {
+        handleName(text)
     };
+    const getValueSurname = text => {
+        handleSurname(text)
+    };
+    const getValueJobTitle = text => {
+        handleJobTitle(text)
+    };
+
     return (
         <StyledResumeForm>
             <header>
@@ -35,13 +39,12 @@ function ResumeForm ({handle, setColor, setFont}) {
             </header>
             <main>
                 <DropdownMenu setColor={setColor} setFont={setFont}/>
-                <PersonalDetails getValue={getValue}/>
+                <PersonalDetails getValueName={getValueName} getValueSurname={getValueSurname} getValueJobTitle={getValueJobTitle}/>
                 <Employment/>
                 <Education/>
                 <Skills/>
                 <Summary/>
             </main>
-            <footer></footer>
         </StyledResumeForm>
     )
 }

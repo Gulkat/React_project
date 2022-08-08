@@ -135,7 +135,7 @@ const StyledFooterBtn = styled.div`
   }
 `
 
-const PersonalDetails = ({getValue}) => {
+const PersonalDetails = ({getValueName, getValueSurname, getValueJobTitle}) => {
 
     return (
         <StyledPersonalDetails>
@@ -149,13 +149,13 @@ const PersonalDetails = ({getValue}) => {
                         <label className={'label'}><span>Имя</span>
                             <div className={'overlay_background'}></div>
                         </label>
-                        <input className={'input'} type={'text'}  onChange={event => getValue(event.target.value)} />
+                        <input className={'input'} type={'text'} onChange={event => getValueName(event.target.value)} />
                     </div>
                     <div className={'box'}>
                         <label className={'label'}><span>Фамилия</span>
                             <div className={'overlay_background'}></div>
                         </label>
-                        <input className={'input'} type={'text'}/>
+                        <input className={'input'} type={'text'} onChange={event => getValueSurname(event.target.value)}/>
                     </div>
                     <div className={'box'}>
                         <label className={'label'}><span>Email</span>
@@ -179,15 +179,15 @@ const PersonalDetails = ({getValue}) => {
                         <label className={'label'}><span>Должность</span>
                             <div className={'overlay_background'}></div>
                         </label>
-                        <input className={'input'} type={'text'}/>
+                        <input className={'input'} type={'text'} onChange={event => getValueJobTitle(event.target.value)}/>
                     </div>
                 </div>
 
             </form>
-            <StyledFooterBtn className={'footer'}>
-                <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>
-                <button className={'btnNext'}>Перейти к Опыт <span className={'iconNext'}>🠆</span></button>
-            </StyledFooterBtn>
+            {/*<StyledFooterBtn className={'footer'}>*/}
+            {/*    <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>*/}
+            {/*    <button className={'btnNext'}>Перейти к Опыт <span className={'iconNext'}>🠆</span></button>*/}
+            {/*</StyledFooterBtn>*/}
         </StyledPersonalDetails>
     )
 }

@@ -5,17 +5,15 @@ import Result from 'Scenes/Result';
 
 const Wrapper = () => {
     const [name, setName] = useState('');
+    const [surName, setSurname] = useState('');
+    const [jobTitle, setJopTitle] = useState('')
     const [color,setColor] = useState('black');
     const [font, setFont] = useState('centery gothic');
 
-    const handleChange = text => {
-        setName(text);
-    };
-
     return (
         <React.Fragment>
-            <ResumeForm handle={handleChange} setColor={setColor} setFont={setFont}/>
-            <Result userName={name} color={color} font={font}/>
+            <ResumeForm handleName={setName} handleSurname={setSurname} handleJobTitle={setJopTitle} setColor={setColor} setFont={setFont}/>
+            <Result userName={name} userSurname={surName} jobTitle={jobTitle} color={color} font={font}/>
         </React.Fragment>
 
     )

@@ -110,10 +110,10 @@ const Skills = () => {
                 </span>
             </button>
 
-            <StyledFooterBtn className={'footer'}>
-                <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>
-                <button className={'btnNext'}>Перейти к Обо мне <span className={'iconNext'}>🠆</span></button>
-            </StyledFooterBtn>
+            {/*<StyledFooterBtn className={'footer'}>*/}
+            {/*    <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>*/}
+            {/*    <button className={'btnNext'}>Перейти к Обо мне <span className={'iconNext'}>🠆</span></button>*/}
+            {/*</StyledFooterBtn>*/}
 
             </StyledSkills>
     )

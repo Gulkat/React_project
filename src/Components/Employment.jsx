@@ -259,7 +259,7 @@ const StyledFooterBtn = styled.div`
 const Employment = () => {
 
     const initialFormValues = {
-        employment: []
+        employment: [{}]
 
     }
 
@@ -292,10 +292,10 @@ const Employment = () => {
                             render={arrayHelpers => (
                                 <React.Fragment>
                                     <button type={'submit'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
-                                                    <span className={'innerBtn'}>
-                                                    <span className={'iconBtn'}>+</span>
-                                                    <span className={'titleBtn'}>Добавить работу</span>
-                                                    </span>
+                                        <span className={'innerBtn'}>
+                                            <span className={'iconBtn'}>+</span>
+                                            <span className={'titleBtn'}>Добавить работу</span>
+                                        </span>
                                     </button>
                                     {values.employment.map((name, index) => {
                                         return (
@@ -347,15 +347,14 @@ const Employment = () => {
                                         )
                                     })}
                                 </React.Fragment>
-
                             )}/>
                     </Form>
                 )}}/>
 
-            <StyledFooterBtn className={'footer'}>
-                <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>
-                <button className={'btnNext'}>Перейти к Образование <span className={'iconNext'}>🠆</span></button>
-            </StyledFooterBtn>
+            {/*<StyledFooterBtn className={'footer'}>*/}
+            {/*    <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>*/}
+            {/*    <button className={'btnNext'}>Перейти к Образование <span className={'iconNext'}>🠆</span></button>*/}
+            {/*</StyledFooterBtn>*/}
         </StyledEmployment>
     )
 }
