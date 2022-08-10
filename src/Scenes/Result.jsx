@@ -3,85 +3,80 @@ import styled from 'styled-components';
 
 
 const StyledResult = styled.div`
+  padding-top: 20px;
   background-color: #e5e4ea;
   height: 100%;
   width: 50%;
   position: fixed;
   z-index: 1;
   overflow-x: hidden;
-  padding-top: 20px;
   right: 0;
   color: ${props => props.color};
   font-family: ${props => props.font};
   
   .result {
+    display: table;
     background-color: #fff;
     margin: 30px auto ;
-    width: 85%;
+    width: 800px;
     height: 100%;
   }
+  .resultLeft {
+    width: 210px;
+    background-color: #f7f7fc;
+    max-width: 210px;
+    display: table-cell;
+    padding: 50px 30px 20px;
+}
   .resultBox {
     display: flex;
-    align-items: center;
+    justify-content: center;
   }
   .space {
     opacity: 0;
   }
-  .resultHeader {
-    display: flex;
-    flex-direction: column;
+  .resultSpeciality {
     text-align: center;
-    align-items: center;
-
-
-
-    font-weight: 700;
-    padding-top: 50px;
+    margin: 0;
   }
   .contact {
     display: flex;
     gap: 10px;
   }
-  .resultContent {
-    display: flex;
-    margin: 30px 0 0 50px;
-  }
-  .profile {
-    margin-right: 100px;
-    flex-shrink: 0;
-  }
   
-  .workBox {
-    
-  }
+  
+  //.resultContent {
+  //  display: flex;
+  //  margin: 30px 0 0 50px;
+  //}
+  //.profile {
+  //  flex-shrink: 0;
+  //}
+  
+  //.workBox {
+  //  
+  //}
   
 `
 
-function Result({color, font, userName, userSurname, jobTitle}) {
+const Result = ({color, font, userName, userSurname, jobTitle, userEmail}) => {
     return (
         <StyledResult color={color} font={font}>
             <div className={'result'}>
-                <div className={'resultHeader'}>
-                    <div className={'resultBox'}>
-                        <h1 className={'resultName'}>{userName}<span className={'space'}>f</span></h1>
-                        <h1 className={'resultName'}>{userSurname}</h1>
-                    </div>
-                    <p className={'resultSpeciality'}>{jobTitle}</p>
-                </div>
-                <div className={'resultContent'}>
+                <div className={'resultLeft'}>
                     <div className={'profile'}>
                         <div className={'profileBox'}>
                             <h2 className={'titleBox'}>Контакты</h2>
                             <div className={'contact'}>
-                                <div className={'contactIcon'}>иконка</div>
+                                <div className={'contactIcon'}>ико</div>
+                                <div className={'contactText'}>{userEmail}</div>
+                            </div>
+                            <div className={'contact'}>
+                                <div className={'contactIcon'}>ико</div>
                                 <div className={'contactText'}>данные</div>
                             </div>
                             <div className={'contact'}>
-                                <div className={'contactIcon'}>иконка</div>
-                                <div className={'contactText'}>данные</div>
-                            </div>
-                            <div className={'contact'}>
-                                <div className={'contactIcon'}>иконка</div>
+                                <div className={'contactIcon'}>ико</div>
                                 <div className={'contactText'}>данные</div>
                             </div>
                         </div>
@@ -90,6 +85,13 @@ function Result({color, font, userName, userSurname, jobTitle}) {
                             <div className={'skill'}></div>
                         </div>
                     </div>
+                </div>
+                <div className={'resultRight'}>
+                    <div className={'resultBox'}>
+                        <h1 className={'resultName'}>{userName}<span className={'space'}>f</span></h1>
+                        <h1 className={'resultName'}>{userSurname}</h1>
+                    </div>
+                    <p className={'resultSpeciality'}>{jobTitle}</p>
                     <div className={'work'}>
                         <div className={'workBox'}>
                             <h2 className={'titleBox'}>Обо мне</h2>

@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Formik, Form, FieldArray} from 'formik';
-
 import FormikInput from './FormikInputs/FormikInput';
-
 
 const StyledEducation = styled.div`
   font-family: 'Century Gothic';

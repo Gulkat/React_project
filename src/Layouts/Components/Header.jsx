@@ -6,6 +6,7 @@ import {ROUTES} from "../../constants/routes";
 
 const StyledHeader = styled.div`
   height: 50px;
+  width: 100%;
   background-color:#7e8bc4;
   display: flex;
   justify-content: space-between;

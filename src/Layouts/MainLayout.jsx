@@ -6,11 +6,16 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 
 const StyledMainLayout = styled.div`
-
+  width: 100%;
+  height: 100%;
+  
   .content {
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - 150px);
     overflow: auto;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
   }
 
 `

@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
-import {ROUTES} from "../constants/routes";
+import {ROUTES} from '../constants/routes';
 
-import MainLayout from "../Layouts/MainLayout";
-import LoginPage from "../Scenes/LoginPage";
-import Wrapper from "../Layouts/Components/Wrapper";
+import MainLayout from '../Layouts/MainLayout';
+import LoginPage from '../Scenes/LoginPage';
+import Wrapper from '../Layouts/Components/Wrapper';
 
 class RootRoute extends React.PureComponent {
     constructor(props) {

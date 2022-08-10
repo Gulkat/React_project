@@ -1,20 +1,28 @@
 import React, {useState} from 'react';
+import styled from "styled-components";
 
 import ResumeForm from 'Scenes/ResmeForm/ResumeForm';
 import Result from 'Scenes/Result';
 
+const StyledWrapper = styled.div`
+  height: calc(100vh - 150px);
+  width: 100%;
+  overflow: auto;
+`
+
 const Wrapper = () => {
     const [name, setName] = useState('');
     const [surName, setSurname] = useState('');
-    const [jobTitle, setJopTitle] = useState('')
+    const [jobTitle, setJopTitle] = useState('');
+    const [email, setEmail] = useState('');
     const [color,setColor] = useState('black');
     const [font, setFont] = useState('centery gothic');
 
     return (
-        <React.Fragment>
-            <ResumeForm handleName={setName} handleSurname={setSurname} handleJobTitle={setJopTitle} setColor={setColor} setFont={setFont}/>
-            <Result userName={name} userSurname={surName} jobTitle={jobTitle} color={color} font={font}/>
-        </React.Fragment>
+        <StyledWrapper>
+            <ResumeForm handleName={setName} handleSurname={setSurname} handleJobTitle={setJopTitle} handleUserEmail={setEmail} setColor={setColor} setFont={setFont}/>
+            <Result userName={name} userSurname={surName} jobTitle={jobTitle} userEmail={email} color={color} font={font}/>
+        </StyledWrapper>
 
     )
 }

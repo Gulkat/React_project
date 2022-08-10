@@ -20,7 +20,7 @@ const StyledResumeForm = styled.div`
   left: 0;
 `
 
-function ResumeForm ({handleName, handleSurname, handleJobTitle, setColor, setFont}) {
+const ResumeForm = ({handleName, handleSurname, handleJobTitle, handleUserEmail, setColor, setFont}) => {
 
     const getValueName = text => {
         handleName(text)
@@ -31,6 +31,9 @@ function ResumeForm ({handleName, handleSurname, handleJobTitle, setColor, setFo
     const getValueJobTitle = text => {
         handleJobTitle(text)
     };
+    const getValueUserEmail = text => {
+        handleUserEmail(text)
+    };
 
     return (
         <StyledResumeForm>
@@ -39,7 +42,7 @@ function ResumeForm ({handleName, handleSurname, handleJobTitle, setColor, setFo
             </header>
             <main>
                 <DropdownMenu setColor={setColor} setFont={setFont}/>
-                <PersonalDetails getValueName={getValueName} getValueSurname={getValueSurname} getValueJobTitle={getValueJobTitle}/>
+                <PersonalDetails getValueName={getValueName} getValueSurname={getValueSurname} getValueJobTitle={getValueJobTitle} getValueUserEmail={getValueUserEmail}/>
                 <Employment/>
                 <Education/>
                 <Skills/>

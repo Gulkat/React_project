@@ -135,7 +135,7 @@ const StyledFooterBtn = styled.div`
   }
 `
 
-const PersonalDetails = ({getValueName, getValueSurname, getValueJobTitle}) => {
+const PersonalDetails = ({getValueName, getValueSurname, getValueJobTitle, getValueUserEmail}) => {
 
     return (
         <StyledPersonalDetails>
@@ -161,13 +161,13 @@ const PersonalDetails = ({getValueName, getValueSurname, getValueJobTitle}) => {
                         <label className={'label'}><span>Email</span>
                             <div className={'overlay_background'}></div>
                         </label>
-                        <input className={'input'} type={'text'}/>
+                        <input className={'input'} type={'email'} onChange={event => getValueUserEmail(event.target.value)}/>
                     </div>
                     <div className={'box'}>
                         <label className={'label'}><span>Телефон</span>
                             <div className={'overlay_background'}></div>
                         </label>
-                        <input className={'input'} type={'text'}/>
+                        <input className={'input'} type={'tel'}/>
                     </div>
                     <div className={'box'}>
                         <label className={'label'}><span>Город</span>
