@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import GlobalThemeProvider from 'HOC/GlobalThemeProvider';
 import RootRoute from 'Routes/RootRoute';
 import GlobalErrorBoundary from 'HOC/GlobalErrorBoundary';
+import GlobalThemeWrapper from "./HOC/GlobalThemeWrapper";
 
 
 class App extends React.PureComponent {
@@ -14,7 +15,8 @@ class App extends React.PureComponent {
 
     render() {
         return (
-             // <Provider>
+            <GlobalThemeWrapper>
+                {/* <Provider>*/}
                 <BrowserRouter>
                     <GlobalThemeProvider>
                         <GlobalErrorBoundary>
@@ -22,7 +24,8 @@ class App extends React.PureComponent {
                         </GlobalErrorBoundary>
                     </GlobalThemeProvider>
                 </BrowserRouter>
-             // </Provider>
+                {/*</Provider>*/}
+            </GlobalThemeWrapper>
         )
     }
 }

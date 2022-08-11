@@ -47,19 +47,7 @@ const StyledResult = styled.div`
   .resultRight {
     padding: 50px 30px 20px;
   }
-  
-  
-  //.resultContent {
-  //  display: flex;
-  //  margin: 30px 0 0 50px;
-  //}
-  //.profile {
-  //  flex-shrink: 0;
-  //}
-  
-  //.workBox {
-  //  
-  //}
+
   
 `
 
