@@ -18,18 +18,21 @@ class GlobalErrorBoundary extends Component {
 
     render() {
         if (this.state.errorFired) {
-            return <div className={'globalError'}>
-                <h1 className={'globalErrorTitle'}>Обнаружена ошибка! Мы работаем над её исправлением!</h1>
-                {this.state.error}
-            </div>
+            return (
+                <div className={'globalError'}>
+                    <h1 className={'globalErrorTitle'}>Обнаружена ошибка! Мы работаем над её исправлением!</h1>
+                    {this.state.error}
+                </div>
+            )
         }
-
-        return (
-            <React.Fragment>
-                {this.props.children}
-            </React.Fragment>
-        );
-    }
+        else {
+            return (
+                <React.Fragment>
+                    {this.props.children}
+                </React.Fragment>
+            );
+        }
+    };
 }
 
 

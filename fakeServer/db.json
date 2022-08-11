@@ -1,0 +1,32 @@
+{
+  "resumeData": [
+    {
+      "title": "personalDetails",
+      "userName": "",
+      "userSurname": "",
+      "email": "",
+      "tel": "",
+      "city": "",
+      "jobTitle": ""
+    },
+
+    {
+      "title": "employment",
+      "jobTitle": "",
+      "employer": "",
+      "startDate": "",
+      "endDate": "",
+      "city": "",
+      "description": ""
+    },
+
+    {
+      "title": "education",
+      "school": "",
+      "degree": "",
+      "endDate": "",
+      "city": "",
+      "description": ""
+    }
+  ]
+}

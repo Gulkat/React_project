@@ -44,6 +44,10 @@ const StyledResult = styled.div`
     gap: 10px;
   }
   
+  .resultRight {
+    padding: 50px 30px 20px;
+  }
+  
   
   //.resultContent {
   //  display: flex;

@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Formik, Form } from 'formik';
-import FormikInput from "../Components/FormikInputs/FormikInput";
+import FormikInput from '../Components/FormikInputs/FormikInput';
+import {useDispatch} from 'react-redux';
 
 
 const StyledLoginPage = styled.div`
@@ -58,6 +59,7 @@ const StyledLoginPage = styled.div`
 `
 
 const LoginPage = () => {
+    // const dispatch = useDispatch();
 
     const ValidateEmail = (mail) => {
         return ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)))
@@ -87,7 +89,8 @@ const LoginPage = () => {
         <StyledLoginPage>
             <Formik initialValues={initialFormValues}
                     validate={validateForm}
-                    onSubmit={(formValues) => {console.log('form values', formValues)}}>
+                    onSubmit={(formValues) => {console.log("form values", formValues)}}>
+                    {/*onSubmit={(formValues) => {dispatch({type: 'userLogin'})}}>*/}
                 <Form className={'loginForm'}>
                     <h3 className={'formTitle'}>Вход на сайт</h3>
                     <FormikInput name={'email'} className={'email'} placeholder={'Email'}/>

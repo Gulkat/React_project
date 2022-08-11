@@ -264,7 +264,6 @@ const Employment = () => {
     }
 
     const validateForm = (formValues) => {
-        console.log('form values', formValues)
         let isValid = true;
         let errorsObject = {};
 

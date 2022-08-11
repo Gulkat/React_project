@@ -214,10 +214,10 @@ const Education = () => {
 
     const initialFormValues = {
         education: []
-
     }
 
     const validateForm = (formValues) => {
+        console.log('form values', formValues)
         let isValid = true;
         let errorsObject = {};
 
@@ -226,7 +226,7 @@ const Education = () => {
             errorsObject.education = '! Обязательно для заполнения';
         }
 
-        if (!isValid) return errorsObject
+        if (!isValid) return errorsObject;
     }
 
     return (
