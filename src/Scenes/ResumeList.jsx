@@ -12,6 +12,7 @@ const ResumeList = () => {
 
     const getResumeList = () => {
         fetchResumeList().then(({data}) => {
+            console.log(data)
             setResumeList(data);
         }).catch(() => {});
     }

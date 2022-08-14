@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const StyledResult = styled.div`
   padding-top: 20px;
@@ -42,6 +46,7 @@ const StyledResult = styled.div`
   .contact {
     display: flex;
     gap: 10px;
+    margin-top: 10px;
   }
   
   .resultRight {
@@ -51,7 +56,7 @@ const StyledResult = styled.div`
   
 `
 
-const Result = ({color, font, userName, userSurname, jobTitle, userEmail}) => {
+const Result = ({color, font, userName, userSurname, jobTitle, userEmail, telephone}) => {
     return (
         <StyledResult color={color} font={font}>
             <div className={'result'}>
@@ -60,16 +65,16 @@ const Result = ({color, font, userName, userSurname, jobTitle, userEmail}) => {
                         <div className={'profileBox'}>
                             <h2 className={'titleBox'}>Контакты</h2>
                             <div className={'contact'}>
-                                <div className={'contactIcon'}>ико</div>
+                                <div className={'contactIcon'}><FontAwesomeIcon icon={faEnvelope} /></div>
                                 <div className={'contactText'}>{userEmail}</div>
                             </div>
                             <div className={'contact'}>
-                                <div className={'contactIcon'}>ико</div>
-                                <div className={'contactText'}>данные</div>
+                                <div className={'contactIcon'}><FontAwesomeIcon icon={faPhone} /></div>
+                                <div className={'contactText'}>{telephone}</div>
                             </div>
                             <div className={'contact'}>
-                                <div className={'contactIcon'}>ико</div>
-                                <div className={'contactText'}>данные</div>
+                                <div className={'contactIcon'}><FontAwesomeIcon icon={faLocationDot} /></div>
+                                <div className={'contactText'}></div>
                             </div>
                         </div>
                         <div className={'profileBox'}>

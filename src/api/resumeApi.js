@@ -1,4 +1,4 @@
 import fakeServerInstance from './instance';
 
-export const fetchResumeList = () => fakeServerInstance.get("/resumeData");
+export const fetchResumeList = () => fakeServerInstance.get("/resumeList");
 

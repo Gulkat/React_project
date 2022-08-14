@@ -320,13 +320,13 @@ const Employment = () => {
                                                                 <label className={'labelDateStart'}><span>Дата начала</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'}  name={`employment.${index}.startDate`}/>
+                                                                <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.startDate`}/>
                                                             </div>
                                                             <div className={'dateFinish'}>
                                                                 <label className={'labelDateFinish'}><span>Дата окончания</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'}  name={`employment.${index}.endDate`}/>
+                                                                <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.endDate`}/>
                                                             </div>
                                                         </div>
                                                     </div>

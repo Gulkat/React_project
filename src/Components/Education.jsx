@@ -260,31 +260,31 @@ const Education = () => {
                                                                 <label className={'label'}><span>Учебное заведение</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <FormikInput className={'input'} type={'text'}/>
+                                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.institution`}/>
                                                             </div>
                                                             <div className={'box'}>
                                                                 <label className={'label'}><span>Степень</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <FormikInput className={'input'} type={'text'}/>
+                                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.degree`}/>
                                                             </div>
                                                             <div className={'box'}>
                                                                 <label className={'label'}><span>Дата окончания</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'}/>
+                                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'} name={`education.${index}.endData`}/>
                                                             </div>
                                                             <div className={'box'}>
                                                                 <label className={'label'}><span>Город</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <FormikInput className={'input'} type={'text'}/>
+                                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.city`}/>
                                                             </div>
                                                             <div className={'boxDescription'}>
                                                                 <label className={'label'}><span>Описание</span>
                                                                     <div className={'overlay_background'}></div>
                                                                 </label>
-                                                                <FormikInput className={'inputDescription'} type={'text'}/>
+                                                                <FormikInput className={'inputDescription'} type={'text'} name={`education.${index}.description`}/>
                                                             </div>
                                                         </div>
                                                     </React.Fragment>
