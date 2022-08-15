@@ -4,11 +4,25 @@ import {fetchResumeList} from '../api/resumeApi';
 import ResumeTable from './ResumeTable';
 
 const StyledResumeList = styled.div`
-    
+    width: 80vh;
+    max-width: 900px;
+    margin: 50px auto;
+  
+    .nameTable{
+      font-size: 40px;
+      font-family: "Century Gothic";
+      text-align: center;
+  }
     `
 
 const ResumeList = () => {
     const [resumeList, setResumeList] = useState(undefined);
+
+    const columns = [
+        {name:"Должность", datakey:"jobTitle"},
+        {name:"Дата создания", datakey:"dateOfCreation"},
+        {name:"Дата обновления", datakey: "updateDate"}
+    ]
 
     const getResumeList = () => {
         fetchResumeList().then(({data}) => {
@@ -18,19 +32,19 @@ const ResumeList = () => {
     }
 
     useEffect(() => {
-        getResumeList()
+        getResumeList();
     }, []);
 
 
     const getResumeTable = () => {
         if(resumeList === undefined) return <div>list loading</div>
         if (!resumeList.length) return <div>No resume create yet</div>
-        return <ResumeTable/>
+        return <ResumeTable columnsFromProps={columns} tableDataFromProps={resumeList} isPaginable pageSize={3}/>
     }
 
     return (
         <StyledResumeList>
-            <div>Список</div>
+            <div className={'nameTable'}>Список сохраненных резюме</div>
 
             {getResumeTable()}
         </StyledResumeList>

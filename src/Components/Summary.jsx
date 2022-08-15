@@ -65,18 +65,17 @@ const StyledSummary = styled.div `
 
   .inputDescription {
     position: relative;
-    width: 90%;
-    height: 250px;
+    width: 95%;
     overflow: hidden;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.2px;
     border-radius: 3px;
     border: 2px solid rgb(230, 230, 255);
     background-color: rgb(255, 255, 255);
-    padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
     font-family: "Century Gothic";
+    padding: 20px 20px 200px 20px;
   }
 `
 

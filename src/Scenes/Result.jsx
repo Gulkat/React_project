@@ -96,11 +96,24 @@ const Result = ({color, font, userName, userSurname, jobTitle, userEmail, teleph
                         </div>
                         <div className={'workBox'}>
                             <h2 className={'titleBox'}>Опыт работы</h2>
-                            <div className={'experience'}></div>
+                            <div className={'employment'}>
+                                <div>Должность</div>
+                                <div>Работодатель</div>
+                                <div>Дата начала</div>
+                                <div>Дата окончания</div>
+                                <div>Город</div>
+                                <div>Описание</div>
+                            </div>
                         </div>
                         <div className={'workBox'}>
                             <h2 className={'titleBox'}>Образование</h2>
-                            <div className={'education'}></div>
+                            <div className={'education'}>
+                                <div>Учебное заведение</div>
+                                <div>Степень</div>
+                                <div>Дата окончания</div>
+                                <div>Город</div>
+                                <div>Описание</div>
+                            </div>
                         </div>
                     </div>
                 </div>

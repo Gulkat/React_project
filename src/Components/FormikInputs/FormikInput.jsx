@@ -9,7 +9,6 @@ const StyledErrorLoginForm = styled.p`
   font-family: "Century Gothic";
 `
 
-
 const FormikInput = (props) => {
     const [field, meta, helpers] = useField(props.name);
     return (
