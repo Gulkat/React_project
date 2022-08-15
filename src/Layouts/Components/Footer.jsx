@@ -13,13 +13,14 @@ const StyledFooter = styled.div`
     font-size: 23px;
     font-weight: 400;
     font-family: "Century Gothic";
+    margin: 0;
   }
 `
 
 const Footer = () => {
     return (
         <StyledFooter>
-            <p className={'footerText'}>Stay with Ukraine</p>
+            <p className={'footerText'}>И пусть удача всегда будет на вашей стороне!</p>
         </StyledFooter>
     )
 }

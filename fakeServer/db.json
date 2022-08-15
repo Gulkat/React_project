@@ -1,7 +1,10 @@
 {
   "resumeList": [
     {
-      "jobTitle": ""
+      "id": "",
+      "jobTitle": "",
+      "save": "",
+      "update": ""
     }
   ],
 

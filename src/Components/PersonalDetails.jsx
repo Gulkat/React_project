@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Formik, Form } from 'formik';
+import FormikInput from './FormikInputs/FormikInput';
 
 const StyledPersonalDetails = styled.div`
   font-family: 'Century Gothic';
@@ -137,53 +139,98 @@ const StyledFooterBtn = styled.div`
 
 const PersonalDetails = ({getValueName, getValueSurname, getValueJobTitle, getValueUserEmail, getValueTelephone}) => {
 
-    return (
+    const initialFormValues = {
+        userName: "",
+        userSurname: "",
+        email: "",
+        phone: "",
+        city: "",
+        jobTitle: ""
+    }
+
+    const validateForm = (formValues) => {
+        let isValid = true;
+        let errorsObject = {};
+
+        if(!formValues.userName) {
+            isValid = false;
+            errorsObject.userName = "Обязательно для заполнения!";
+        }
+        if(!formValues.userSurname) {
+            isValid = false;
+            errorsObject.userSurname = "Обязательно для заполнения!";
+        }
+        if(!formValues.email) {
+            isValid = false;
+            errorsObject.email = "Обязательно для заполнения!";
+        }
+        if(!formValues.phone) {
+            isValid = false;
+            errorsObject.phone = "Обязательно для заполнения!";
+        }
+        if(!formValues.city) {
+            isValid = false;
+            errorsObject.city = "Обязательно для заполнения!";
+        }
+        if(!formValues.jobTitle) {
+            isValid = false;
+            errorsObject.jobTitle = "Обязательно для заполнения!";
+        }
+
+            if (!isValid) return errorsObject
+        }
+
+        return (
         <StyledPersonalDetails>
             <div className={'section'}>
                 <h1 className={'sectionName'}>Введите контактную информацию</h1>
                 <p className={'description'}>Это позволит работодателю узнать, как с вами можно связаться</p>
             </div>
-            <form className={'form'}>
-                <div className={'form_box'}>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Имя</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'text'} onChange={event => getValueName(event.target.value)} />
+            <Formik initialValues={initialFormValues}
+                    validate={validateForm}
+                    onSubmit={(formValues) => {console.log('form values', formValues)}}>
+                <Form className={'form'}>
+                    <div className={'form_box'}>
+                        <div className={'box'}>
+                            <label className={'label'}><span>Имя</span>
+                                <div className={'overlay_background'}></div>
+                            </label>
+                            <FormikInput name='userName' className={'input'} type={'text'} onChange={event => getValueName(event.target.value)} />
+                        </div>
+                        <div className={'box'}>
+                            <label className={'label'}><span>Фамилия</span>
+                                <div className={'overlay_background'}></div>
+                            </label>
+                            <FormikInput name='userSurname' className={'input'} type={'text'} onChange={event => getValueSurname(event.target.value)}/>
+                        </div>
+                        <div className={'box'}>
+                            <label className={'label'}><span>Email</span>
+                                <div className={'overlay_background'}></div>
+                            </label>
+                            <FormikInput name='email' className={'input'} type={'email'} onChange={event => getValueUserEmail(event.target.value)}/>
+                        </div>
+                        <div className={'box'}>
+                            <label className={'label'}><span>Телефон</span>
+                                <div className={'overlay_background'}></div>
+                            </label>
+                            <FormikInput name='phone' className={'input'} type={'tel'}  onChange={event => getValueTelephone(event.target.value)}/>
+                        </div>
+                        <div className={'box'}>
+                            <label className={'label'}><span>Город</span>
+                                <div className={'overlay_background'}></div>
+                            </label>
+                            <FormikInput name='city' className={'input'} type={'text'}/>
+                        </div>
+                        <div className={'box'}>
+                            <label className={'label'}><span>Должность</span>
+                                <div className={'overlay_background'}></div>
+                            </label>
+                            <FormikInput name= 'jobTitle' className={'input'} type={'text'} onChange={event => getValueJobTitle(event.target.value)}/>
+                        </div>
                     </div>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Фамилия</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'text'} onChange={event => getValueSurname(event.target.value)}/>
-                    </div>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Email</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'email'} onChange={event => getValueUserEmail(event.target.value)}/>
-                    </div>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Телефон</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'tel'}  onChange={event => getValueTelephone(event.target.value)}/>
-                    </div>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Город</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'text'}/>
-                    </div>
-                    <div className={'box'}>
-                        <label className={'label'}><span>Должность</span>
-                            <div className={'overlay_background'}></div>
-                        </label>
-                        <input className={'input'} type={'text'} onChange={event => getValueJobTitle(event.target.value)}/>
-                    </div>
-                </div>
+                </Form>
+            </Formik>
 
-            </form>
             {/*<StyledFooterBtn className={'footer'}>*/}
             {/*    <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>*/}
             {/*    <button className={'btnNext'}>Перейти к Опыт <span className={'iconNext'}>🠆</span></button>*/}

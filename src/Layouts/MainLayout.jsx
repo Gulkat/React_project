@@ -10,8 +10,8 @@ const StyledMainLayout = styled.div`
   height: 100%;
   
   .content {
-    width: 100vw;
-    height: calc(100vh - 150px);
+    width: 100%;
+    height: calc(100vh - 100px);
     overflow: auto;
     display: flex;
     flex-direction:column;

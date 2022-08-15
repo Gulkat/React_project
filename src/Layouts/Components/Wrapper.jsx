@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 
 import ResumeForm from 'Scenes/ResmeForm/ResumeForm';
 import Result from 'Scenes/Result';
+import {useParams} from "react-router-dom";
 
 const StyledWrapper = styled.div`
   height: calc(100vh - 150px);
@@ -18,6 +19,20 @@ const Wrapper = () => {
     const [telephone, setTelephone] = useState('');
     const [color,setColor] = useState('black');
     const [font, setFont] = useState('centery gothic');
+
+    // const {resumeID} = useParams();
+    // const [loadingState, setLoadingState] = useState(!!resumeID)
+    //
+    // let initialFormData = {};
+    //
+    // useEffect(() => {
+    //     if (resumeID) {
+    //         fetchResumeData(resumeID).then(({data}) => {
+    //             initialFormData = data.find(resumeApi => resumeApi.id === resumeID);
+    //             setLoadingState(false);
+    //         })
+    //     }
+    // }, [])
 
     return (
         <StyledWrapper>

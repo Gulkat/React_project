@@ -7,7 +7,8 @@ import {ROUTES} from '../constants/routes';
 import MainLayout from '../Layouts/MainLayout';
 import LoginPage from '../Scenes/LoginPage';
 import Wrapper from '../Layouts/Components/Wrapper';
-import ResumeList from "../Scenes/ResumeList";
+import ResumeList from '../Scenes/ResumeList';
+import ButtonToStart from '../Components/ButtonToStart';
 
 class RootRoute extends React.PureComponent {
     constructor(props) {
@@ -18,11 +19,13 @@ class RootRoute extends React.PureComponent {
         return (
             <Routes>
                 <Route path={ROUTES.initialPage} element={<MainLayout/>}>
-                    <Route path={ROUTES.initialPage} element={<Wrapper/>}></Route>
+                    <Route path={ROUTES.initialPage} element={<ButtonToStart/>}></Route>
+                    <Route path={ROUTES.newResume} element={<Wrapper/>}>
+                        <Route path={ROUTES.resumeID} element={<Wrapper/>}/>
+                    </Route>
                 </Route>
-                <Route path={ROUTES.loginPage} element={<LoginPage/>}/>
-                {/*<Route path={ROUTES.resumeData} element={}*/}
                 <Route path={ROUTES.resumeList} element={<ResumeList/>}/>
+                <Route path={ROUTES.loginPage} element={<LoginPage/>}/>
                 <Route path={'*'} element={'Страница не найдена!'}/>
             </Routes>
         )

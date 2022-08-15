@@ -4,17 +4,19 @@ import styled from 'styled-components';
 import { Formik, Form } from 'formik';
 import FormikInput from '../Components/FormikInputs/FormikInput';
 import {useDispatch} from 'react-redux';
+import {createUserLogInAction} from '../store/actions/userActionCreators';
+import {Link} from 'react-router-dom';
+import {ROUTES} from '../constants/routes';
 
 
 const StyledLoginPage = styled.div`
     margin: 100px auto;
-    width: 25%;
+    width: 500px;
     background-color: #f7f7fc;
 
   .loginForm {
     border: 2px solid rgb(230,230,255);
     height: 400px;
-    width: 500px;
     text-align: center;
     
   }
@@ -41,25 +43,34 @@ const StyledLoginPage = styled.div`
   .btnSubmit {
     margin-top: 30px;
     padding: 15px;
-    font-weight: 900;
     position: relative;
     border: none;
     background: rgb(33, 150, 243);
-    color: rgb(255, 255, 255);
     width: auto;
-    font-family: Century Gothic;
-    font-size: 20px;
-    cursor: pointer;
     will-change: box-shadow;
     border-radius: 4px;
   }
   .btnSubmit:hover {
-    background-color: rgb(22, 136, 254);
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  }
+  .linkToLogIn {
+    margin-top: 70px ;
+    padding: 20px;
+    font-weight: 900;
+    border: none;
+    font-size: 20px;  
+    font-family: Century Gothic;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+  }
+  .linkToLogIn:visited {
+    color: #fff;
   }
 `
 
 const LoginPage = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const ValidateEmail = (mail) => {
         return ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)))
@@ -76,10 +87,10 @@ const LoginPage = () => {
 
         if (!formValues.email) {
             isValid = false;
-            errorsObject.email = '! Обязательно для заполнения';
+            errorsObject.email = 'Обязательно для заполнения!';
         } else if (!ValidateEmail(formValues.email)) {
             isValid = false;
-            errorsObject.email = '! Поле заполнено некорректно'
+            errorsObject.email = 'Поле заполнено некорректно!'
         }
 
         if (!isValid) return errorsObject
@@ -89,13 +100,15 @@ const LoginPage = () => {
         <StyledLoginPage>
             <Formik initialValues={initialFormValues}
                     validate={validateForm}
-                    onSubmit={(formValues) => {console.log("form values", formValues)}}>
-                    {/*onSubmit={(formValues) => {dispatch({type: 'userLogin'})}}>*/}
+                    onSubmit={(formValues) =>
+                        dispatch(createUserLogInAction({email:formValues.email, password:formValues.password}))}>
                 <Form className={'loginForm'}>
                     <h3 className={'formTitle'}>Вход на сайт</h3>
-                    <FormikInput name={'email'} className={'email'} placeholder={'Email'}/>
+                    <FormikInput name={'email'} type={'email'} className={'email'} placeholder={'Email'}/>
                     <FormikInput name={'password'} type={'password'} className={'password'} placeholder={'Password'}/>
-                    <button type={'submit'} className={'btnSubmit'}>Войти</button>
+                    <button type={'submit'} className={'btnSubmit'}>
+                        <Link to={ROUTES.newResume} className={'linkToLogIn'}>Войти</Link>
+                    </button>
                 </Form>
             </Formik>
         </StyledLoginPage>
