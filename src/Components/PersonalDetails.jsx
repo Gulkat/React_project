@@ -27,21 +27,18 @@ const StyledPersonalDetails = styled.div`
   .form_box {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    gap: 20px;
+    justify-content: space-between;
     align-items: flex-start;
-    margin-left: -18px;
-    margin-right: -18px;
     margin-bottom: 30px;
   }
 
   .box {
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     position: relative;
-    padding-left: 18px;
-    padding-right: 18px;
     flex-grow: 0;
     flex-shrink: 0;
-    width: 46%;
+    width: calc(50% - 20px);
   }
 
   .label {
@@ -77,7 +74,7 @@ const StyledPersonalDetails = styled.div`
 
   .input {
     position: relative;
-    width: 90%;
+    width: 85%;
     overflow: hidden;
     font-size: 15px;
     line-height: 24px;
@@ -137,7 +134,7 @@ const StyledFooterBtn = styled.div`
   }
 `
 
-const PersonalDetails = ({getValueName, getValueSurname, getValueJobTitle, getValueUserEmail, getValueTelephone}) => {
+const PersonalDetails = ({setValueName, setValueSurname, setValueJobTitle, setValueUserEmail, setValueTelephone}) => {
 
     const initialFormValues = {
         userName: "",
@@ -195,25 +192,25 @@ const PersonalDetails = ({getValueName, getValueSurname, getValueJobTitle, getVa
                             <label className={'label'}><span>Имя</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name='userName' className={'input'} type={'text'} onChange={event => getValueName(event.target.value)} />
+                            <FormikInput name='userName' className={'input'} type={'text'} onChange={event => setValueName(event.target.value)} />
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Фамилия</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name='userSurname' className={'input'} type={'text'} onChange={event => getValueSurname(event.target.value)}/>
+                            <FormikInput name='userSurname' className={'input'} type={'text'} onChange={event => setValueSurname(event.target.value)}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Email</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name='email' className={'input'} type={'email'} onChange={event => getValueUserEmail(event.target.value)}/>
+                            <FormikInput name='email' className={'input'} type={'email'} onChange={event => setValueUserEmail(event.target.value)}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Телефон</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name='phone' className={'input'} type={'tel'}  onChange={event => getValueTelephone(event.target.value)}/>
+                            <FormikInput name='phone' className={'input'} type={'tel'}  onChange={event => setValueTelephone(event.target.value)}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Город</span>
@@ -225,7 +222,7 @@ const PersonalDetails = ({getValueName, getValueSurname, getValueJobTitle, getVa
                             <label className={'label'}><span>Должность</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name= 'jobTitle' className={'input'} type={'text'} onChange={event => getValueJobTitle(event.target.value)}/>
+                            <FormikInput name= 'jobTitle' className={'input'} type={'text'} onChange={event => setValueJobTitle(event.target.value)}/>
                         </div>
                     </div>
                 </Form>

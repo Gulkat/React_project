@@ -7,9 +7,8 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const StyledResult = styled.div`
-  padding-top: 20px;
   background-color: #e5e4ea;
-  height: 100%;
+  height: calc(100vh - 100px);
   width: 50%;
   position: fixed;
   z-index: 1;

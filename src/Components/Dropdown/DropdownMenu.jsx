@@ -6,7 +6,9 @@ import {COLOR} from "constants/colorForm";
 import {FONT} from "constants/fontForm";
 
 const StyledDropdownMenu = styled.div`
+  padding: 20px 50px;
   display: flex;
+  gap: 100px;
   justify-content: center;
 `
 

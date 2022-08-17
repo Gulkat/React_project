@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { Formik, Form, FieldArray } from 'formik';
 import FormikInput from './FormikInputs/FormikInput';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 
 const StyledEmployment = styled.div`
   font-family: 'Century Gothic';
@@ -48,36 +50,38 @@ const StyledEmployment = styled.div`
   .iconBtn {
     margin-right: 5px;
   }
+  .deleteBtnWrapper {
+    text-align: right;
+  }
   .deleteBtn {
-    margin-bottom: 40px;
-    border: 1px solid #7e8bc4;
+    margin-bottom: 15px;
+    border: none;
     background-color: #f7f7fc;
     font-family: "Century Gothic";
-    font-size: 18px;
+    font-size: 20px;
     color: #7e8bc4;
   }
   .deleteBtn:hover {
-    color:darkred;
-    border: 1px solid darkred;
+    color:rgb(33, 150, 243);
   }
 
   .form_box {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    gap: 20px;
+    justify-content: space-between;
     align-items: flex-start;
-    margin-left: -18px;
-    margin-right: -18px;
     margin-bottom: 30px;
   }
+  //.boxWrapper{
+  //  display: flex;
+  //}
   .box {
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     position: relative;
-    padding-left: 18px;
-    padding-right: 18px;
     flex-grow: 0;
     flex-shrink: 0;
-    width: 46%;
+    width: calc(50% - 20px);
   }
   .label {
     padding: 0 5px;
@@ -112,7 +116,7 @@ const StyledEmployment = styled.div`
   
   .input {
     position: relative;
-    width: 90%;
+    width: 85%;
     overflow: hidden;
     font-size: 15px;
     line-height: 24px;
@@ -124,23 +128,22 @@ const StyledEmployment = styled.div`
     color: rgb(72, 72, 112);
     font-family: "Century Gothic";
   }
-  
   .boxDate {
     display: flex;
     position: relative;
     z-index: 150;
+    width: 100%;
   }
-  
   .dateStart {
     width: 50%;
-    margin-right: 12%;
+    position: relative;
   }
-  
   .dateFinish {
     width: 50%;
+    position: relative;
   }
-  
   .inputDate {
+    width: 80%;
     position: relative;
     overflow: hidden;
     font-size: 15px;
@@ -152,7 +155,6 @@ const StyledEmployment = styled.div`
     padding: 13px 15px 9px 15px;
     font-family: "Century Gothic";
   }
-  
   .labelDateStart {
     padding: 0 5px;
     position: absolute;
@@ -173,7 +175,7 @@ const StyledEmployment = styled.div`
     padding: 0 5px;
     position: absolute;
     top: -8px;
-    left: 260px;
+    left: 15px;
     z-index: 1;
     font-size: 12px;
     letter-spacing: 0.2px;
@@ -185,18 +187,42 @@ const StyledEmployment = styled.div`
     line-height: 20px;
     margin-bottom: calc(8px);
   }
+  .checkboxWrap {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .check {
+    box-sizing: border-box;
+    padding: 0;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    cursor: pointer;
+    overflow: visible;
+  }
+  .labelCheckbox {
+    letter-spacing: 0.1px;
+    font-family: "Century Gothic";
+    color: rgb(113, 113, 166);
+    font-size: 14px;
+    line-height: normal;
+    padding-left: 8px;
+    cursor: pointer;
+  }
+  
   .boxDescription {
     margin-bottom: 35px;
     position: relative;
-    padding-left: 18px;
-    padding-right: 18px;
     flex-grow: 0;
     flex-shrink: 0;
-    width: 101.5%;
+    width: 100% ;
   }
   .inputDescription {
     position: relative;
-    width: 95%;
+    width: 94%;
     overflow: hidden;
     font-size: 16px;
     line-height: 24px;
@@ -302,49 +328,57 @@ const Employment = () => {
                                     {values.employment.map((name, index) => {
                                         return (
                                             <React.Fragment>
-                                                <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}>Delete</button>
-                                                <div className={'form_box'}>
-                                                    <div className={'box'}>
-                                                        <label className={'label'}><span>Должность</span>
-                                                            <div className={'overlay_background'}></div>
-                                                        </label>
-                                                        <FormikInput className={'input'} type={'text'} name={`employment.${index}.jobTitle`}/>
-                                                    </div>
-                                                    <div className={'box'}>
-                                                        <label className={'label'}><span>Работодатель</span>
-                                                            <div className={'overlay_background'}></div>
-                                                        </label>
-                                                        <FormikInput className={'input'} type={'text'} name={`employment.${index}.employer`}/>
-                                                    </div>
-                                                    <div className={'box'}>
-                                                        <div className={'boxDate'}>
-                                                            <div className={'dateStart'}>
-                                                                <label className={'labelDateStart'}><span>Дата начала</span>
-                                                                    <div className={'overlay_background'}></div>
-                                                                </label>
-                                                                <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.startDate`}/>
+                                                <div className={'deleteBtnWrapper'}>
+                                                    <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}><FontAwesomeIcon icon={faTrashCan}/></button>
+                                                </div>
+                                                    <div className={'form_box'}>
+                                                        <div className={'box'}>
+                                                            <label className={'label'}><span>Должность</span>
+                                                                <div className={'overlay_background'}></div>
+                                                            </label>
+                                                            <FormikInput className={'input'} type={'text'} name={`employment.${index}.jobTitle`}/>
+                                                        </div>
+                                                        <div className={'box'}>
+                                                            <label className={'label'}><span>Работодатель</span>
+                                                                <div className={'overlay_background'}></div>
+                                                            </label>
+                                                            <FormikInput className={'input'} type={'text'} name={`employment.${index}.employer`}/>
+                                                        </div>
+                                                        <div className={'box'}>
+                                                            <div className={'boxDate'}>
+                                                                <div className={'dateStart'}>
+                                                                    <label className={'labelDateStart'}><span>Дата начала</span>
+                                                                        <div className={'overlay_background'}></div>
+                                                                    </label>
+                                                                    <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.startDate`}/>
+                                                                </div>
+                                                                <div className={'dateFinish'}>
+                                                                    <label className={'labelDateFinish'}><span>Дата окончания</span>
+                                                                        <div className={'overlay_background'}></div>
+                                                                    </label>
+                                                                    <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.endDate`}/>
+                                                                </div>
                                                             </div>
-                                                            <div className={'dateFinish'}>
-                                                                <label className={'labelDateFinish'}><span>Дата окончания</span>
-                                                                    <div className={'overlay_background'}></div>
-                                                                </label>
-                                                                <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.endDate`}/>
+                                                            <div className={'checkboxWrap'}>
+                                                                <input name={'start'} type={"checkbox"} className={'check'} id={'currentlyWorkHere'}></input>
+                                                                <span className={'labelWrap'}>
+                                                                    <label for={'currentlyWorkHere'} className={'labelCheckbox'}>В настоящее время работаю здесь</label>
+                                                                </span>
                                                             </div>
                                                         </div>
+                                                        <div className={'box'}>
+                                                            <label className={'label'}><span>Город</span>
+                                                                <div className={'overlay_background'}></div>
+                                                            </label>
+                                                            <FormikInput className={'input'} type={'text'} name={`employment.${index}.city`}/>
+                                                        </div>
+                                                        <div className={'boxDescription'}>
+                                                            <label className={'label'}><span>Описание</span>
+                                                                <div className={'overlay_background'}></div>
+                                                            </label>
+                                                            <FormikInput className={'inputDescription'} type={'text'} name={`employment.${index}.description`}/>
+                                                        </div>
                                                     </div>
-                                                    <div className={'box'}>
-                                                        <label className={'label'}><span>Город</span>
-                                                            <div className={'overlay_background'}></div>
-                                                        </label>
-                                                        <FormikInput className={'input'} type={'text'}  name={`employment.${index}.city`}/>
-                                                    </div>
-                                                    <div className={'boxDescription'}>
-                                                        <label className={'label'}><span>Описание</span>
-                                                            <div className={'overlay_background'}></div>
-                                                        </label>
-                                                        <FormikInput className={'inputDescription'} type={'text'} name={`employment.${index}.description`}/>
-                                                    </div>
-                                                </div>
                                             </React.Fragment>
                                         )
                                     })}

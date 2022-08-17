@@ -114,57 +114,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
                     })}
                 </tr>
                 {getTableBody(tableDataFromProps, "initial")}
-            </table>
 
-            <div className={"header"}>Filtered table</div>
-            <table>
-                <tr>
-                    {columnsFromProps.map(column => {
-                        return <td onClick={handleSortClick(column.dataKey)}>
-                            <div className={"headerCell"}>
-                                {column.name}
-                                {sortBy === column.dataKey &&
-                                    <div className={`arrow ${sortDirection === 1 ? "up" : "down"}`}></div>
-                                }
-                            </div>
-                        </td>
-                    })}
-                </tr>
-                {getTableBody(filteredData, "filtered")}
-            </table>
-
-            <div className={"header"}>Sorted data</div>
-            <table>
-                <tr>
-                    {columnsFromProps.map(column => {
-                        return <td onClick={handleSortClick(column.dataKey)}>
-                            <div className={"headerCell"}>
-                                {column.name}
-                                {sortBy === column.dataKey &&
-                                    <div className={`arrow ${sortDirection === 1 ? "up" : "down"}`}></div>
-                                }
-                            </div>
-                        </td>
-                    })}
-                </tr>
-                {getTableBody(sortedData, "sorted")}
-            </table>
-
-            <div className={"header"}>Paginated table (final)</div>
-            <table>
-                <tr>
-                    {columnsFromProps.map(column => {
-                        return <td onClick={handleSortClick(column.dataKey)}>
-                            <div className={"headerCell"}>
-                                {column.name}
-                                {sortBy === column.dataKey &&
-                                    <div className={`arrow ${sortDirection === 1 ? "up" : "down"}`}></div>
-                                }
-                            </div>
-                        </td>
-                    })}
-                </tr>
-                {getTableBody(tableData, "paginated")}
                 {isPaginable &&
                     <tfoot>
                     <tr>

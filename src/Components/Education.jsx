@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { Formik, Form, FieldArray} from 'formik';
 import FormikInput from './FormikInputs/FormikInput';
+import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const StyledEducation = styled.div`
   font-family: 'Century Gothic';
@@ -41,7 +43,7 @@ const StyledEducation = styled.div`
     background: transparent;
     border-right: 0;
     border-left: 0;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   .addBtn:hover {
@@ -52,38 +54,36 @@ const StyledEducation = styled.div`
   .iconBtn {
     margin-right: 5px;
   }
-
+  .deleteBtnWrapper {
+    text-align: right;
+  }
   .deleteBtn {
-    margin-bottom: 40px;
-    border: 1px solid #7e8bc4;
+    margin-bottom: 15px;
+    border: none;
     background-color: #f7f7fc;
     font-family: "Century Gothic";
-    font-size: 18px;
+    font-size: 20px;
     color: #7e8bc4;
   }
   .deleteBtn:hover {
-    color:darkred;
-    border: 1px solid darkred;
+    color:rgb(33, 150, 243);
   }
 
   .form_box {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    gap: 20px;
+    justify-content: space-between;
     align-items: flex-start;
-    margin-left: -18px;
-    margin-right: -18px;
     margin-bottom: 30px;
   }
 
   .box {
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     position: relative;
-    padding-left: 18px;
-    padding-right: 18px;
     flex-grow: 0;
     flex-shrink: 0;
-    width: 46%;
+    width: calc(50% - 20px);
   }
 
   .label {
@@ -119,7 +119,7 @@ const StyledEducation = styled.div`
 
   .input {
     position: relative;
-    width: 90%;
+    width: 85%;
     overflow: hidden;
     font-size: 15px;
     line-height: 24px;
@@ -135,16 +135,14 @@ const StyledEducation = styled.div`
   .boxDescription {
     margin-bottom: 35px;
     position: relative;
-    padding-left: 18px;
-    padding-right: 18px;
     flex-grow: 0;
     flex-shrink: 0;
-    width: 101.5%;
+    width: 100%;
   }
 
   .inputDescription {
     position: relative;
-    width: 95%;
+    width: 94%;
     overflow: hidden;
     font-size: 16px;
     line-height: 24px;
@@ -253,7 +251,9 @@ const Education = () => {
                                             {values.education.map((name, index) => {
                                                 return (
                                                     <React.Fragment>
-                                                        <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}>Delete</button>
+                                                        <div className={'deleteBtnWrapper'}>
+                                                            <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}><FontAwesomeIcon icon={faTrashCan}/></button>
+                                                        </div>
                                                         <div className={'form_box'}>
                                                             <div className={'box'}>
                                                                 <label className={'label'}><span>Учебное заведение</span>

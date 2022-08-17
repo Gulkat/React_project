@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledSummary = styled.div `
   font-family: 'Century Gothic';
   box-sizing: border-box;
-  padding: 20px 50px 50px;
+  padding: 20px 50px 25px;
 
   .section {
     text-align: center;
@@ -25,11 +25,9 @@ const StyledSummary = styled.div `
   .boxDescription {
     margin-bottom: 35px;
     position: relative;
-    padding-left: 18px;
-    padding-right: 18px;
     flex-grow: 0;
     flex-shrink: 0;
-    width: 101.5%;
+    width: 100%;
   }
   
   .label {
@@ -65,7 +63,7 @@ const StyledSummary = styled.div `
 
   .inputDescription {
     position: relative;
-    width: 95%;
+    width: 94%;
     overflow: hidden;
     font-size: 16px;
     line-height: 24px;

@@ -51,7 +51,12 @@ const StyledLoginPage = styled.div`
     border-radius: 4px;
   }
   .btnSubmit:hover {
+    background-color: rgb(22, 136, 254);
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  }
+  .btnSubmit:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px #cbd6ee;
   }
   .linkToLogIn {
     margin-top: 70px ;

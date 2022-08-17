@@ -28,7 +28,7 @@ const StyledHeader = styled.div`
     padding-right: 100px;
   }
   .loginLink:hover {
-    text-decoration: underline;
+    opacity: 0.6;
   }
   .themeIcon {
     padding-left: 100px;
