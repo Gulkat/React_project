@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {fetchResumeList} from '../api/ResumeApi/resumeApi';
 import ResumeTable from './ResumeTable';
+import Loading from "../Components/Loading";
 
 const StyledResumeList = styled.div`
     width: 80vh;
@@ -37,7 +38,7 @@ const ResumeList = () => {
 
 
     const getResumeTable = () => {
-        if(resumeList === undefined) return <div>list loading</div>
+        if(resumeList === undefined) return <Loading/>
         if (!resumeList.length) return <div>No resume create yet</div>
         return <ResumeTable columnsFromProps={columns} tableDataFromProps={resumeList} isPaginable pageSize={3}/>
     }

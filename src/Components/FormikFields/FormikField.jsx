@@ -10,7 +10,7 @@ const StyledErrorForm = styled.p`
 `
 
 const FormikField = ({props}) => {
-    const [field, meta] = useField(props);
+    const [field, meta] = useField(props.name);
     return (
         <React.Fragment>
             <div {...field} {...props}  />

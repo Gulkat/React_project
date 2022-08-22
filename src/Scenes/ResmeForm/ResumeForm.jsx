@@ -114,10 +114,10 @@ const ResumeForm = ({handleName, handleSurname, handleJobTitle, handleUserEmail,
             <main>
                 <DropdownMenu setColor={setColor} setFont={setFont}/>
                 <Formik initialValues={initialFormValues}
-                        validate={(formValues) => {
-                        const errors = validateForm(formValues);
-                        if(!errors) RenderNewResume(dispatch({type:'updateResumeData', payload: formValues}))
-                        }}
+                        // validate={(formValues) => {
+                        // const errors = validateForm(formValues);
+                        // if(!errors) RenderNewResume(dispatch({type:'updateResumeData', payload: formValues}))
+                        // }}
                         onSubmit={(formValues) => {console.log('form values', formValues)}}>
 
                     <Form>
