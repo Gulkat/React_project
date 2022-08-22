@@ -7,7 +7,7 @@ import {ROUTES} from "../../constants/routes";
 const StyledHeader = styled.div`
   height: 50px;
   width: 100%;
-  background-color:#7e8bc4;
+  background-color:${props => props.theme.accentColor};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +32,7 @@ const StyledHeader = styled.div`
   }
   .themeIcon {
     padding-left: 100px;
+    width: 100px;
   }
 `
 
@@ -40,7 +41,7 @@ const Header = () => {
     return (
         <StyledHeader>
             <div className={'themeIcon'}>
-                <button className={'themeBtn'}>Dark Theme</button>
+                {/*<button className={'themeBtn'}>Dark Theme</button>*/}
             </div>
             <p className={'logo'}>Создай своё идеальое резюме!</p>
             <Link to={ROUTES.loginPage} className={'loginLink'}>Войти 🠆 </Link>

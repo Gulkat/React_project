@@ -17,7 +17,7 @@ const StyledSummary = styled.div `
   }
   
   .description {
-    color: #7e8bc4;
+    color: ${props => props.theme.accentColor};
     font-size: 20px;
     margin-bottom: 50px;
   }

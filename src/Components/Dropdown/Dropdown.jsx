@@ -9,7 +9,7 @@ const StyledDropdown = styled.div`
   
   .labelText {
     font-family: 'Century Gothic';
-    color: #7e8bc4;
+    color: ${props => props.theme.accentColor};
     font-size: 18px;
     min-width: 240px;
     text-align: center;

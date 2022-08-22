@@ -82,7 +82,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
         throttledUpdateTable(tableDataFromProps, sortBy, sortDirection, filterString, page);
     }, [filterString, sortBy, sortDirection, page, tableDataFromProps]);
 
-    const getTableBody = (tableData, name) => {
+    const getTableBody = (tableData) => {
         if (tableData && tableData.length) return  tableData.map(entry => (
                 <tr>
                     {columnsFromProps.map(column => {

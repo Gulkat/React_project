@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import {fetchResumeList} from '../api/resumeApi';
+import {fetchResumeList} from '../api/ResumeApi/resumeApi';
 import ResumeTable from './ResumeTable';
 
 const StyledResumeList = styled.div`

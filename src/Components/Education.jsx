@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Formik, Form, FieldArray} from 'formik';
-import FormikInput from './FormikInputs/FormikInput';
+import FormikInput from './FormikFields/FormikInput';
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
@@ -22,7 +22,7 @@ const StyledEducation = styled.div`
   }
 
   .description {
-    color: #7e8bc4;
+    color: ${props => props.theme.accentColor};
     font-size: 20px;
     margin-bottom: 50px;
   }
@@ -63,7 +63,7 @@ const StyledEducation = styled.div`
     background-color: #f7f7fc;
     font-family: "Century Gothic";
     font-size: 20px;
-    color: #7e8bc4;
+    color: ${props => props.theme.accentColor};
   }
   .deleteBtn:hover {
     color:rgb(33, 150, 243);
@@ -155,76 +155,8 @@ const StyledEducation = styled.div`
     padding: 20px 20px 200px 20px;
   }
   `
-const StyledFooterBtn = styled.div ` 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
-  .btnBack {
-    width: auto;
-    cursor: pointer;
-    will-change: box-shadow;
-    border-radius: 4px;
-    background: transparent;
-    border: 0;
-    font-weight: 900;
-    font-family: Century Gothic;
-    font-size: 20px;
-    color: rgb(113, 113, 166);
-    display: flex;
-  }
-
-  .btnBack:hover {
-    color: rgb(0, 153, 218);
-  }
-
-  .iconBack {
-    margin-right: 10px;
-  }
-
-  .btnNext {
-    padding: 15px;
-    font-weight: 900;
-    position: relative;
-    border: none;
-    background: rgb(33, 150, 243);
-    color: rgb(255, 255, 255);
-    width: auto;
-    font-family: Century Gothic;
-    font-size: 20px;
-    cursor: pointer;
-    will-change: box-shadow;
-    border-radius: 4px;
-  }
-
-  .btnNext:hover {
-    background-color: rgb(22, 136, 254);
-  }
-
-  .iconNext {
-    margin-left: 10px;
-  }
-`
 
 const Education = () => {
-
-    const initialFormValues = {
-        education: []
-    }
-
-    const validateForm = (formValues) => {
-        console.log('form values', formValues)
-        let isValid = true;
-        let errorsObject = {};
-
-        if (!formValues.education) {
-            isValid = false;
-            errorsObject.education = '! Обязательно для заполнения';
-        }
-
-        if (!isValid) return errorsObject;
-    }
 
     return (
         <StyledEducation>
@@ -232,72 +164,62 @@ const Education = () => {
                 <h1 className={'sectionName'}>Введите информацию о вашем образовании</h1>
                 <p className={'description'}>Сначала введите ваш последний диплом</p>
             </div>
-            <Formik initialValues={initialFormValues}
-                    validate={validateForm}
-                    onSubmit={(formValues) => {console.log('form values', formValues)}}
-                    render={({values}) => {
-                        return (
-                            <Form>
-                                <FieldArray
-                                    name='education'
-                                    render={arrayHelpers => (
-                                        <React.Fragment>
-                                            <button  type={'submit'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
-                                                <span className={'innerBtn'}>
-                                                    <span className={'iconBtn'}>+</span>
-                                                    <span className={'titleBtn'}>Добавить образование</span>
-                                                </span>
-                                            </button>
-                                            {values.education.map((name, index) => {
-                                                return (
-                                                    <React.Fragment>
-                                                        <div className={'deleteBtnWrapper'}>
-                                                            <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}><FontAwesomeIcon icon={faTrashCan}/></button>
-                                                        </div>
-                                                        <div className={'form_box'}>
-                                                            <div className={'box'}>
-                                                                <label className={'label'}><span>Учебное заведение</span>
-                                                                    <div className={'overlay_background'}></div>
-                                                                </label>
-                                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.institution`}/>
-                                                            </div>
-                                                            <div className={'box'}>
-                                                                <label className={'label'}><span>Степень</span>
-                                                                    <div className={'overlay_background'}></div>
-                                                                </label>
-                                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.degree`}/>
-                                                            </div>
-                                                            <div className={'box'}>
-                                                                <label className={'label'}><span>Дата окончания</span>
-                                                                    <div className={'overlay_background'}></div>
-                                                                </label>
-                                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'} name={`education.${index}.endData`}/>
-                                                            </div>
-                                                            <div className={'box'}>
-                                                                <label className={'label'}><span>Город</span>
-                                                                    <div className={'overlay_background'}></div>
-                                                                </label>
-                                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.city`}/>
-                                                            </div>
-                                                            <div className={'boxDescription'}>
-                                                                <label className={'label'}><span>Описание</span>
-                                                                    <div className={'overlay_background'}></div>
-                                                                </label>
-                                                                <FormikInput className={'inputDescription'} type={'text'} name={`education.${index}.description`}/>
-                                                            </div>
-                                                        </div>
-                                                    </React.Fragment>
-                                                    )
-                                                })}
-                                        </React.Fragment>
-                                    )}/>
-                            </Form>
-                        )}}/>
 
-            {/*<StyledFooterBtn className={'footer'}>*/}
-            {/*    <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>*/}
-            {/*    <button className={'btnNext'}>Перейти к Навыки <span className={'iconNext'}>🠆</span></button>*/}
-            {/*</StyledFooterBtn>*/}
+            <Form>
+                <FieldArray
+                    name='education'
+                    render={arrayHelpers => (
+                        <React.Fragment>
+                            <button  type={'submit'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
+                                <span className={'innerBtn'}>
+                                    <span className={'iconBtn'}>+</span>
+                                    <span className={'titleBtn'}>Добавить образование</span>
+                                </span>
+                            </button>
+                            {values.education.map((name, index) => {
+                                return (
+                                    <React.Fragment>
+                                        <div className={'deleteBtnWrapper'}>
+                                            <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}><FontAwesomeIcon icon={faTrashCan}/></button>
+                                        </div>
+                                        <div className={'form_box'}>
+                                            <div className={'box'}>
+                                                <label className={'label'}><span>Учебное заведение</span>
+                                                    <div className={'overlay_background'}></div>
+                                                </label>
+                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.institution`}/>
+                                            </div>
+                                            <div className={'box'}>
+                                                <label className={'label'}><span>Степень</span>
+                                                    <div className={'overlay_background'}></div>
+                                                </label>
+                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.degree`}/>
+                                            </div>
+                                            <div className={'box'}>
+                                                <label className={'label'}><span>Дата окончания</span>
+                                                    <div className={'overlay_background'}></div>
+                                                </label>
+                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'} name={`education.${index}.graduationDate`}/>
+                                            </div>
+                                            <div className={'box'}>
+                                                <label className={'label'}><span>Город</span>
+                                                    <div className={'overlay_background'}></div>
+                                                </label>
+                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.locationOfTheInstitution`}/>
+                                            </div>
+                                            <div className={'boxDescription'}>
+                                                <label className={'label'}><span>Описание</span>
+                                                    <div className={'overlay_background'}></div>
+                                                </label>
+                                                <FormikInput className={'inputDescription'} type={'text'} name={`education.${index}.description`}/>
+                                            </div>
+                                        </div>
+                                    </React.Fragment>
+                                )
+                            })}
+                        </React.Fragment>
+                    )}/>
+            </Form>
         </StyledEducation>
     )
 }

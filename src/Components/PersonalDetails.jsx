@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Formik, Form } from 'formik';
-import FormikInput from './FormikInputs/FormikInput';
+import { Form } from 'formik';
+import FormikInput from './FormikFields/FormikInput';
 
 const StyledPersonalDetails = styled.div`
   font-family: 'Century Gothic';
@@ -19,7 +19,7 @@ const StyledPersonalDetails = styled.div`
   }
 
   .description {
-    color: #7e8bc4;
+    color: ${props => props.theme.accentColor};
     font-size: 22px;
     margin-bottom: 50px;
   }
@@ -87,105 +87,16 @@ const StyledPersonalDetails = styled.div`
     font-family: "Century Gothic";
   }
 `
-const StyledFooterBtn = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
-  .btnBack {
-    width: auto;
-    cursor: pointer;
-    will-change: box-shadow;
-    border-radius: 4px;
-    background: transparent;
-    border: 0;
-    font-weight: 900;
-    font-family: Century Gothic;
-    font-size: 20px;
-    color: rgb(113, 113, 166);
-    display: flex;
-  }
-  .btnBack:hover {
-    color: rgb(0, 153, 218);
-  }
-  .iconBack {
-    margin-right: 10px;
-  }
-  .btnNext {
-    padding: 15px;
-    font-weight: 900;
-    position: relative;
-    border: none;
-    background: rgb(33, 150, 243);
-    color: rgb(255, 255, 255);
-    width: auto;
-    font-family: Century Gothic;
-    font-size: 20px;
-    cursor: pointer;
-    will-change: box-shadow;
-    border-radius: 4px;
-  }
-  .btnNext:hover {
-    background-color: rgb(22, 136, 254);
-  }
-  .iconNext {
-    margin-left: 10px;
-  }
-`
 
 const PersonalDetails = ({setValueName, setValueSurname, setValueJobTitle, setValueUserEmail, setValueTelephone}) => {
 
-    const initialFormValues = {
-        userName: "",
-        userSurname: "",
-        email: "",
-        phone: "",
-        city: "",
-        jobTitle: ""
-    }
-
-    const validateForm = (formValues) => {
-        let isValid = true;
-        let errorsObject = {};
-
-        if(!formValues.userName) {
-            isValid = false;
-            errorsObject.userName = "Обязательно для заполнения!";
-        }
-        if(!formValues.userSurname) {
-            isValid = false;
-            errorsObject.userSurname = "Обязательно для заполнения!";
-        }
-        if(!formValues.email) {
-            isValid = false;
-            errorsObject.email = "Обязательно для заполнения!";
-        }
-        if(!formValues.phone) {
-            isValid = false;
-            errorsObject.phone = "Обязательно для заполнения!";
-        }
-        if(!formValues.city) {
-            isValid = false;
-            errorsObject.city = "Обязательно для заполнения!";
-        }
-        if(!formValues.jobTitle) {
-            isValid = false;
-            errorsObject.jobTitle = "Обязательно для заполнения!";
-        }
-
-            if (!isValid) return errorsObject
-        }
-
-        return (
+    return (
         <StyledPersonalDetails>
             <div className={'section'}>
                 <h1 className={'sectionName'}>Введите контактную информацию</h1>
                 <p className={'description'}>Это позволит работодателю узнать, как с вами можно связаться</p>
             </div>
-            <Formik initialValues={initialFormValues}
-                    validate={validateForm}
-                    onSubmit={(formValues) => {console.log('form values', formValues)}}>
+
                 <Form className={'form'}>
                     <div className={'form_box'}>
                         <div className={'box'}>
@@ -226,12 +137,6 @@ const PersonalDetails = ({setValueName, setValueSurname, setValueJobTitle, setVa
                         </div>
                     </div>
                 </Form>
-            </Formik>
-
-            {/*<StyledFooterBtn className={'footer'}>*/}
-            {/*    <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>*/}
-            {/*    <button className={'btnNext'}>Перейти к Опыт <span className={'iconNext'}>🠆</span></button>*/}
-            {/*</StyledFooterBtn>*/}
         </StyledPersonalDetails>
     )
 }

@@ -8,7 +8,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const StyledResult = styled.div`
   background-color: #e5e4ea;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 80px);
   width: 50%;
   position: fixed;
   z-index: 1;

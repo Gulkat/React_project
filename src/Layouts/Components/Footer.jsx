@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledFooter = styled.div`
-  background-color: #7e8bc4;
-  height: 50px;
+  background-color: ${props => props.theme.accentColor};
+  height: 30px;
   width: 100%;
   text-align: center;
-  line-height: 50px;
+  line-height: 30px;
   
   .footerText {
     color: #fff;
-    font-size: 23px;
+    font-size: 19px;
     font-weight: 400;
     font-family: "Century Gothic";
     margin: 0;

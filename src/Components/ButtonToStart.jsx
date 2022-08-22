@@ -17,7 +17,7 @@ const StyledButtonToStart = styled.div`
     padding: 15px;
     font-weight: 900;
     border: none;
-    background-color: #7e8bc4;
+    background-color: ${props => props.theme.accentColor};
     width: 250px;
     font-family: Century Gothic;
     font-size: 30px;

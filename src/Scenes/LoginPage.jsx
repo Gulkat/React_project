@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Formik, Form } from 'formik';
-import FormikInput from '../Components/FormikInputs/FormikInput';
-import {useDispatch} from 'react-redux';
-import {createUserLogInAction} from '../store/actions/userActionCreators';
-import {Link} from 'react-router-dom';
-import {ROUTES} from '../constants/routes';
+import FormikInput from '../Components/FormikFields/FormikInput';
+import { useDispatch } from 'react-redux';
+import { createUserLogInAction } from '../store/actions/userActionCreators';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../constants/routes';
 
 
 const StyledLoginPage = styled.div`

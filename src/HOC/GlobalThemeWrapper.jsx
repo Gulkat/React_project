@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {createGlobalStyle} from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 styled.div``
 
@@ -14,8 +14,10 @@ const GlobalThemeWrapper = (props) => {
 
     return (
         <React.Fragment>
-            <GlobalStyle/>
-            {props.children}
+            <ThemeProvider theme={{baseBackgroundColor: '#f7f7fc', accentColor:'#7e8bc4'}}>
+                <GlobalStyle/>
+                {props.children}
+            </ThemeProvider>
         </React.Fragment>
     )
 }

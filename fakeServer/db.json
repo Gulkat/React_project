@@ -14,27 +14,27 @@
       "userName": "",
       "userSurname": "",
       "email": "",
-      "tel": "",
+      "phone": "",
       "city": "",
       "jobTitle": ""
     },
 
     {
       "title": "employment",
-      "jobTitle": "",
+      "positionHeld": "",
       "employer": "",
       "startDate": "",
       "endDate": "",
-      "city": "",
-      "description": ""
+      "workLocation": "",
+      "responsibilities": ""
     },
 
     {
       "title": "education",
-      "school": "",
+      "institution": "",
       "degree": "",
-      "endDate": "",
-      "city": "",
+      "graduationDate": "",
+      "locationOfTheInstitution": "",
       "description": ""
     }
   ]

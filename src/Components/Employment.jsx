@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 
 import { Formik, Form, FieldArray } from 'formik';
-import FormikInput from './FormikInputs/FormikInput';
+import FormikInput from './FormikFields/FormikInput';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
+import {fetchCityList} from "../api/CityApi/cityApi";
 
 const StyledEmployment = styled.div`
   font-family: 'Century Gothic';
@@ -21,7 +22,7 @@ const StyledEmployment = styled.div`
     margin: 0;
   }
   .description {
-    color: #7e8bc4;
+    color: ${props => props.theme.accentColor};
     font-size: 20px;
     margin-bottom: 50px;
   }
@@ -59,7 +60,7 @@ const StyledEmployment = styled.div`
     background-color: #f7f7fc;
     font-family: "Century Gothic";
     font-size: 20px;
-    color: #7e8bc4;
+    color: ${props => props.theme.accentColor};
   }
   .deleteBtn:hover {
     color:rgb(33, 150, 243);
@@ -235,70 +236,8 @@ const StyledEmployment = styled.div`
     padding: 20px 20px 200px 20px;
   }
 `
-const StyledFooterBtn = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
-  .btnBack {
-    width: auto;
-    cursor: pointer;
-    will-change: box-shadow;
-    border-radius: 4px;
-    background: transparent;
-    border: 0;
-    font-weight: 900;
-    font-family: Century Gothic;
-    font-size: 20px;
-    color: rgb(113, 113, 166);
-    display: flex;
-  }
-  .btnBack:hover {
-    color: rgb(0, 153, 218);
-  }
-  .iconBack {
-    margin-right: 10px;
-  }
-  .btnNext {
-    padding: 15px;
-    font-weight: 900;
-    position: relative;
-    border: none;
-    background: rgb(33, 150, 243);
-    color: rgb(255, 255, 255);
-    width: auto;
-    font-family: Century Gothic;
-    font-size: 20px;
-    cursor: pointer;
-    will-change: box-shadow;
-    border-radius: 4px;
-  }
-  .btnNext:hover {
-    background-color: rgb(22, 136, 254);
-  }
-  .iconNext {
-    margin-left: 10px;
-  }
-`
 
 const Employment = () => {
-
-    const initialFormValues = {
-        employment: []
-    }
-
-    const validateForm = (formValues) => {
-        let isValid = true;
-        let errorsObject = {};
-
-        if (!formValues.employment) {
-            isValid = false;
-            errorsObject.employment = '! Обязательно для заполнения';
-        }
-
-        if (!isValid) return errorsObject
-    }
 
     return (
         <StyledEmployment>
@@ -306,91 +245,78 @@ const Employment = () => {
                 <h1 className={'sectionName'}>Расскажите о своем опыте</h1>
                 <p className={'description'}>Начните с вашей недавней работы</p>
             </div>
-            <Formik initialValues={initialFormValues}
-                    validate={validateForm}
-                    onSubmit={(formValues) => {
-                        // dispatch({type:'updateResumeData', payload: formValues})}
-                        console.log(formValues)
-                    }}
-            render={({values}) => {
-                return (
-                    <Form>
-                        <FieldArray
-                            name='employment'
-                            render={arrayHelpers => (
-                                <React.Fragment>
-                                    <button type={'submit'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
-                                        <span className={'innerBtn'}>
-                                            <span className={'iconBtn'}>+</span>
-                                            <span className={'titleBtn'}>Добавить работу</span>
-                                        </span>
-                                    </button>
-                                    {values.employment.map((name, index) => {
-                                        return (
-                                            <React.Fragment>
-                                                <div className={'deleteBtnWrapper'}>
-                                                    <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}><FontAwesomeIcon icon={faTrashCan}/></button>
-                                                </div>
-                                                    <div className={'form_box'}>
-                                                        <div className={'box'}>
-                                                            <label className={'label'}><span>Должность</span>
-                                                                <div className={'overlay_background'}></div>
-                                                            </label>
-                                                            <FormikInput className={'input'} type={'text'} name={`employment.${index}.jobTitle`}/>
-                                                        </div>
-                                                        <div className={'box'}>
-                                                            <label className={'label'}><span>Работодатель</span>
-                                                                <div className={'overlay_background'}></div>
-                                                            </label>
-                                                            <FormikInput className={'input'} type={'text'} name={`employment.${index}.employer`}/>
-                                                        </div>
-                                                        <div className={'box'}>
-                                                            <div className={'boxDate'}>
-                                                                <div className={'dateStart'}>
-                                                                    <label className={'labelDateStart'}><span>Дата начала</span>
-                                                                        <div className={'overlay_background'}></div>
-                                                                    </label>
-                                                                    <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.startDate`}/>
-                                                                </div>
-                                                                <div className={'dateFinish'}>
-                                                                    <label className={'labelDateFinish'}><span>Дата окончания</span>
-                                                                        <div className={'overlay_background'}></div>
-                                                                    </label>
-                                                                    <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.endDate`}/>
-                                                                </div>
-                                                            </div>
-                                                            <div className={'checkboxWrap'}>
-                                                                <input name={'start'} type={"checkbox"} className={'check'} id={'currentlyWorkHere'}></input>
-                                                                <span className={'labelWrap'}>
-                                                                    <label for={'currentlyWorkHere'} className={'labelCheckbox'}>В настоящее время работаю здесь</label>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div className={'box'}>
-                                                            <label className={'label'}><span>Город</span>
-                                                                <div className={'overlay_background'}></div>
-                                                            </label>
-                                                            <FormikInput className={'input'} type={'text'} name={`employment.${index}.city`}/>
-                                                        </div>
-                                                        <div className={'boxDescription'}>
-                                                            <label className={'label'}><span>Описание</span>
-                                                                <div className={'overlay_background'}></div>
-                                                            </label>
-                                                            <FormikInput className={'inputDescription'} type={'text'} name={`employment.${index}.description`}/>
-                                                        </div>
-                                                    </div>
-                                            </React.Fragment>
-                                        )
-                                    })}
-                                </React.Fragment>
-                            )}/>
-                    </Form>
-                )}}/>
 
-            {/*<StyledFooterBtn className={'footer'}>*/}
-            {/*    <button className={'btnBack'}><span className={'iconBack'}>🠄</span>Назад</button>*/}
-            {/*    <button className={'btnNext'}>Перейти к Образование <span className={'iconNext'}>🠆</span></button>*/}
-            {/*</StyledFooterBtn>*/}
+            <Form>
+                <FieldArray
+                    name='employment'
+                    render={arrayHelpers => (
+                        <React.Fragment>
+                            <button type={'submit'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
+                                <span className={'innerBtn'}>
+                                    <span className={'iconBtn'}>+</span>
+                                    <span className={'titleBtn'}>Добавить работу</span>
+                                </span>
+                            </button>
+                            {values.employment.map((name, index) => {
+                                return (
+                                    <React.Fragment>
+                                        <div className={'deleteBtnWrapper'}>
+                                            <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}><FontAwesomeIcon icon={faTrashCan}/></button>
+                                        </div>
+                                        <div className={'form_box'}>
+                                            <div className={'box'}>
+                                                <label className={'label'}><span>Должность</span>
+                                                    <div className={'overlay_background'}></div>
+                                                </label>
+                                                <FormikInput className={'input'} type={'text'} name={`employment.${index}.positionHeld`}/>
+                                            </div>
+                                            <div className={'box'}>
+                                                <label className={'label'}><span>Работодатель</span>
+                                                    <div className={'overlay_background'}></div>
+                                                </label>
+                                                <FormikInput className={'input'} type={'text'} name={`employment.${index}.employer`}/>
+                                            </div>
+                                            <div className={'box'}>
+                                                <div className={'boxDate'}>
+                                                    <div className={'dateStart'}>
+                                                        <label className={'labelDateStart'}><span>Дата начала</span>
+                                                            <div className={'overlay_background'}></div>
+                                                        </label>
+                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.startDate`}/>
+                                                    </div>
+                                                    <div className={'dateFinish'}>
+                                                        <label className={'labelDateFinish'}><span>Дата окончания</span>
+                                                            <div className={'overlay_background'}></div>
+                                                        </label>
+                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.endDate`}/>
+                                                    </div>
+                                                </div>
+                                                <div className={'checkboxWrap'}>
+                                                    <input name={'start'} type={"checkbox"} className={'check'} id={'currentlyWorkHere'}></input>
+                                                    <span className={'labelWrap'}>
+                                                        <label htmlFor={'currentlyWorkHere'} className={'labelCheckbox'}>В настоящее время работаю здесь</label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className={'box'}>
+                                                <label className={'label'}><span>Город</span>
+                                                    <div className={'overlay_background'}></div>
+                                                </label>
+                                                <FormikInput className={'input'} type={'text'} name={`employment.${index}.workLocation`}/>
+                                            </div>
+                                            <div className={'boxDescription'}>
+                                                <label className={'label'}><span>Описание</span>
+                                                    <div className={'overlay_background'}></div>
+                                                </label>
+                                                <FormikInput className={'inputDescription'} type={'text'} name={`employment.${index}.responsibilities`}/>
+                                            </div>
+                                        </div>
+                                    </React.Fragment>
+                                )
+                            })}
+                        </React.Fragment>
+                    )}/>
+            </Form>
         </StyledEmployment>
     )
 }

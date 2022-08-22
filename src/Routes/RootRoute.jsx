@@ -19,12 +19,12 @@ class RootRoute extends React.PureComponent {
         return (
             <Routes>
                 <Route path={ROUTES.initialPage} element={<MainLayout/>}>
-                    <Route path={ROUTES.initialPage} element={<ButtonToStart/>}></Route>
-                    <Route path={ROUTES.newResume} element={<Wrapper/>}>
-                        <Route path={ROUTES.resumeID} element={<Wrapper/>}/>
-                    </Route>
+                    <Route path={ROUTES.initialPage} element={<ButtonToStart/>}/>
+                    <Route path={ROUTES.newResume} element={<Wrapper/>}/>
                 </Route>
-                <Route path={ROUTES.resumeList} element={<ResumeList/>}/>
+                <Route path={ROUTES.resumeList} element={<ResumeList/>}>
+                    <Route path={ROUTES.resumeID} element={<Wrapper/>}/>
+                </Route>
                 <Route path={ROUTES.loginPage} element={<LoginPage/>}/>
                 <Route path={'*'} element={'Страница не найдена!'}/>
             </Routes>

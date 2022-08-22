@@ -3,19 +3,19 @@ import styled from 'styled-components';
 
 import { useField } from 'formik';
 
-const StyledErrorLoginForm = styled.p`
+const StyledErrorForm = styled.p`
   margin-top: 0;
   color: red;
   font-family: "Century Gothic";
 `
 
-const FormikInput = (props) => {
-    const [field, meta, helpers] = useField(props.name);
+const FormikInput = ({props}) => {
+    const [field, meta] = useField(props);
     return (
         <React.Fragment>
-            <input {...props} value={field.value} onChange={field.onChange} onBlur={field.onBlur} />
+            <input {...field} {...props} value={field.value} onChange={field.onChange} onBlur={field.onBlur} />
             {(meta.touched && meta.error) &&
-                <StyledErrorLoginForm>{meta.error}</StyledErrorLoginForm>
+                <StyledErrorForm>{meta.error}</StyledErrorForm>
             }
         </React.Fragment>
     )

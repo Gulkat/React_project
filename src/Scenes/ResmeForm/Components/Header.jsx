@@ -21,7 +21,7 @@ const StyledHeader = styled.div`
   .headerLink {
     font-family: "Century Gothic";
     text-decoration: none;
-    color: #7e8bc4;
+    color: ${props => props.theme.accentColor};
     font-size: 18px;
     text-transform: uppercase;
   }

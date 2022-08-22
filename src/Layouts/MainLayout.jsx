@@ -11,7 +11,7 @@ const StyledMainLayout = styled.div`
   
   .content {
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 80px);
     overflow: auto;
     display: flex;
     flex-direction:column;
