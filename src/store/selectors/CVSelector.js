@@ -1,0 +1,1 @@
+export const getRenderedResumeData = state => state.CV;

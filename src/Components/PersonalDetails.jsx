@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Form } from 'formik';
 import FormikInput from './FormikFields/FormikInput';
 
 const StyledPersonalDetails = styled.div`
@@ -88,7 +87,7 @@ const StyledPersonalDetails = styled.div`
   }
 `
 
-const PersonalDetails = ({setValueName, setValueSurname, setValueJobTitle, setValueUserEmail, setValueTelephone}) => {
+const PersonalDetails = () => {
 
     return (
         <StyledPersonalDetails>
@@ -97,31 +96,31 @@ const PersonalDetails = ({setValueName, setValueSurname, setValueJobTitle, setVa
                 <p className={'description'}>Это позволит работодателю узнать, как с вами можно связаться</p>
             </div>
 
-                <Form className={'form'}>
+                <div className={'form'}>
                     <div className={'form_box'}>
                         <div className={'box'}>
                             <label className={'label'}><span>Имя</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name='userName' className={'input'} type={'text'} onChange={event => setValueName(event.target.value)} />
+                            <FormikInput name='userName' className={'input'} type={'text'}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Фамилия</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name='userSurname' className={'input'} type={'text'} onChange={event => setValueSurname(event.target.value)}/>
+                            <FormikInput name='userSurname' className={'input'} type={'text'}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Email</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name='email' className={'input'} type={'email'} onChange={event => setValueUserEmail(event.target.value)}/>
+                            <FormikInput name='email' className={'input'} type={'email'}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Телефон</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name='phone' className={'input'} type={'tel'}  onChange={event => setValueTelephone(event.target.value)}/>
+                            <FormikInput name='phone' className={'input'} type={'tel'}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Город</span>
@@ -133,10 +132,10 @@ const PersonalDetails = ({setValueName, setValueSurname, setValueJobTitle, setVa
                             <label className={'label'}><span>Должность</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name= 'jobTitle' className={'input'} type={'text'} onChange={event => setValueJobTitle(event.target.value)}/>
+                            <FormikInput name= 'jobTitle' className={'input'} type={'text'}/>
                         </div>
                     </div>
-                </Form>
+                </div>
         </StyledPersonalDetails>
     )
 }

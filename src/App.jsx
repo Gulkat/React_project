@@ -21,11 +21,11 @@ class App extends React.PureComponent {
                  <Provider store={store}>
                      <PersistGate loading={<Loading/>} persistor={persistor}>
                          <BrowserRouter>
-                             <GlobalThemeProvider>
+                             {/*<GlobalThemeProvider>*/}
                                  <GlobalErrorBoundary>
                                      <RootRoute/>
                                  </GlobalErrorBoundary>
-                             </GlobalThemeProvider>
+                             {/*</GlobalThemeProvider>*/}
                          </BrowserRouter>
                      </PersistGate>
                 </Provider>

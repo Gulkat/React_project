@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Form, Formik} from 'formik';
-import { useFormik } from 'formik';
 
 import PersonalDetails from 'Components/PersonalDetails';
 import Header from 'Scenes/ResmeForm/Components/Header';
@@ -11,7 +10,9 @@ import DropdownMenu from 'Components/Dropdown/DropdownMenu';
 import Skills from 'Components/Skills';
 import Summary from 'Components/Summary';
 import ButtonToSaveResume from '../../Components/ButtonToSaveResume';
-import FormikField from "../../Components/FormikFields/FormikField";
+import {useDispatch, useSelector} from "react-redux";
+import {saveResumeAction} from "../../store/actions/CVReducer";
+import {getRenderedResumeData} from "../../store/selectors/CVSelector";
 
 const StyledResumeForm = styled.div`
   padding: 0;
@@ -24,23 +25,9 @@ const StyledResumeForm = styled.div`
   left: 0;
 `
 
-const ResumeForm = ({handleName, handleSurname, handleJobTitle, handleUserEmail, handleTelephone, setColor, setFont}) => {
-
-    const setValueName = text => {
-        handleName(text)
-    };
-    const setValueSurname = text => {
-        handleSurname(text)
-    };
-    const setValueJobTitle = text => {
-        handleJobTitle(text)
-    };
-    const setValueUserEmail = text => {
-        handleUserEmail(text)
-    };
-    const setValueTelephone = text => {
-        handleTelephone(text)
-    };
+const ResumeForm = ({setColor, setFont}) => {
+    const dispatch = useDispatch();
+    // const renderedResumeData = useSelector(getRenderedResumeData);
 
     const initialFormValues = {
         personalDetails: [
@@ -50,7 +37,7 @@ const ResumeForm = ({handleName, handleSurname, handleJobTitle, handleUserEmail,
                 email: "",
                 phone: "",
                 city: "",
-                jobTitle: ""
+                jobTitle: "",
             }
         ],
         employment: [
@@ -60,7 +47,7 @@ const ResumeForm = ({handleName, handleSurname, handleJobTitle, handleUserEmail,
                 startDate: "",
                 endDate: "",
                 workLocation: "",
-                responsibilities: ""
+                responsibilities: "",
             }
         ],
         education: [
@@ -71,36 +58,43 @@ const ResumeForm = ({handleName, handleSurname, handleJobTitle, handleUserEmail,
                 locationOfTheInstitution: "",
                 description: "",
             }
-        ]
+        ],
+        skills: [
+            {
+                skill: "",
+            }
+        ],
     };
 
     const validateForm = (formValues) => {
         let isValid = true;
         let errorsObject = {};
 
-        if(!formValues.userName) {
+        // return null
+
+        if(!formValues.personalDetails.userName) {
             isValid = false;
-            errorsObject.userName = "Обязательно для заполнения!";
+            errorsObject.personalDetails.userName = "Обязательно для заполнения!";
         }
-        if(!formValues.userSurname) {
+        if(!formValues.personalDetails.userSurname) {
             isValid = false;
-            errorsObject.userSurname = "Обязательно для заполнения!";
+            errorsObject.personalDetails.userSurname = "Обязательно для заполнения!";
         }
-        if(!formValues.email) {
+        if(!formValues.personalDetails.email) {
             isValid = false;
-            errorsObject.email = "Обязательно для заполнения!";
+            errorsObject.personalDetails.email = "Обязательно для заполнения!";
         }
-        if(!formValues.phone) {
+        if(!formValues.personalDetails.phone) {
             isValid = false;
-            errorsObject.phone = "Обязательно для заполнения!";
+            errorsObject.personalDetails.phone = "Обязательно для заполнения!";
         }
-        if(!formValues.city) {
+        if(!formValues.personalDetails.city) {
             isValid = false;
-            errorsObject.city = "Обязательно для заполнения!";
+            errorsObject.personalDetails.city = "Обязательно для заполнения!";
         }
-        if(!formValues.jobTitle) {
+        if(!formValues.personalDetails.jobTitle) {
             isValid = false;
-            errorsObject.jobTitle = "Обязательно для заполнения!";
+            errorsObject.personalDetails.jobTitle = "Обязательно для заполнения!";
         }
 
         if (!isValid) return errorsObject
@@ -114,18 +108,15 @@ const ResumeForm = ({handleName, handleSurname, handleJobTitle, handleUserEmail,
             <main>
                 <DropdownMenu setColor={setColor} setFont={setFont}/>
                 <Formik initialValues={initialFormValues}
-                        // validate={(formValues) => {
-                        // const errors = validateForm(formValues);
-                        // if(!errors) RenderNewResume(dispatch({type:'updateResumeData', payload: formValues}))
-                        // }}
+                        validate={(formValues) => {
+                        const errors = validateForm(formValues);
+                        if(!errors) dispatch(saveResumeAction(formValues))
+                        }}
                         onSubmit={(formValues) => {console.log('form values', formValues)}}>
-
                     <Form>
-                        <FormikField name={'personalDetails'}>
-                            <PersonalDetails setValueName={setValueName} setValueSurname={setValueSurname} setValueJobTitle={setValueJobTitle} setValueUserEmail={setValueUserEmail} setValueTelephone={setValueTelephone}/>
-                        </FormikField>
-                        <FormikField name={'employment'}><Employment/></FormikField>
-                        <FormikField name={'education'}><Education/></FormikField>
+                        <PersonalDetails/>
+                        <Employment/>
+                        <Education/>
                         <Skills/>
                         <Summary/>
                         <ButtonToSaveResume/>

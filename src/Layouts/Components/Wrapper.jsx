@@ -12,11 +12,6 @@ const StyledWrapper = styled.div`
 `
 
 const Wrapper = () => {
-    const [name, setName] = useState('');
-    const [surName, setSurname] = useState('');
-    const [jobTitle, setJopTitle] = useState('');
-    const [email, setEmail] = useState('');
-    const [telephone, setTelephone] = useState('');
     const [color,setColor] = useState('black');
     const [font, setFont] = useState('centery gothic');
 
@@ -36,8 +31,8 @@ const Wrapper = () => {
 
     return (
         <StyledWrapper>
-            <ResumeForm handleName={setName} handleSurname={setSurname} handleJobTitle={setJopTitle} handleUserEmail={setEmail} handleTelephone ={setTelephone} setColor={setColor} setFont={setFont}/>
-            <Result userName={name} userSurname={surName} jobTitle={jobTitle} userEmail={email} telephone={telephone} color={color} font={font}/>
+            <ResumeForm setColor={setColor} setFont={setFont}/>
+            <Result color={color} font={font}/>
         </StyledWrapper>
 
     )

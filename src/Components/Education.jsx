@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Formik, Form, FieldArray} from 'formik';
+import {FieldArray, useFormikContext} from 'formik';
 import FormikInput from './FormikFields/FormikInput';
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const StyledEducation = styled.div`
   font-family: 'Century Gothic';
@@ -157,6 +157,7 @@ const StyledEducation = styled.div`
   `
 
 const Education = () => {
+    const { values, submitForm } = useFormikContext()
 
     return (
         <StyledEducation>
@@ -165,7 +166,6 @@ const Education = () => {
                 <p className={'description'}>Сначала введите ваш последний диплом</p>
             </div>
 
-            <Form>
                 <FieldArray
                     name='education'
                     render={arrayHelpers => (
@@ -219,7 +219,6 @@ const Education = () => {
                             })}
                         </React.Fragment>
                     )}/>
-            </Form>
         </StyledEducation>
     )
 }

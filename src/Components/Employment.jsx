@@ -1,21 +1,18 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
 
-import { Formik, Form, FieldArray } from 'formik';
+import {FieldArray, useFormikContext} from 'formik';
 import FormikInput from './FormikFields/FormikInput';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
-import {fetchCityList} from "../api/CityApi/cityApi";
 
 const StyledEmployment = styled.div`
   font-family: 'Century Gothic';
   box-sizing: border-box;
   padding: 20px 50px 50px;
-  
   .section {
     text-align: center;
   }
-  
   .sectionName {
     color: #33334f;
     font-size: 35px;
@@ -238,6 +235,7 @@ const StyledEmployment = styled.div`
 `
 
 const Employment = () => {
+    const { values, submitForm } = useFormikContext();
 
     return (
         <StyledEmployment>
@@ -246,7 +244,6 @@ const Employment = () => {
                 <p className={'description'}>Начните с вашей недавней работы</p>
             </div>
 
-            <Form>
                 <FieldArray
                     name='employment'
                     render={arrayHelpers => (
@@ -316,7 +313,6 @@ const Employment = () => {
                             })}
                         </React.Fragment>
                     )}/>
-            </Form>
         </StyledEmployment>
     )
 }

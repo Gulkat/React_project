@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import FormikInput from './FormikFields/FormikInput';
+
 const StyledSummary = styled.div `
   font-family: 'Century Gothic';
   box-sizing: border-box;
@@ -89,7 +91,7 @@ const Summary = () => {
                 <label className={'label'}><span>Краткая информация</span>
                     <div className={'overlay_background'}></div>
                 </label>
-                <input className={'inputDescription'} type={'text'}/>
+                <FormikInput className={'inputDescription'} type={'text'} name={'summary'}/>
             </div>
 
 

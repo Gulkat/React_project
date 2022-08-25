@@ -9,8 +9,9 @@ const StyledErrorForm = styled.p`
   font-family: "Century Gothic";
 `
 
-const FormikInput = ({props}) => {
+const FormikInput = (props) => {
     const [field, meta] = useField(props.name);
+
     return (
         <React.Fragment>
             <input {...field} {...props} value={field.value} onChange={field.onChange} onBlur={field.onBlur} />

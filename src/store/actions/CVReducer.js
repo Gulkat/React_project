@@ -1,0 +1,1 @@
+export const saveResumeAction = (renderedResumeData) => ({type: 'updateResume', payload: renderedResumeData});
