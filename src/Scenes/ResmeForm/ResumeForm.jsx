@@ -27,7 +27,7 @@ const StyledResumeForm = styled.div`
 
 const ResumeForm = ({setColor, setFont}) => {
     const dispatch = useDispatch();
-    // const renderedResumeData = useSelector(getRenderedResumeData);
+    const renderedResumeData = useSelector(getRenderedResumeData);
 
     const initialFormValues = {
         personalDetails: [
@@ -70,31 +70,31 @@ const ResumeForm = ({setColor, setFont}) => {
         let isValid = true;
         let errorsObject = {};
 
-        // return null
+         return null
 
         if(!formValues.personalDetails.userName) {
             isValid = false;
-            errorsObject.personalDetails.userName = "Обязательно для заполнения!";
+            errorsObject.personalDetails = "Обязательно для заполнения!";
         }
         if(!formValues.personalDetails.userSurname) {
             isValid = false;
-            errorsObject.personalDetails.userSurname = "Обязательно для заполнения!";
+            errorsObject.personalDetails = "Обязательно для заполнения!";
         }
         if(!formValues.personalDetails.email) {
             isValid = false;
-            errorsObject.personalDetails.email = "Обязательно для заполнения!";
+            errorsObject.personalDetails = "Обязательно для заполнения!";
         }
         if(!formValues.personalDetails.phone) {
             isValid = false;
-            errorsObject.personalDetails.phone = "Обязательно для заполнения!";
+            errorsObject.personalDetails = "Обязательно для заполнения!";
         }
         if(!formValues.personalDetails.city) {
             isValid = false;
-            errorsObject.personalDetails.city = "Обязательно для заполнения!";
+            errorsObject.personalDetails = "Обязательно для заполнения!";
         }
         if(!formValues.personalDetails.jobTitle) {
             isValid = false;
-            errorsObject.personalDetails.jobTitle = "Обязательно для заполнения!";
+            errorsObject.personalDetails = "Обязательно для заполнения!";
         }
 
         if (!isValid) return errorsObject
@@ -107,7 +107,7 @@ const ResumeForm = ({setColor, setFont}) => {
             </header>
             <main>
                 <DropdownMenu setColor={setColor} setFont={setFont}/>
-                <Formik initialValues={initialFormValues}
+                <Formik initialValues={renderedResumeData}
                         validate={(formValues) => {
                         const errors = validateForm(formValues);
                         if(!errors) dispatch(saveResumeAction(formValues))

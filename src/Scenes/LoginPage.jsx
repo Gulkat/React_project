@@ -95,7 +95,7 @@ const LoginPage = () => {
             errorsObject.email = 'Обязательно для заполнения!';
         } else if (!ValidateEmail(formValues.email)) {
             isValid = false;
-            errorsObject.email = 'Поле заполнено некорректно!'
+            errorsObject.email = 'Поле заполнено некорректно!';
         }
 
         if (!isValid) return errorsObject
@@ -106,7 +106,7 @@ const LoginPage = () => {
             <Formik initialValues={initialFormValues}
                     validate={validateForm}
                     onSubmit={(formValues) =>
-                        dispatch(createUserLogInAction({email:formValues.email, password:formValues.password}))}>
+                        dispatch(createUserLogInAction({email: formValues.email, password: formValues.password}))}>
                 <Form className={'loginForm'}>
                     <h3 className={'formTitle'}>Вход на сайт</h3>
                     <FormikInput name={'email'} type={'email'} className={'email'} placeholder={'Email'}/>

@@ -254,7 +254,7 @@ const Employment = () => {
                                     <span className={'titleBtn'}>Добавить работу</span>
                                 </span>
                             </button>
-                            {values.employment.map((name, index) => {
+                            {values.employment.map((key, index) => {
                                 return (
                                     <React.Fragment>
                                         <div className={'deleteBtnWrapper'}>
@@ -265,13 +265,13 @@ const Employment = () => {
                                                 <label className={'label'}><span>Должность</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} name={`employment.${index}.positionHeld`}/>
+                                                <FormikInput className={'input'} type={'text'} key={`employment.${index}.positionHeld`} name={'positionHeld'}/>
                                             </div>
                                             <div className={'box'}>
                                                 <label className={'label'}><span>Работодатель</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} name={`employment.${index}.employer`}/>
+                                                <FormikInput className={'input'} type={'text'} key={`employment.${index}.employer`} name={'employer'}/>
                                             </div>
                                             <div className={'box'}>
                                                 <div className={'boxDate'}>
@@ -279,13 +279,13 @@ const Employment = () => {
                                                         <label className={'labelDateStart'}><span>Дата начала</span>
                                                             <div className={'overlay_background'}></div>
                                                         </label>
-                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.startDate`}/>
+                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} key={`employment.${index}.startDate`} name={'startDate'}/>
                                                     </div>
                                                     <div className={'dateFinish'}>
                                                         <label className={'labelDateFinish'}><span>Дата окончания</span>
                                                             <div className={'overlay_background'}></div>
                                                         </label>
-                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.endDate`}/>
+                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} key={`employment.${index}.endDate`} name={'endDate'}/>
                                                     </div>
                                                 </div>
                                                 <div className={'checkboxWrap'}>
@@ -299,13 +299,13 @@ const Employment = () => {
                                                 <label className={'label'}><span>Город</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} name={`employment.${index}.workLocation`}/>
+                                                <FormikInput className={'input'} type={'text'} key={`employment.${index}.workLocation`} name={'workLocation'}/>
                                             </div>
                                             <div className={'boxDescription'}>
                                                 <label className={'label'}><span>Описание</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'inputDescription'} type={'text'} name={`employment.${index}.responsibilities`}/>
+                                                <FormikInput className={'inputDescription'} type={'text'} key={`employment.${index}.responsibilities`} name={'responsibilities'}/>
                                             </div>
                                         </div>
                                     </React.Fragment>

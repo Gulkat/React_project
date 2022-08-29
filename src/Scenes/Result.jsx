@@ -7,6 +7,7 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { getRenderedResumeData } from '../store/selectors/CVSelector';
+import {FieldArray} from "formik";
 
 
 const StyledResult = styled.div`
@@ -54,6 +55,9 @@ const StyledResult = styled.div`
   .resultRight {
     padding: 50px 30px 20px;
   }
+  .data {
+    font-weight: bold;
+  }
 
   
 `
@@ -100,23 +104,18 @@ const Result = ({color, font}) => {
                         </div>
                         <div className={'workBox'}>
                             <h2 className={'titleBox'}>Опыт работы</h2>
-
-                            <div>Должность </div>
-                            <div>Работодатель </div>
-                            <div>Дата начала </div>
-                            <div>Дата окончания </div>
-                            <div>Город </div>
-                            <div>Описание</div>
+                            <div className={'data'}>{renderedResumeData.positionHeld}, {renderedResumeData.employer}, {renderedResumeData.workLocation}</div>
+                            <div>{renderedResumeData.startDate} - {renderedResumeData.endDate}</div>
+                            <div>{renderedResumeData.responsibilities}</div>
 
                         </div>
                          <div className={'workBox'}>
                             <h2 className={'titleBox'}>Образование</h2>
 
-                                <div>Учебное заведение {renderedResumeData.institution}</div>
-                                <div>Степень {renderedResumeData.degree}</div>
-                                <div>Дата окончания {renderedResumeData.graduationDate}</div>
-                                <div>Город {renderedResumeData.locationOfTheInstitution}</div>
-                                <div>Описание {renderedResumeData.description}</div>
+                                <div className={'data'}>{renderedResumeData.institution}</div>
+                                <div>{renderedResumeData.degree}</div>
+                                <div>Дата окончания {renderedResumeData.graduationDate}, {renderedResumeData.locationOfTheInstitution}</div>
+                                <div>{renderedResumeData.description}</div>
 
                         </div>
                     </div>

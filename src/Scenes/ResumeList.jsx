@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {fetchResumeList} from '../api/ResumeApi/resumeApi';
 import ResumeTable from './ResumeTable';
-import Loading from "../Components/Loading";
+import Loading from '../Components/Loading';
+import EmptyList from '../Components/EmptyList';
 
 const StyledResumeList = styled.div`
     width: 80vh;
@@ -18,6 +19,7 @@ const StyledResumeList = styled.div`
 
 const ResumeList = () => {
     const [resumeList, setResumeList] = useState(undefined);
+    // const { resumeID } = useParams();
 
     const columns = [
         {name:"Должность", datakey:"jobTitle"},
@@ -39,7 +41,7 @@ const ResumeList = () => {
 
     const getResumeTable = () => {
         if(resumeList === undefined) return <Loading/>
-        if (!resumeList.length) return <div>No resume create yet</div>
+        if (!resumeList.length) return <EmptyList/>
         return <ResumeTable columnsFromProps={columns} tableDataFromProps={resumeList} isPaginable pageSize={3}/>
     }
 

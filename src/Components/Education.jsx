@@ -176,7 +176,7 @@ const Education = () => {
                                     <span className={'titleBtn'}>Добавить образование</span>
                                 </span>
                             </button>
-                            {values.education.map((name, index) => {
+                            {values.education.map((key, index) => {
                                 return (
                                     <React.Fragment>
                                         <div className={'deleteBtnWrapper'}>
@@ -187,31 +187,31 @@ const Education = () => {
                                                 <label className={'label'}><span>Учебное заведение</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.institution`}/>
+                                                <FormikInput className={'input'} type={'text'} key={`education.${index}.institution`} name={'institution'}/>
                                             </div>
                                             <div className={'box'}>
                                                 <label className={'label'}><span>Степень</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.degree`}/>
+                                                <FormikInput className={'input'} type={'text'} key={`education.${index}.degree`} name={'degree'}/>
                                             </div>
                                             <div className={'box'}>
                                                 <label className={'label'}><span>Дата окончания</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'} name={`education.${index}.graduationDate`}/>
+                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'} key={`education.${index}.graduationDate`} name={'graduationDate'}/>
                                             </div>
                                             <div className={'box'}>
                                                 <label className={'label'}><span>Город</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.locationOfTheInstitution`}/>
+                                                <FormikInput className={'input'} type={'text'} key={`education.${index}.locationOfTheInstitution`} name={'locationOfTheInstitution'}/>
                                             </div>
                                             <div className={'boxDescription'}>
                                                 <label className={'label'}><span>Описание</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'inputDescription'} type={'text'} name={`education.${index}.description`}/>
+                                                <FormikInput className={'inputDescription'} type={'text'} key={`education.${index}.description`} name={'description'}/>
                                             </div>
                                         </div>
                                     </React.Fragment>

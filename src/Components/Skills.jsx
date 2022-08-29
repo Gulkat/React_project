@@ -61,11 +61,10 @@ const StyledSkills = styled.div `
     align-items: flex-start;
     margin-bottom: 30px;
   }
-  //.boxWrapper{
-  //  display: flex;
-  //}
+
   .box {
     margin-bottom: 15px;
+    margin-right: 20px;
     position: relative;
     flex-grow: 0;
     flex-shrink: 0;
@@ -130,6 +129,12 @@ const StyledSkills = styled.div `
   .deleteBtn:hover {
     color:rgb(33, 150, 243);
   }
+  .wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    
+  }
 `
 
 const Skills = () => {
@@ -152,23 +157,23 @@ const Skills = () => {
                                     <span className={'titleBtn'}>Добавить навык</span>
                                 </span>
                         </button>
-                        {/*{values.skills.map((name, index) => {*/}
-                        {/*    return (*/}
-                        {/*        <React.Fragment>*/}
-                        {/*            <div className={'deleteBtnWrapper'}>*/}
-                        {/*                <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}><FontAwesomeIcon icon={faTrashCan}/></button>*/}
-                        {/*            </div>*/}
-                        {/*            <div className={'form_box'}>*/}
-                        {/*                <div className={'box'}>*/}
-                        {/*                    <label className={'label'}><span>Навык</span>*/}
-                        {/*                        <div className={'overlay_background'}></div>*/}
-                        {/*                    </label>*/}
-                        {/*                    <FormikInput className={'input'} type={'text'} name={`skills.${index}.skill`}/>*/}
-                        {/*                </div>*/}
-                        {/*            </div>*/}
-                        {/*        </React.Fragment>*/}
-                        {/*    )*/}
-                        {/*})}*/}
+                        {values.skills.map((key, index) => {
+                            return (
+                                <React.Fragment>
+                                    <div className={'wrapper'}>
+                                        <div className={'box'}>
+                                            <label className={'label'}><span>Навык</span>
+                                                <div className={'overlay_background'}></div>
+                                            </label>
+                                            <FormikInput className={'input'} type={'text'} key={`skills.${index}.skill`} name={'skill'}/>
+                                        </div>
+                                        <div className={'deleteBtnWrapper'}>
+                                            <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}><FontAwesomeIcon icon={faTrashCan}/></button>
+                                        </div>
+                                    </div>
+                                </React.Fragment>
+                            )
+                        })}
                     </React.Fragment>
                 )}/>
             </StyledSkills>

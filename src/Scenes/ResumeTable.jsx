@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {useSearchParams} from 'react-router-dom';
 import useThrottle from '../hooks/useThrottledCallBack';
 
 const StyledResumeTable = styled.div`
-
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+  .inputForFilter {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: "Century Gothic";
+    min-width: 300px;
+  }
+  .headerCell {
+    font-size: 20px;
+    font-family: "Century Gothic";
+    margin: 20px;
+  }
   .arrow {
     border: solid black;
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
+    margin: 10px;
 
     &.up {
       transform: rotate(-135deg);
@@ -42,6 +60,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
         }
         setPage(0);
     }
+
     const filterTable= (data, filterString) => {
         if (!filterString) return [...data];
         return data.filter(entry => {
@@ -98,8 +117,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
 
     return (
         <StyledResumeTable>
-            <input type={"text"} onChange={(e) => {setFilterString(e.target.value)}} value={filterString}/>
-            <div className={"header"}>Initial table</div>
+            <input className={'inputForFilter'} type={"text"} placeholder={'Введите должность'} onChange={(e) => {setFilterString(e.target.value)}} value={filterString}/>
             <table>
                 <tr>
                     {columnsFromProps.map(column => {
