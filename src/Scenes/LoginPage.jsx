@@ -23,7 +23,7 @@ const StyledLoginPage = styled.div`
   .formTitle {
     font-size: 30px;
     font-weight: 500;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     color: #7e8bc4;
   }
   input {
@@ -37,7 +37,7 @@ const StyledLoginPage = styled.div`
     background-color: rgb(255, 255, 255);
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     margin-top: 30px;
   }
   .btnSubmit {
@@ -64,7 +64,7 @@ const StyledLoginPage = styled.div`
     font-weight: 900;
     border: none;
     font-size: 20px;  
-    font-family: Century Gothic;
+    font-family: ${props => props.theme.baseFont};
     cursor: pointer;
     text-decoration: none;
     color: #fff;
@@ -93,7 +93,8 @@ const LoginPage = () => {
         if (!formValues.email) {
             isValid = false;
             errorsObject.email = 'Обязательно для заполнения!';
-        } else if (!ValidateEmail(formValues.email)) {
+        }
+        if (!ValidateEmail(formValues.email)) {
             isValid = false;
             errorsObject.email = 'Поле заполнено некорректно!';
         }
@@ -112,7 +113,7 @@ const LoginPage = () => {
                     <FormikInput name={'email'} type={'email'} className={'email'} placeholder={'Email'}/>
                     <FormikInput name={'password'} type={'password'} className={'password'} placeholder={'Password'}/>
                     <button type={'submit'} className={'btnSubmit'}>
-                        <Link to={ROUTES.newResume} className={'linkToLogIn'}>Войти</Link>
+                        <Link to={ROUTES.startPage} className={'linkToLogIn'}>Войти</Link>
                     </button>
                 </Form>
             </Formik>

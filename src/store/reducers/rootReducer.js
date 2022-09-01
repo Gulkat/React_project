@@ -4,7 +4,7 @@ import CVReducer from './CVReducer';
 
 const rootReducer = combineReducers({
     user: userReducer,
-    CV: CVReducer
+    CV: CVReducer,
 });
 
 export default rootReducer;

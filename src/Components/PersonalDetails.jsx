@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FormikInput from './FormikFields/FormikInput';
 
 const StyledPersonalDetails = styled.div`
-  font-family: 'Century Gothic';
+  font-family: ${props => props.theme.baseFont};
   box-sizing: border-box;
   padding: 20px 50px 50px;
 
@@ -83,7 +83,7 @@ const StyledPersonalDetails = styled.div`
     background-color: rgb(255, 255, 255);
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
   }
 `
 

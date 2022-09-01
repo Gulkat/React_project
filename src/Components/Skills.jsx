@@ -7,7 +7,7 @@ import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import FormikInput from './FormikFields/FormikInput';
 
 const StyledSkills = styled.div `
-  font-family: 'Century Gothic';
+  font-family: ${props => props.theme.baseFont};
   box-sizing: border-box;
   padding: 20px 50px 50px;
 
@@ -32,7 +32,7 @@ const StyledSkills = styled.div `
     border-top: 1px dashed rgb(191, 197, 214);
     border-bottom: 1px dashed rgb(191, 197, 214);
     text-align: left;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     font-size: 16px;
     color: rgb(22, 136, 254);
     font-weight: 400;
@@ -113,7 +113,7 @@ const StyledSkills = styled.div `
     background-color: rgb(255, 255, 255);
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
   }
   .deleteBtnWrapper {
     text-align: right;
@@ -122,7 +122,7 @@ const StyledSkills = styled.div `
     margin-bottom: 15px;
     border: none;
     background-color: #f7f7fc;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     font-size: 20px;
     color: ${props => props.theme.accentColor};
   }
@@ -157,7 +157,7 @@ const Skills = () => {
                                     <span className={'titleBtn'}>Добавить навык</span>
                                 </span>
                         </button>
-                        {values.skills.map((key, index) => {
+                        {values.skills.map((name, index) => {
                             return (
                                 <React.Fragment>
                                     <div className={'wrapper'}>
@@ -165,7 +165,7 @@ const Skills = () => {
                                             <label className={'label'}><span>Навык</span>
                                                 <div className={'overlay_background'}></div>
                                             </label>
-                                            <FormikInput className={'input'} type={'text'} key={`skills.${index}.skill`} name={'skill'}/>
+                                            <FormikInput className={'input'} type={'text'} name={`skills.${index}.skill`}/>
                                         </div>
                                         <div className={'deleteBtnWrapper'}>
                                             <button className={'deleteBtn'} type={'button'} onClick={() => {arrayHelpers.remove(index)}}><FontAwesomeIcon icon={faTrashCan}/></button>

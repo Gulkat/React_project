@@ -1,4 +1,18 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const StyledGlobalErrorBoundary = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  .globalErrorTitle {
+    margin-top: 100px ;
+    font-size: 28px;
+    color: ${props => props.theme.accentColor};
+  }
+`
 
 class GlobalErrorBoundary extends Component {
     constructor(props) {
@@ -6,23 +20,19 @@ class GlobalErrorBoundary extends Component {
 
         this.state = {
             errorFired: false,
-            error: '',
-            errorInfo: '',
-        }
+        };
     }
 
-    componentDidCatch(error, errorInfo) {
-        console.log(error)
-        this.setState({errorFired: true, error, errorInfo});
+    componentDidCatch() {
+        this.setState({errorFired: true});
     }
 
     render() {
         if (this.state.errorFired) {
             return (
-                <div className={'globalError'}>
-                    <h1 className={'globalErrorTitle'}>Обнаружена ошибка! Мы работаем над её исправлением!</h1>
-                    {this.state.error}
-                </div>
+                <StyledGlobalErrorBoundary>
+                    <h1 className={'globalErrorTitle'}>Обнаружена ошибка... Мы работаем над её исправлением!</h1>
+                </StyledGlobalErrorBoundary>
             )
         }
         else {

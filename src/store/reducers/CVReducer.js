@@ -1,4 +1,4 @@
-const CVReducer = (state={}, action) => {
+const CVReducer = (state= {personalDetails: [], employment: [], education: [], skills: []}, action) => {
     switch (action.type) {
         case 'updateResume':
             return {...action.payload}

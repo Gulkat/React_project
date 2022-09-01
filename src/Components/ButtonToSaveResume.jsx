@@ -8,7 +8,7 @@ const StyledButtonToSaveResume = styled.div`
   .btnToSaveResume {
     min-width: 250px;
     font-size: 20px;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     padding: 15px 20px;
     font-weight: 900;
     background: rgb(33, 150, 243);

@@ -6,9 +6,10 @@ const StyledDropdown = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 30px 0 30px 0;
+  width: calc(50% - 20px);
   
   .labelText {
-    font-family: 'Century Gothic';
+    font-family: ${props => props.theme.baseFont};
     color: ${props => props.theme.accentColor};
     font-size: 18px;
     min-width: 240px;
@@ -17,12 +18,12 @@ const StyledDropdown = styled.div`
 
   .selectValue {
     font-size: 22px;
-    font-family: 'Century Gothic';
+    font-family: ${props => props.theme.baseFont};
     border: 1px solid #ccc;
     box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 1px 3px rgba(0, 0, 0, .1);
     border-radius: 3px;
     min-width: 190px;
-    width: 100%;
+    width: 65%;
   }
 `
 

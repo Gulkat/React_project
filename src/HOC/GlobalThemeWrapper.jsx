@@ -14,7 +14,7 @@ const GlobalThemeWrapper = (props) => {
 
     return (
         <React.Fragment>
-            <ThemeProvider theme={{baseBackgroundColor: '#f7f7fc', accentColor:'#7e8bc4'}}>
+            <ThemeProvider theme={{baseBackgroundColor: '#f7f7fc', accentColor:'#7e8bc4', baseFont: 'Century Gothic, sans-serif'}}>
                 <GlobalStyle/>
                 {props.children}
             </ThemeProvider>

@@ -18,8 +18,8 @@ const StyledButtonToStart = styled.div`
     font-weight: 900;
     border: none;
     background-color: ${props => props.theme.accentColor};
-    width: 250px;
-    font-family: Century Gothic;
+
+    font-family: ${props => props.theme.baseFont};
     font-size: 30px;
     cursor: pointer;
     will-change: box-shadow;
@@ -38,7 +38,7 @@ const StyledButtonToStart = styled.div`
     padding: 20px;
     font-weight: 900;
     border: none;
-    font-family: Century Gothic;
+    font-family: ${props => props.theme.baseFont};
     font-size: 30px;
     cursor: pointer;
     text-decoration: none;
@@ -52,15 +52,13 @@ const StyledButtonToStart = styled.div`
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     border-radius: 4px;
   }
-  
- 
 `
 
 const ButtonToStart = () => {
     return (
         <StyledButtonToStart>
             <button className={'start'}>
-                <Link to={ROUTES.newResume} className={'linkToStart'}>Начать</Link>
+                <Link to={ROUTES.newResume} className={'linkToStart'}>Создать новое резюме</Link>
             </button>
                 <Link to={ROUTES.resumeList} className={'linkToView'}>Посмотреть сохраненные резюме</Link>
         </StyledButtonToStart>

@@ -14,37 +14,35 @@ const StyledHeader = styled.div`
 
   .logo {
     color: #fff;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     font-size: 23px;
     font-weight: 400;
+    margin: 0 auto;
   }
   
-  .loginLink {
-    color: #fff;
-    font-size: 26px;
-    font-weight: 400;
-    font-family: "Century Gothic";
-    text-decoration: none;
-    padding-right: 100px;
-  }
-  .loginLink:hover {
-    opacity: 0.6;
-  }
-  .themeIcon {
-    padding-left: 100px;
-    width: 100px;
-  }
+  //.loginLink {
+  //  color: #fff;
+  //  font-size: 26px;
+  //  font-weight: 400;
+  //  font-family: "Century Gothic";
+  //  text-decoration: none;
+  //  padding-right: 100px;
+  //}
+  //.loginLink:hover {
+  //  opacity: 0.6;
+  //}
+  //.themeIcon {
+  //  padding-left: 100px;
+  //  width: 100px;
+  //}
 `
 
 const Header = () => {
 
     return (
         <StyledHeader>
-            <div className={'themeIcon'}>
-                {/*<button className={'themeBtn'}>Dark Theme</button>*/}
-            </div>
             <p className={'logo'}>Создай своё идеальое резюме!</p>
-            <Link to={ROUTES.loginPage} className={'loginLink'}>Войти 🠆 </Link>
+            {/*<Link to={ROUTES.loginPage} className={'loginLink'}>Войти 🠆 </Link>*/}
         </StyledHeader>
     )
 }

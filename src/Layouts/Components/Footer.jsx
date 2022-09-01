@@ -12,7 +12,7 @@ const StyledFooter = styled.div`
     color: #fff;
     font-size: 19px;
     font-weight: 400;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     margin: 0;
   }
 `

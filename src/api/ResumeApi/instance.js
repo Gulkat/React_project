@@ -16,4 +16,4 @@ fakeServerInstance.interceptors.response.use(
 
 fakeServerInstance.interceptors.request.use()
 
-export default fakeServerInstance
+export default fakeServerInstance;

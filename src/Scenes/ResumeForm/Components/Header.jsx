@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PersonalDetails from '../../../Components/PersonalDetails';
 
 const StyledHeader = styled.div`
   background-color: #f7f7fc;
@@ -39,23 +38,18 @@ class Header extends React.Component {
         }
     }
 
-    addComponent = () => {
-        this.setState({RenderComponentState: true})
-    }
-
     render() {
         return (
             <StyledHeader>
                 <nav className={'headerNav'}>
                     <ul className={'headerMenu'}>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'} onClick={this.addComponent}>Контакты</a></li>
+                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Контакты</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Опыт</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Образование</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Навыки</a></li>
                         <li className={'headerItem'}><a href={''} className={'headerLink'}>Обо мне</a></li>
                     </ul>
                 </nav>
-                {this.state.RenderComponentState && <PersonalDetails/>}
             </StyledHeader>
 
         );

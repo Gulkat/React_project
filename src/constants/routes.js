@@ -1,13 +1,7 @@
 export const ROUTES = {
     initialPage: `/`,
+    startPage: `/start`,
     newResume: `/new`,
-    loginPage: `/login`,
     resumeList: `/resumeList`,
     resumeID: `:resumeID`
-}
-
-export const PATH = {
-    initialPage: `/`,
-    loginPage: `/login`,
-    resumeList: `/resumeList`,
 }

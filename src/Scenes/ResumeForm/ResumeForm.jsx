@@ -3,16 +3,16 @@ import styled from 'styled-components';
 import {Form, Formik} from 'formik';
 
 import PersonalDetails from 'Components/PersonalDetails';
-import Header from 'Scenes/ResmeForm/Components/Header';
+import Header from 'Scenes/ResumeForm/Components/Header';
 import Employment from 'Components/Employment';
 import Education from 'Components/Education'
 import DropdownMenu from 'Components/Dropdown/DropdownMenu';
 import Skills from 'Components/Skills';
 import Summary from 'Components/Summary';
 import ButtonToSaveResume from '../../Components/ButtonToSaveResume';
-import {useDispatch, useSelector} from "react-redux";
-import {saveResumeAction} from "../../store/actions/CVReducer";
-import {getRenderedResumeData} from "../../store/selectors/CVSelector";
+import { useDispatch, useSelector } from "react-redux";
+import { saveResumeAction } from "../../store/actions/CVReducer";
+import { getRenderedResumeData } from "../../store/selectors/CVSelector";
 
 const StyledResumeForm = styled.div`
   padding: 0;
@@ -70,29 +70,27 @@ const ResumeForm = ({setColor, setFont}) => {
         let isValid = true;
         let errorsObject = {};
 
-         return null
-
-        if(!formValues.personalDetails.userName) {
+        if(!formValues.userName) {
             isValid = false;
             errorsObject.personalDetails = "Обязательно для заполнения!";
         }
-        if(!formValues.personalDetails.userSurname) {
+        if(!formValues.userSurname) {
             isValid = false;
             errorsObject.personalDetails = "Обязательно для заполнения!";
         }
-        if(!formValues.personalDetails.email) {
+        if(!formValues.email) {
             isValid = false;
             errorsObject.personalDetails = "Обязательно для заполнения!";
         }
-        if(!formValues.personalDetails.phone) {
+        if(!formValues.phone) {
             isValid = false;
             errorsObject.personalDetails = "Обязательно для заполнения!";
         }
-        if(!formValues.personalDetails.city) {
+        if(!formValues.city) {
             isValid = false;
             errorsObject.personalDetails = "Обязательно для заполнения!";
         }
-        if(!formValues.personalDetails.jobTitle) {
+        if(!formValues.jobTitle) {
             isValid = false;
             errorsObject.personalDetails = "Обязательно для заполнения!";
         }

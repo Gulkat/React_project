@@ -7,8 +7,6 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { getRenderedResumeData } from '../store/selectors/CVSelector';
-import {FieldArray} from "formik";
-
 
 const StyledResult = styled.div`
   background-color: #e5e4ea;
@@ -51,15 +49,20 @@ const StyledResult = styled.div`
     gap: 10px;
     margin-top: 10px;
   }
-  
+  .values {
+    margin-bottom: 20px;
+  }
   .resultRight {
     padding: 50px 30px 20px;
   }
   .data {
     font-weight: bold;
   }
-
-  
+  .divider {
+    border: none;
+    border-bottom: 1px solid;
+    border-color:  ${props => props.theme.accentColor};
+  }
 `
 
 const Result = ({color, font}) => {
@@ -87,7 +90,9 @@ const Result = ({color, font}) => {
                         </div>
                         <div className={'profileBox'}>
                             <h2 className={'titleBox'}>Навыки</h2>
-                            <div className={'skill'}>{renderedResumeData.skill}</div>
+                            {renderedResumeData.skills.map(skillsEntry => (
+                                    <div className={'values'}>{skillsEntry.skill}</div>
+                                ))}
                         </div>
                     </div>
                 </div>
@@ -101,22 +106,31 @@ const Result = ({color, font}) => {
                         <div className={'workBox'}>
                             <h2 className={'titleBox'}>Обо мне</h2>
                             <div className={'summary'}>{renderedResumeData.summary}</div>
+                            <hr className={'divider'}/>
                         </div>
+
                         <div className={'workBox'}>
                             <h2 className={'titleBox'}>Опыт работы</h2>
-                            <div className={'data'}>{renderedResumeData.positionHeld}, {renderedResumeData.employer}, {renderedResumeData.workLocation}</div>
-                            <div>{renderedResumeData.startDate} - {renderedResumeData.endDate}</div>
-                            <div>{renderedResumeData.responsibilities}</div>
-
+                            {renderedResumeData.employment.map(employmentEntry => (
+                                <div className={'values'}>
+                                    <div className={'data'}>{employmentEntry.positionHeld}, {employmentEntry.employer}, {employmentEntry.workLocation}</div>
+                                    <div>{employmentEntry.startDate} - {employmentEntry.endDate}</div>
+                                    <div>{employmentEntry.responsibilities}</div>
+                                </div>
+                                ))}
+                            <hr className={'divider'}/>
                         </div>
                          <div className={'workBox'}>
                             <h2 className={'titleBox'}>Образование</h2>
-
-                                <div className={'data'}>{renderedResumeData.institution}</div>
-                                <div>{renderedResumeData.degree}</div>
-                                <div>Дата окончания {renderedResumeData.graduationDate}, {renderedResumeData.locationOfTheInstitution}</div>
-                                <div>{renderedResumeData.description}</div>
-
+                             {renderedResumeData.education.map(educationEntry => (
+                                     <div className={'values'}>
+                                         <div className={'data'}>{educationEntry.institution}</div>
+                                         <div>{educationEntry.degree}</div>
+                                         <div>Год окончания {educationEntry.graduationDate}, {educationEntry.locationOfTheInstitution}</div>
+                                         <div>{educationEntry.description}</div>
+                                     </div>
+                                 ))}
+                             <hr className={'divider'}/>
                         </div>
                     </div>
                 </div>

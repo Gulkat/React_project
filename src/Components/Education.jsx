@@ -7,7 +7,7 @@ import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const StyledEducation = styled.div`
-  font-family: 'Century Gothic';
+  font-family: ${props => props.theme.baseFont};
   box-sizing: border-box;
   padding: 20px 50px 50px;
 
@@ -34,7 +34,7 @@ const StyledEducation = styled.div`
     border-top: 1px dashed rgb(191, 197, 214);
     border-bottom: 1px dashed rgb(191, 197, 214);
     text-align: left;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     font-size: 16px;
     color: rgb(22, 136, 254);
     font-weight: 400;
@@ -61,7 +61,7 @@ const StyledEducation = styled.div`
     margin-bottom: 15px;
     border: none;
     background-color: #f7f7fc;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     font-size: 20px;
     color: ${props => props.theme.accentColor};
   }
@@ -129,7 +129,7 @@ const StyledEducation = styled.div`
     background-color: rgb(255, 255, 255);
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
   }
 
   .boxDescription {
@@ -151,7 +151,7 @@ const StyledEducation = styled.div`
     border: 2px solid rgb(230, 230, 255);
     background-color: rgb(255, 255, 255);
     color: rgb(72, 72, 112);
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     padding: 20px 20px 200px 20px;
   }
   `
@@ -176,7 +176,7 @@ const Education = () => {
                                     <span className={'titleBtn'}>Добавить образование</span>
                                 </span>
                             </button>
-                            {values.education.map((key, index) => {
+                            {values.education.map((name, index) => {
                                 return (
                                     <React.Fragment>
                                         <div className={'deleteBtnWrapper'}>
@@ -187,31 +187,31 @@ const Education = () => {
                                                 <label className={'label'}><span>Учебное заведение</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} key={`education.${index}.institution`} name={'institution'}/>
+                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.institution`}/>
                                             </div>
                                             <div className={'box'}>
                                                 <label className={'label'}><span>Степень</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} key={`education.${index}.degree`} name={'degree'}/>
+                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.degree`}/>
                                             </div>
                                             <div className={'box'}>
-                                                <label className={'label'}><span>Дата окончания</span>
+                                                <label className={'label'}><span>Год окончания</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'} key={`education.${index}.graduationDate`} name={'graduationDate'}/>
+                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'} name={`education.${index}.graduationDate`}/>
                                             </div>
                                             <div className={'box'}>
                                                 <label className={'label'}><span>Город</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} key={`education.${index}.locationOfTheInstitution`} name={'locationOfTheInstitution'}/>
+                                                <FormikInput className={'input'} type={'text'} name={`education.${index}.locationOfTheInstitution`}/>
                                             </div>
                                             <div className={'boxDescription'}>
                                                 <label className={'label'}><span>Описание</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'inputDescription'} type={'text'} key={`education.${index}.description`} name={'description'}/>
+                                                <FormikInput className={'inputDescription'} type={'text'} name={`education.${index}.description`}/>
                                             </div>
                                         </div>
                                     </React.Fragment>

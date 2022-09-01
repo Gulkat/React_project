@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import FormikInput from './FormikFields/FormikInput';
 
 const StyledSummary = styled.div `
-  font-family: 'Century Gothic';
+  font-family: ${props => props.theme.baseFont};
   box-sizing: border-box;
   padding: 20px 50px 25px;
 
@@ -74,7 +74,7 @@ const StyledSummary = styled.div `
     border: 2px solid rgb(230, 230, 255);
     background-color: rgb(255, 255, 255);
     color: rgb(72, 72, 112);
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     padding: 20px 20px 200px 20px;
   }
 `

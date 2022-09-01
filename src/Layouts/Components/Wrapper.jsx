@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 
-import ResumeForm from 'Scenes/ResmeForm/ResumeForm';
+import ResumeForm from 'Scenes/ResumeForm/ResumeForm';
 import Result from 'Scenes/Result';
 import {useParams} from "react-router-dom";
 

@@ -6,7 +6,7 @@ const StyledEmptyList = styled.div`
   justify-content: center;
   align-items: center;
   .message {
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     font-size: 36px;
     color: darkred;
   }

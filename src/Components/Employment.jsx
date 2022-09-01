@@ -7,7 +7,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 
 const StyledEmployment = styled.div`
-  font-family: 'Century Gothic';
+  font-family: ${props => props.theme.baseFont};
   box-sizing: border-box;
   padding: 20px 50px 50px;
   .section {
@@ -30,7 +30,7 @@ const StyledEmployment = styled.div`
     border-top: 1px dashed rgb(191, 197, 214);
     border-bottom: 1px dashed rgb(191, 197, 214);
     text-align: left;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     font-size: 16px;
     color: rgb(22, 136, 254);
     font-weight: 400;
@@ -55,7 +55,7 @@ const StyledEmployment = styled.div`
     margin-bottom: 15px;
     border: none;
     background-color: #f7f7fc;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     font-size: 20px;
     color: ${props => props.theme.accentColor};
   }
@@ -71,9 +71,6 @@ const StyledEmployment = styled.div`
     align-items: flex-start;
     margin-bottom: 30px;
   }
-  //.boxWrapper{
-  //  display: flex;
-  //}
   .box {
     margin-bottom: 15px;
     position: relative;
@@ -124,7 +121,7 @@ const StyledEmployment = styled.div`
     background-color: rgb(255, 255, 255);
     padding: 13px 35px 9px 16px;
     color: rgb(72, 72, 112);
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
   }
   .boxDate {
     display: flex;
@@ -151,7 +148,7 @@ const StyledEmployment = styled.div`
     border: 2px solid rgb(230, 230, 255);
     background-color: rgb(255, 255, 255);
     padding: 13px 15px 9px 15px;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
   }
   .labelDateStart {
     padding: 0 5px;
@@ -203,7 +200,7 @@ const StyledEmployment = styled.div`
   }
   .labelCheckbox {
     letter-spacing: 0.1px;
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     color: rgb(113, 113, 166);
     font-size: 14px;
     line-height: normal;
@@ -229,7 +226,7 @@ const StyledEmployment = styled.div`
     border: 2px solid rgb(230, 230, 255);
     background-color: rgb(255, 255, 255);
     color: rgb(72, 72, 112);
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     padding: 20px 20px 200px 20px;
   }
 `
@@ -254,7 +251,7 @@ const Employment = () => {
                                     <span className={'titleBtn'}>Добавить работу</span>
                                 </span>
                             </button>
-                            {values.employment.map((key, index) => {
+                            {values.employment.map((name, index) => {
                                 return (
                                     <React.Fragment>
                                         <div className={'deleteBtnWrapper'}>
@@ -265,13 +262,13 @@ const Employment = () => {
                                                 <label className={'label'}><span>Должность</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} key={`employment.${index}.positionHeld`} name={'positionHeld'}/>
+                                                <FormikInput className={'input'} type={'text'} name={`employment.${index}.positionHeld`}/>
                                             </div>
                                             <div className={'box'}>
                                                 <label className={'label'}><span>Работодатель</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} key={`employment.${index}.employer`} name={'employer'}/>
+                                                <FormikInput className={'input'} type={'text'} name={`employment.${index}.employer`}/>
                                             </div>
                                             <div className={'box'}>
                                                 <div className={'boxDate'}>
@@ -279,13 +276,13 @@ const Employment = () => {
                                                         <label className={'labelDateStart'}><span>Дата начала</span>
                                                             <div className={'overlay_background'}></div>
                                                         </label>
-                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} key={`employment.${index}.startDate`} name={'startDate'}/>
+                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.startDate`}/>
                                                     </div>
                                                     <div className={'dateFinish'}>
                                                         <label className={'labelDateFinish'}><span>Дата окончания</span>
                                                             <div className={'overlay_background'}></div>
                                                         </label>
-                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} key={`employment.${index}.endDate`} name={'endDate'}/>
+                                                        <FormikInput className={'inputDate'} type={'date'} placeholder={'Выберите дату'} name={`employment.${index}.endDate`}/>
                                                     </div>
                                                 </div>
                                                 <div className={'checkboxWrap'}>
@@ -299,13 +296,13 @@ const Employment = () => {
                                                 <label className={'label'}><span>Город</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'text'} key={`employment.${index}.workLocation`} name={'workLocation'}/>
+                                                <FormikInput className={'input'} type={'text'} name={`employment.${index}.workLocation`}/>
                                             </div>
                                             <div className={'boxDescription'}>
                                                 <label className={'label'}><span>Описание</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'inputDescription'} type={'text'} key={`employment.${index}.responsibilities`} name={'responsibilities'}/>
+                                                <FormikInput className={'inputDescription'} type={'text'} name={`employment.${index}.responsibilities`}/>
                                             </div>
                                         </div>
                                     </React.Fragment>

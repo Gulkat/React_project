@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {useSearchParams} from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import useThrottle from '../hooks/useThrottledCallBack';
 
 const StyledResumeTable = styled.div`
@@ -14,12 +14,12 @@ const StyledResumeTable = styled.div`
   .inputForFilter {
     margin-bottom: 20px;
     font-size: 20px;
-    font-family: "Century Gothic";
+    font-family: "Century Gothic", sans-serif;
     min-width: 300px;
   }
   .headerCell {
     font-size: 20px;
-    font-family: "Century Gothic";
+    font-family: "Century Gothic", sans-serif;
     margin: 20px;
   }
   .arrow {
@@ -28,17 +28,14 @@ const StyledResumeTable = styled.div`
     display: inline-block;
     padding: 3px;
     margin: 10px;
-
     &.up {
       transform: rotate(-135deg);
-      -webkit-transform: rotate(-135deg);
     }
     &.down {
       transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
     }
   }
-    `
+`
 
 const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSize=6}) => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -46,7 +43,6 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
     const [page, setPage] = useState(searchParams.page || 0);
     const [sortBy, setSortBy] = useState(searchParams.sortBy || columnsFromProps[0].dataKey);
     const [sortDirection, setSortDirection] = useState(searchParams.sortDirection || 1);
-
     const [filteredData, setFilteredData] = useState([]);
     const [sortedData, setSortedData] = useState([]);
     const [tableData, setTableData] = useState([]);
@@ -66,7 +62,9 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
         return data.filter(entry => {
             let passed = false;
             columnsFromProps.map(columnConfig => {
-                if (entry[columnConfig.dataKey].includes(filterString)) passed = true;
+                if (entry[columnConfig.dataKey].includes(filterString)) {
+                    passed = true;
+                }
             })
             return passed
         });
@@ -95,7 +93,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
             setTableData(paginated);
     };
 
-    const throttledUpdateTable = useThrottle(updateTable, 1000);
+    const throttledUpdateTable = useThrottle(updateTable, 500);
 
     useEffect(() => {
         throttledUpdateTable(tableDataFromProps, sortBy, sortDirection, filterString, page);
@@ -131,7 +129,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
                         </td>
                     })}
                 </tr>
-                {getTableBody(tableDataFromProps, "initial")}
+                {getTableBody(tableData)}
 
                 {isPaginable &&
                     <tfoot>

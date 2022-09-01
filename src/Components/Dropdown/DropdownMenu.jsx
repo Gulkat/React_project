@@ -7,9 +7,11 @@ import {FONT} from "constants/fontForm";
 
 const StyledDropdownMenu = styled.div`
   padding: 20px 50px;
-  display: flex;
-  gap: 100px;
-  justify-content: center;
+  
+  .dropdownWrapper {
+    display: flex;
+    justify-content: space-around;
+  }
 `
 
 class DropdownMenu extends React.PureComponent {
@@ -27,8 +29,10 @@ class DropdownMenu extends React.PureComponent {
     render() {
         return (
             <StyledDropdownMenu>
-                <Dropdown options={COLOR} idKey={'colorId'} nameKey={'name'} handleSelect={this.handleColorSelect.bind(this)} label={'Цвет оформления'}/>
-                <Dropdown options={FONT} idKey={'fontId'} nameKey={'name'} handleSelect={this.handleFontSelect.bind(this)} label={'Шрифт оформления'}/>
+                <div className={'dropdownWrapper'}>
+                    <Dropdown options={COLOR} idKey={'colorId'} nameKey={'name'} handleSelect={this.handleColorSelect.bind(this)} label={'Цвет оформления'}/>
+                    <Dropdown options={FONT} idKey={'fontId'} nameKey={'name'} handleSelect={this.handleFontSelect.bind(this)} label={'Шрифт оформления'}/>
+                </div>
             </StyledDropdownMenu>
         )
     }
