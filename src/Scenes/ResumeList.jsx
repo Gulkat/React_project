@@ -31,7 +31,7 @@ const ResumeList = () => {
     const getResumeList = () => {
         fetchResumeList().then(({data}) => {
             setResumeList(data);
-        }).catch(() => {});
+        }).catch(error => {error(error.response.data)});
     }
 
     useEffect(() => {
