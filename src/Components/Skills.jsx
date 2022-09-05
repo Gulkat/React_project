@@ -17,7 +17,7 @@ const StyledSkills = styled.div `
 
   .sectionName {
     color: #33334f;
-    font-size: 35px;
+    font-size: 30px;
     margin: 0;
   }
   .description {
@@ -76,7 +76,7 @@ const StyledSkills = styled.div `
     top: -8px;
     left: 30px;
     z-index: 1;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.2px;
     text-align: center;
     background: #f7f7fc;
@@ -123,7 +123,7 @@ const StyledSkills = styled.div `
     border: none;
     background-color: #f7f7fc;
     font-family: ${props => props.theme.baseFont};
-    font-size: 20px;
+    font-size: 16px;
     color: ${props => props.theme.accentColor};
   }
   .deleteBtn:hover {
@@ -143,7 +143,7 @@ const Skills = () => {
     return (
         <StyledSkills>
             <div className={'section'}>
-                <h1 className={'sectionName'}>Расскажите о своих навыках</h1>
+                <h1 className={'sectionName'} id={'skills'} >Расскажите о своих навыках</h1>
                 <p className={'description'}>Начните с того, в котором вы наиболее опытны</p>
             </div>
 

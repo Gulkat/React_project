@@ -14,7 +14,7 @@ const StyledSummary = styled.div `
 
   .sectionName {
     color: #33334f;
-    font-size: 35px;
+    font-size: 30px;
     margin: 0;
   }
   
@@ -38,7 +38,7 @@ const StyledSummary = styled.div `
     top: -8px;
     left: 30px;
     z-index: 1;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.2px;
     text-align: center;
     background: #f7f7fc;
@@ -84,7 +84,7 @@ const Summary = () => {
     return (
         <StyledSummary>
             <div className={'section'}>
-                <h1 className={'sectionName'}>Расскажите о себе</h1>
+                <h1 className={'sectionName'} id={'summary'} >Расскажите о себе</h1>
                 <p className={'description'}>Напишите 2-4 предложения о себе, чтобы заинтересовать работодателя</p>
             </div>
             <div className={'boxDescription'}>

@@ -11,13 +11,13 @@ const StyledDropdown = styled.div`
   .labelText {
     font-family: ${props => props.theme.baseFont};
     color: ${props => props.theme.accentColor};
-    font-size: 18px;
+    font-size: 16px;
     min-width: 240px;
     text-align: center;
   }
 
   .selectValue {
-    font-size: 22px;
+    font-size: 18px;
     font-family: ${props => props.theme.baseFont};
     border: 1px solid #ccc;
     box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 1px 3px rgba(0, 0, 0, .1);

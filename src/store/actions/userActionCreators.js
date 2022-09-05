@@ -1,1 +1,1 @@
-export const createUserLogInAction = (userToken) => ({type: 'userLogIn', payload:userToken});
+export const createUserLogInAction = (userData) => ({type: 'userLogIn', payload:userData});

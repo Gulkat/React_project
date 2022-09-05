@@ -9,7 +9,7 @@ import Education from 'Components/Education'
 import DropdownMenu from 'Components/Dropdown/DropdownMenu';
 import Skills from 'Components/Skills';
 import Summary from 'Components/Summary';
-import ButtonToSaveResume from '../../Components/ButtonToSaveResume';
+import BtnToSaveAndViewResume from '../../Components/BtnToSaveAndViewResume';
 import { useDispatch, useSelector } from "react-redux";
 import { saveResumeAction } from "../../store/actions/CVReducer";
 import { getRenderedResumeData } from "../../store/selectors/CVSelector";
@@ -117,7 +117,7 @@ const ResumeForm = ({setColor, setFont}) => {
                         <Education/>
                         <Skills/>
                         <Summary/>
-                        <ButtonToSaveResume/>
+                        <BtnToSaveAndViewResume/>
                     </Form>
                 </Formik>
             </main>

@@ -1,4 +1,12 @@
 {
+  "users": [
+    {
+      "email": "",
+      "password": "",
+      "id": 1
+    }
+  ],
+
   "resumeList": [
     {"id": "1", "jobTitle": "FrontEnd Developer", "dateOfCreation": "12.12.2020", "updateDate": "30.12.2020"},
     {"id": "2", "jobTitle": "Data Scientist", "dateOfCreation": "05.01.2021", "updateDate": ""},

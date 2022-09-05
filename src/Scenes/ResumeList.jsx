@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import {fetchResumeList} from '../api/ResumeApi/resumeApi';
+import { fetchResumeList } from '../api/ResumeApi/resumeApi';
+
 import ResumeTable from './ResumeTable';
 import Loading from '../Components/Loading';
 import EmptyList from '../Components/EmptyList';
@@ -20,19 +21,19 @@ const StyledResumeList = styled.div`
 
 const ResumeList = () => {
     const [resumeList, setResumeList] = useState(undefined);
-    // let {resumeID} = useParams();
+    let {id} = useParams();
 
     const columns = [
-        {name:"Должность", dataKey:"jobTitle"},
-        {name:"Дата создания", dataKey:"dateOfCreation"},
-        {name:"Дата обновления", dataKey: "updateDate"}
-    ]
+        {name:'Должность', dataKey: 'jobTitle'},
+        {name:'Дата создания', dataKey: 'dateOfCreation'},
+        {name:'Дата обновления', dataKey: 'updateDate'}
+    ];
 
     const getResumeList = () => {
         fetchResumeList().then(({data}) => {
             setResumeList(data);
-        }).catch(error => {error(error.response.data)});
-    }
+        }).catch(error => console.log(error));
+    };
 
     useEffect(() => {
         getResumeList();
@@ -40,18 +41,18 @@ const ResumeList = () => {
 
 
     const getResumeTable = () => {
-        if(resumeList === undefined) return <Loading/>
-        if (!resumeList.length) return <EmptyList/>
+        if(resumeList === undefined) return <Loading/>;
+        if (!resumeList.length) return <EmptyList/>;
         return <ResumeTable columnsFromProps={columns} tableDataFromProps={resumeList} isPaginable pageSize={5}/>
-    }
+    };
 
     return (
         <StyledResumeList>
             <div className={'nameTable'}>Список сохраненных резюме</div>
 
-            {getResumeTable()}
+            {getResumeTable()};
         </StyledResumeList>
-    )
-}
+    );
+};
 
-export default ResumeList
+export default ResumeList;

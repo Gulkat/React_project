@@ -54,7 +54,7 @@ const StyledButtonToStart = styled.div`
   }
 `
 
-const ButtonToStart = () => {
+const StartPage = () => {
     return (
         <StyledButtonToStart>
             <button className={'start'}>
@@ -65,4 +65,4 @@ const ButtonToStart = () => {
     )
 }
 
-export default ButtonToStart
+export default StartPage

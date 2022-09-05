@@ -12,16 +12,15 @@ const StyledHeader = styled.div`
     flex-wrap: wrap;
     padding: 20px 0 0 0;
     margin: 0;
-    width: 100%;
   }
   .headerItem {
     list-style-type: none;
   }
   .headerLink {
-    font-family: "Century Gothic";
+    font-family: ${props => props.theme.baseFont};
     text-decoration: none;
     color: ${props => props.theme.accentColor};
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
   }
   .headerLink:hover {
@@ -43,11 +42,11 @@ class Header extends React.Component {
             <StyledHeader>
                 <nav className={'headerNav'}>
                     <ul className={'headerMenu'}>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Контакты</a></li>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Опыт</a></li>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Образование</a></li>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Навыки</a></li>
-                        <li className={'headerItem'}><a href={''} className={'headerLink'}>Обо мне</a></li>
+                        <li className={'headerItem'}><a href={'#personalDetails'} className={'headerLink'}>Контакты</a></li>
+                        <li className={'headerItem'}><a href={'#employment'} className={'headerLink'}>Опыт</a></li>
+                        <li className={'headerItem'}><a href={'#education'} className={'headerLink'}>Образование</a></li>
+                        <li className={'headerItem'}><a href={'#skills'} className={'headerLink'}>Навыки</a></li>
+                        <li className={'headerItem'}><a href={'#summary'} className={'headerLink'}>Обо мне</a></li>
                     </ul>
                 </nav>
             </StyledHeader>

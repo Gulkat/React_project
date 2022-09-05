@@ -13,13 +13,13 @@ const StyledPersonalDetails = styled.div`
 
   .sectionName {
     color: #33334f;
-    font-size: 35px;
+    font-size: 30px;
     margin: 0;
   }
 
   .description {
     color: ${props => props.theme.accentColor};
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 50px;
   }
 
@@ -46,7 +46,7 @@ const StyledPersonalDetails = styled.div`
     top: -8px;
     left: 30px;
     z-index: 1;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.2px;
     text-align: center;
     background: #f7f7fc;
@@ -92,7 +92,7 @@ const PersonalDetails = () => {
     return (
         <StyledPersonalDetails>
             <div className={'section'}>
-                <h1 className={'sectionName'}>Введите контактную информацию</h1>
+                <h1 className={'sectionName'} id={'personalDetails'}  >Введите контактную информацию</h1>
                 <p className={'description'}>Это позволит работодателю узнать, как с вами можно связаться</p>
             </div>
 

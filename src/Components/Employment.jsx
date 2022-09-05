@@ -15,7 +15,7 @@ const StyledEmployment = styled.div`
   }
   .sectionName {
     color: #33334f;
-    font-size: 35px;
+    font-size: 30px;
     margin: 0;
   }
   .description {
@@ -56,7 +56,7 @@ const StyledEmployment = styled.div`
     border: none;
     background-color: #f7f7fc;
     font-family: ${props => props.theme.baseFont};
-    font-size: 20px;
+    font-size: 16px;
     color: ${props => props.theme.accentColor};
   }
   .deleteBtn:hover {
@@ -84,7 +84,7 @@ const StyledEmployment = styled.div`
     top: -8px;
     left: 30px;
     z-index: 1;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.2px;
     text-align: center;
     background: #f7f7fc;
@@ -125,20 +125,21 @@ const StyledEmployment = styled.div`
   }
   .boxDate {
     display: flex;
+    justify-content: space-between;
     position: relative;
     z-index: 150;
     width: 100%;
   }
   .dateStart {
-    width: 50%;
+    width: 45%;
     position: relative;
   }
   .dateFinish {
-    width: 50%;
+    width: 45%;
     position: relative;
   }
   .inputDate {
-    width: 80%;
+    width: 85%;
     position: relative;
     overflow: hidden;
     font-size: 15px;
@@ -156,7 +157,7 @@ const StyledEmployment = styled.div`
     top: -8px;
     left: 15px;
     z-index: 1;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.2px;
     text-align: center;
     background: #f7f7fc;
@@ -172,7 +173,7 @@ const StyledEmployment = styled.div`
     top: -8px;
     left: 15px;
     z-index: 1;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.2px;
     text-align: center;
     background: #f7f7fc;
@@ -236,7 +237,7 @@ const Employment = () => {
 
     return (
         <StyledEmployment>
-            <div className={'section'}>
+            <div className={'section'} id={'employment'}>
                 <h1 className={'sectionName'}>Расскажите о своем опыте</h1>
                 <p className={'description'}>Начните с вашей недавней работы</p>
             </div>

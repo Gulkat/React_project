@@ -9,6 +9,7 @@ import GlobalErrorBoundary from 'HOC/GlobalErrorBoundary';
 import GlobalThemeWrapper from 'HOC/GlobalThemeWrapper';
 import RootRoute from 'Routes/RootRoute';
 import Loading from 'Components/Loading';
+import LoginRoute from './Routes/LoginRouter';
 
 class App extends React.PureComponent {
     constructor(props) {
@@ -23,7 +24,7 @@ class App extends React.PureComponent {
                          <BrowserRouter>
                              <GlobalThemeProvider>
                                  <GlobalErrorBoundary>
-                                     <RootRoute/>
+                                     <LoginRoute/>
                                  </GlobalErrorBoundary>
                              </GlobalThemeProvider>
                          </BrowserRouter>

@@ -1,12 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 import { Formik, Form } from 'formik';
 import FormikInput from '../Components/FormikFields/FormikInput';
 import { useDispatch } from 'react-redux';
 import { createUserLogInAction } from '../store/actions/userActionCreators';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants/routes';
 
 
 const StyledLoginPage = styled.div`
@@ -49,6 +47,12 @@ const StyledLoginPage = styled.div`
     width: auto;
     will-change: box-shadow;
     border-radius: 4px;
+    font-weight: 900;
+    font-size: 20px;
+    font-family: ${props => props.theme.baseFont};
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
   }
   .btnSubmit:hover {
     background-color: rgb(22, 136, 254);
@@ -58,20 +62,7 @@ const StyledLoginPage = styled.div`
     outline: none;
     box-shadow: 0 0 0 4px #cbd6ee;
   }
-  .linkToLogIn {
-    margin-top: 70px ;
-    padding: 20px;
-    font-weight: 900;
-    border: none;
-    font-size: 20px;  
-    font-family: ${props => props.theme.baseFont};
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-  }
-  .linkToLogIn:visited {
-    color: #fff;
-  }
+
 `
 
 const LoginPage = () => {
@@ -106,15 +97,14 @@ const LoginPage = () => {
         <StyledLoginPage>
             <Formik initialValues={initialFormValues}
                     validate={validateForm}
-                    onSubmit={(formValues) =>
-                        dispatch(createUserLogInAction({email: formValues.email, password: formValues.password}))}>
+                    onSubmit={(formValues) => {
+                        dispatch(createUserLogInAction({email: formValues.email, password: formValues.password}));
+                    }}>
                 <Form className={'loginForm'}>
                     <h3 className={'formTitle'}>Вход на сайт</h3>
                     <FormikInput name={'email'} type={'email'} className={'email'} placeholder={'Email'}/>
                     <FormikInput name={'password'} type={'password'} className={'password'} placeholder={'Password'}/>
-                    <button type={'submit'} className={'btnSubmit'}>
-                        <Link to={ROUTES.startPage} className={'linkToLogIn'}>Войти</Link>
-                    </button>
+                    <button type={'submit'} className={'btnSubmit'}>Войти</button>
                 </Form>
             </Formik>
         </StyledLoginPage>

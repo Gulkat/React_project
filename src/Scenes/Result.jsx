@@ -23,7 +23,7 @@ const StyledResult = styled.div`
     display: table;
     background-color: #fff;
     margin: 30px auto ;
-    width: 800px;
+    width: 650px;
     height: 100%;
   }
   .resultLeft {
@@ -31,8 +31,11 @@ const StyledResult = styled.div`
     background-color: #f7f7fc;
     max-width: 210px;
     display: table-cell;
-    padding: 50px 30px 20px;
+    padding: 30px 30px 20px;
 }
+  .titleBox {
+    font-size: 20px;
+  }
   .resultBox {
     display: flex;
     justify-content: center;
@@ -48,12 +51,13 @@ const StyledResult = styled.div`
     display: flex;
     gap: 10px;
     margin-top: 10px;
+    font-size: 14px;
   }
   .values {
     margin-bottom: 20px;
   }
   .resultRight {
-    padding: 50px 30px 20px;
+    padding: 30px 30px 20px;
   }
   .data {
     font-weight: bold;

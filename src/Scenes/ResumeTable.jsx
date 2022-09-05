@@ -14,12 +14,12 @@ const StyledResumeTable = styled.div`
   .inputForFilter {
     margin-bottom: 20px;
     font-size: 20px;
-    font-family: "Century Gothic", sans-serif;
+    font-family: ${props => props.theme.baseFont};
     min-width: 300px;
   }
   .headerCell {
     font-size: 20px;
-    font-family: "Century Gothic", sans-serif;
+    font-family: ${props => props.theme.baseFont};
     margin: 20px;
   }
   .arrow {
@@ -62,7 +62,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
         return data.filter(entry => {
             let passed = false;
             columnsFromProps.map(columnConfig => {
-                if (entry[columnConfig.dataKey].includes(filterString)) {
+                if (entry[columnConfig.dataKey].toLowerCase().includes(filterString)) {
                     passed = true;
                 }
             })
@@ -115,7 +115,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
 
     return (
         <StyledResumeTable>
-            <input className={'inputForFilter'} type={"text"} placeholder={'Введите должность'} onChange={(e) => {setFilterString(e.target.value)}} value={filterString}/>
+            <input className={'inputForFilter'} type={"text"} placeholder={'Поиск...'} onChange={(e) => {setFilterString(e.target.value)}} value={filterString}/>
             <table>
                 <tr>
                     {columnsFromProps.map(column => {

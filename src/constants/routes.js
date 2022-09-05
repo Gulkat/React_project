@@ -3,5 +3,6 @@ export const ROUTES = {
     startPage: `/start`,
     newResume: `/new`,
     resumeList: `/resumeList`,
-    resumeID: `:resumeID`
+    resumeID: `:id`,
+    preview:`preview`
 }
