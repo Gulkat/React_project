@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { fetchResumeList } from '../api/ResumeApi/resumeApi';
+import { useParams } from 'react-router-dom';
 
+import { fetchResumeList } from '../api/ResumeApi/resumeApi';
 import ResumeTable from './ResumeTable';
 import Loading from '../Components/Loading';
 import EmptyList from '../Components/EmptyList';
-import {useParams} from 'react-router-dom';
 
 const StyledResumeList = styled.div`
     width: 80vh;
@@ -21,7 +21,6 @@ const StyledResumeList = styled.div`
 
 const ResumeList = () => {
     const [resumeList, setResumeList] = useState(undefined);
-    let {id} = useParams();
 
     const columns = [
         {name:'Должность', dataKey: 'jobTitle'},

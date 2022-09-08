@@ -6,7 +6,7 @@ import { useField } from 'formik';
 const StyledErrorForm = styled.p`
   margin-top: 0;
   color: red;
-  font-family: "Century Gothic";
+  font-family: ${props => props.theme.baseFont};
 `
 
 const FormikInput = (props) => {

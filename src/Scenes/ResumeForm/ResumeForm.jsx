@@ -11,8 +11,10 @@ import Skills from 'Components/Skills';
 import Summary from 'Components/Summary';
 import BtnToSaveAndViewResume from '../../Components/BtnToSaveAndViewResume';
 import { useDispatch, useSelector } from "react-redux";
-import { saveResumeAction } from "../../store/actions/CVReducer";
+import {saveResumeAction} from "../../store/actions/CVReducer";
 import { getRenderedResumeData } from "../../store/selectors/CVSelector";
+import {addResumeData, addResumeList} from "../../api/ResumeApi/resumeApi";
+import {dateToSendToServer} from '../../scripts/date';
 
 const StyledResumeForm = styled.div`
   padding: 0;
@@ -25,46 +27,9 @@ const StyledResumeForm = styled.div`
   left: 0;
 `
 
-const ResumeForm = ({setColor, setFont}) => {
+const ResumeForm = () => {
     const dispatch = useDispatch();
     const renderedResumeData = useSelector(getRenderedResumeData);
-
-    const initialFormValues = {
-        personalDetails: [
-            {
-                userName: "",
-                userSurname: "",
-                email: "",
-                phone: "",
-                city: "",
-                jobTitle: "",
-            }
-        ],
-        employment: [
-            {
-                positionHeld: "",
-                employer: "",
-                startDate: "",
-                endDate: "",
-                workLocation: "",
-                responsibilities: "",
-            }
-        ],
-        education: [
-            {
-                institution: "",
-                degree: "",
-                graduationDate: "",
-                locationOfTheInstitution: "",
-                description: "",
-            }
-        ],
-        skills: [
-            {
-                skill: "",
-            }
-        ],
-    };
 
     const validateForm = (formValues) => {
         let isValid = true;
@@ -95,8 +60,58 @@ const ResumeForm = ({setColor, setFont}) => {
             errorsObject.personalDetails = "Обязательно для заполнения!";
         }
 
-        if (!isValid) return errorsObject
-    }
+        if (!isValid) return errorsObject;
+    };
+
+    const handleSubmit = (formValues) => {
+        addResumeData({
+            // userName: formValues.userName,
+            // userSurname: formValues.userSurname,
+            // email: formValues.email,
+            // phone: formValues.phone,
+            // city: formValues.city,
+            // jobTitle: formValues.jobTitle,
+            // positionHeld: formValues.positionHeld,
+            // employer: formValues.employer,
+            // startDate: formValues.startDate,
+            // endDate: formValues.endDate,
+            // workLocation: formValues.workLocation,
+            // responsibilities: formValues.responsibilities,
+            // institution: formValues.institution,
+            // degree: formValues.degree,
+            // graduationDate: formValues.graduationDate,
+            // locationOfTheInstitution: formValues.locationOfTheInstitution,
+            // description: formValues.description,
+            // skill: formValues.skill
+        }).then(() => {
+            dispatch(saveResumeAction({
+                // userName: formValues.userName,
+                // userSurname: formValues.userSurname,
+                // email: formValues.email,
+                // phone: formValues.phone,
+                // city: formValues.city,
+                // jobTitle: formValues.jobTitle,
+                // positionHeld: formValues.positionHeld,
+                // employer: formValues.employer,
+                // startDate: formValues.startDate,
+                // endDate: formValues.endDate,
+                // workLocation: formValues.workLocation,
+                // responsibilities: formValues.responsibilities,
+                // institution: formValues.institution,
+                // degree: formValues.degree,
+                // graduationDate: formValues.graduationDate,
+                // locationOfTheInstitution: formValues.locationOfTheInstitution,
+                // description: formValues.description,
+                // skill: formValues.skill
+            }))
+
+        });
+        addResumeList({
+            jobTitle: formValues.jobTitle,
+            dateOfCreation: dateToSendToServer,
+            // updateDate: formValues.updateDate
+        }).then()
+    };
 
     return (
         <StyledResumeForm>
@@ -104,14 +119,16 @@ const ResumeForm = ({setColor, setFont}) => {
                 <Header/>
             </header>
             <main>
-                <DropdownMenu setColor={setColor} setFont={setFont}/>
                 <Formik initialValues={renderedResumeData}
                         validate={(formValues) => {
                         const errors = validateForm(formValues);
-                        if(!errors) dispatch(saveResumeAction(formValues))
+                        if(!errors) dispatch(saveResumeAction(formValues));
                         }}
-                        onSubmit={(formValues) => {console.log('form values', formValues)}}>
+                        onSubmit={(formValues) =>{
+                            handleSubmit(formValues)
+                        }}>
                     <Form>
+                        <DropdownMenu/>
                         <PersonalDetails/>
                         <Employment/>
                         <Education/>

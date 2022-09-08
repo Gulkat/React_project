@@ -5,6 +5,7 @@ import { Formik, Form } from 'formik';
 import FormikInput from '../Components/FormikFields/FormikInput';
 import { useDispatch } from 'react-redux';
 import { createUserLogInAction } from '../store/actions/userActionCreators';
+import {loginUser} from "../api/ResumeApi/resumeApi";
 
 
 const StyledLoginPage = styled.div`
@@ -67,9 +68,10 @@ const StyledLoginPage = styled.div`
 
 const LoginPage = () => {
     const dispatch = useDispatch();
+    let userId;
 
-    const ValidateEmail = (mail) => {
-        return ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)))
+    const ValidateEmail = (email) => {
+        return ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
     }
 
     const initialFormValues = {
@@ -93,12 +95,18 @@ const LoginPage = () => {
         if (!isValid) return errorsObject
     }
 
+    const handleSubmit = (formValues) => {
+        loginUser({email: formValues.email, password: formValues.password}).then(() => {
+            dispatch(createUserLogInAction({email: formValues.email, password: formValues.password}));
+        });
+    };
+
     return (
         <StyledLoginPage>
             <Formik initialValues={initialFormValues}
                     validate={validateForm}
                     onSubmit={(formValues) => {
-                        dispatch(createUserLogInAction({email: formValues.email, password: formValues.password}));
+                        handleSubmit(formValues)
                     }}>
                 <Form className={'loginForm'}>
                     <h3 className={'formTitle'}>Вход на сайт</h3>

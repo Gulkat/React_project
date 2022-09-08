@@ -5,6 +5,7 @@ import {FieldArray, useFormikContext} from 'formik';
 import FormikInput from './FormikFields/FormikInput';
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {userInputtedDate} from "../scripts/date";
 
 const StyledEducation = styled.div`
   font-family: ${props => props.theme.baseFont};
@@ -199,7 +200,7 @@ const Education = () => {
                                                 <label className={'label'}><span>Год окончания</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} type={'date'} placeholder={'Выберите дату'} name={`education.${index}.graduationDate`}/>
+                                                <FormikInput className={'input'} name={`education.${index}.graduationDate`}/>
                                             </div>
                                             <div className={'box'}>
                                                 <label className={'label'}><span>Город</span>

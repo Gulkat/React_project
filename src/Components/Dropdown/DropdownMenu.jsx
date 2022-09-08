@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 import Dropdown from "./Dropdown";
@@ -14,28 +14,25 @@ const StyledDropdownMenu = styled.div`
   }
 `
 
-class DropdownMenu extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
+const DropdownMenu = () => {
+    const [color, setColor] = useState();
+    const [font, setFont] = useState();
 
-    handleColorSelect(colorId) {
-        this.props.setColor(COLOR.find(color => color.colorId === colorId).hexNumber)
-    }
-    handleFontSelect(fontId) {
-        this.props.setFont(FONT.find(font => font.fontId === fontId).font)
-    }
+    const handleColorSelect = (colorId) => {
+        setColor(COLOR.find(color => color.colorId === colorId).hexNumber)
+    };
+    const handleFontSelect = (fontId) => {
+        setFont(FONT.find(font => font.fontId === fontId).font)
+    };
 
-    render() {
         return (
             <StyledDropdownMenu>
                 <div className={'dropdownWrapper'}>
-                    <Dropdown options={COLOR} idKey={'colorId'} nameKey={'name'} handleSelect={this.handleColorSelect.bind(this)} label={'Цвет оформления'}/>
-                    <Dropdown options={FONT} idKey={'fontId'} nameKey={'name'} handleSelect={this.handleFontSelect.bind(this)} label={'Шрифт оформления'}/>
+                    <Dropdown options={COLOR} idKey={'colorId'} nameKey={'name'} handleSelect={handleColorSelect} name={'color'} label={'Цвет оформления'}/>
+                    <Dropdown options={FONT} idKey={'fontId'} nameKey={'name'} handleSelect={handleFontSelect} name={'font'} label={'Шрифт оформления'}/>
                 </div>
             </StyledDropdownMenu>
-        )
-    }
-}
+        );
+};
 
-export default DropdownMenu
+export default DropdownMenu;

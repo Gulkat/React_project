@@ -4,5 +4,5 @@ export const ROUTES = {
     newResume: `/new`,
     resumeList: `/resumeList`,
     resumeID: `:id`,
-    preview:`preview`
+    preview:`/preview/:id`
 }
