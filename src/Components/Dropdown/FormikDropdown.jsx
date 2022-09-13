@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useField } from 'formik';
 
 const StyledDropdown = styled.div`
   display: flex;
@@ -27,11 +28,12 @@ const StyledDropdown = styled.div`
   }
 `
 
-function Dropdown({options, nameKey, idKey, handleSelect, label, value}) {
+function FormikDropdown({options, nameKey, idKey, handleSelect, label, value, name}) {
+    const [field, meta, helpers] = useField(name);
 
     return <StyledDropdown>
         <p className={'labelText'}>{label}</p>
-        <select value={value} onChange={(event) => handleSelect(event.target.value)} className={'selectValue'}>
+        <select value={field.value} onChange={(event) => helpers.setValue(event.target.value)} className={'selectValue'}>
             {options.map(option => {
                 return <option key={option[idKey]} value={option[idKey]}>{option[nameKey]}</option>;
             })};
@@ -39,4 +41,4 @@ function Dropdown({options, nameKey, idKey, handleSelect, label, value}) {
     </StyledDropdown>;
 }
 
-export default Dropdown;
+export default FormikDropdown;

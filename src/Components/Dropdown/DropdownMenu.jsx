@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-import Dropdown from "./Dropdown";
+import FormikDropdown from './FormikDropdown';
 import {COLOR} from "constants/colorForm";
 import {FONT} from "constants/fontForm";
 
@@ -28,8 +28,8 @@ const DropdownMenu = () => {
         return (
             <StyledDropdownMenu>
                 <div className={'dropdownWrapper'}>
-                    <Dropdown options={COLOR} idKey={'colorId'} nameKey={'name'} handleSelect={handleColorSelect} name={'color'} label={'Цвет оформления'}/>
-                    <Dropdown options={FONT} idKey={'fontId'} nameKey={'name'} handleSelect={handleFontSelect} name={'font'} label={'Шрифт оформления'}/>
+                    <FormikDropdown options={COLOR} idKey={'colorId'} nameKey={'name'} name={'color'} label={'Цвет оформления'}/>
+                    <FormikDropdown options={FONT} idKey={'fontId'} nameKey={'name'} name={'font'} label={'Шрифт оформления'}/>
                 </div>
             </StyledDropdownMenu>
         );

@@ -6,3 +6,7 @@ export const ROUTES = {
     resumeID: `:id`,
     preview:`/preview/:id`
 }
+
+export const PATHS = {
+    preview: (id) => (`/preview/${id}`),
+}

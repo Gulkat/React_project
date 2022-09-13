@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,8 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { getRenderedResumeData } from '../store/selectors/CVSelector';
+import { COLOR } from '../constants/colorForm';
+import { FONT } from '../constants/fontForm';
 
 const StyledResult = styled.div`
   .resultWrapper{
@@ -70,10 +72,23 @@ const StyledResult = styled.div`
     border-bottom: 1px solid;
     border-color:  ${props => props.theme.accentColor};
   }
-`
+`;
 
-const Result = ({color, font}) => {
+const Result = () => {
     const renderedResumeData = useSelector(getRenderedResumeData);
+
+    const color = useMemo(() => {
+        const colorObj = COLOR.find(color => renderedResumeData.color === color.colorId);
+        console.log('color is', renderedResumeData.color, renderedResumeData, colorObj);
+        if (colorObj) return colorObj.hexNumber;
+        return "black";
+    }, [renderedResumeData.color]);
+
+    const font = useMemo(() => {
+        const fontObj = FONT.find(font => renderedResumeData.font === font.fontId);
+        if (fontObj) return fontObj.font;
+        return `${props => props.theme.baseFont}`;
+    }, [renderedResumeData.font]);
 
     return (
         <StyledResult color={color} font={font}>

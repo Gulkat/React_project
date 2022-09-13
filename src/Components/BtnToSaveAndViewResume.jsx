@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { ROUTES } from '../constants/routes';
+import { PATHS } from '../constants/routes';
 
 const StyledButtonToSaveResume = styled.div`
   text-align: center;
@@ -41,7 +41,7 @@ const BtnToSaveAndViewResume = () => {
         <StyledButtonToSaveResume>
             <button className={'btnToSaveResume'} type={'submit'}>Сохранить резюме</button>
             <button className={'btnToViewResume'} type={'button'}>
-                <Link to={ROUTES.preview} className={'linkToView'}>Посмотреть резюме</Link>
+                <Link to={PATHS.preview} className={'linkToView'}>Посмотреть резюме</Link>
             </button>
         </StyledButtonToSaveResume>
     )
