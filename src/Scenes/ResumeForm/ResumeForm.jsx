@@ -13,7 +13,7 @@ import BtnToSaveAndViewResume from '../../Components/BtnToSaveAndViewResume';
 import { useDispatch, useSelector } from "react-redux";
 import {saveResumeAction} from "../../store/actions/CVReducer";
 import { getRenderedResumeData } from "../../store/selectors/CVSelector";
-import {addResumeData, addResumeList} from "../../api/ResumeApi/resumeApi";
+import {addResumeData, addResumeList, updateResumeData} from "../../api/ResumeApi/resumeApi";
 import {dateToSendToServer} from '../../scripts/date';
 
 const StyledResumeForm = styled.div`
@@ -64,52 +64,13 @@ const ResumeForm = () => {
     };
 
     const handleSubmit = (formValues) => {
-        addResumeData({
-            // userName: formValues.userName,
-            // userSurname: formValues.userSurname,
-            // email: formValues.email,
-            // phone: formValues.phone,
-            // city: formValues.city,
-            // jobTitle: formValues.jobTitle,
-            // positionHeld: formValues.positionHeld,
-            // employer: formValues.employer,
-            // startDate: formValues.startDate,
-            // endDate: formValues.endDate,
-            // workLocation: formValues.workLocation,
-            // responsibilities: formValues.responsibilities,
-            // institution: formValues.institution,
-            // degree: formValues.degree,
-            // graduationDate: formValues.graduationDate,
-            // locationOfTheInstitution: formValues.locationOfTheInstitution,
-            // description: formValues.description,
-            // skill: formValues.skill
-        }).then(() => {
-            dispatch(saveResumeAction({
-                // userName: formValues.userName,
-                // userSurname: formValues.userSurname,
-                // email: formValues.email,
-                // phone: formValues.phone,
-                // city: formValues.city,
-                // jobTitle: formValues.jobTitle,
-                // positionHeld: formValues.positionHeld,
-                // employer: formValues.employer,
-                // startDate: formValues.startDate,
-                // endDate: formValues.endDate,
-                // workLocation: formValues.workLocation,
-                // responsibilities: formValues.responsibilities,
-                // institution: formValues.institution,
-                // degree: formValues.degree,
-                // graduationDate: formValues.graduationDate,
-                // locationOfTheInstitution: formValues.locationOfTheInstitution,
-                // description: formValues.description,
-                // skill: formValues.skill
-            }))
-
+        addResumeData(formValues).then(() => {
+            dispatch(saveResumeAction(formValues))
         });
         addResumeList({
             jobTitle: formValues.jobTitle,
             dateOfCreation: dateToSendToServer,
-            // updateDate: formValues.updateDate
+            updateDate: updateResumeData
         }).then()
     };
 

@@ -41,7 +41,7 @@ const BtnToSaveAndViewResume = () => {
         <StyledButtonToSaveResume>
             <button className={'btnToSaveResume'} type={'submit'}>Сохранить резюме</button>
             <button className={'btnToViewResume'} type={'button'}>
-                <Link to={PATHS.preview} className={'linkToView'}>Посмотреть резюме</Link>
+                <Link to={PATHS.preview('')} className={'linkToView'}>Посмотреть резюме</Link>
             </button>
         </StyledButtonToSaveResume>
     )

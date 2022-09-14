@@ -79,7 +79,7 @@ const Result = () => {
 
     const color = useMemo(() => {
         const colorObj = COLOR.find(color => renderedResumeData.color === color.colorId);
-        console.log('color is', renderedResumeData.color, renderedResumeData, colorObj);
+        console.log('resume data is', renderedResumeData);
         if (colorObj) return colorObj.hexNumber;
         return "black";
     }, [renderedResumeData.color]);

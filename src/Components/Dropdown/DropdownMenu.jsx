@@ -15,15 +15,15 @@ const StyledDropdownMenu = styled.div`
 `
 
 const DropdownMenu = () => {
-    const [color, setColor] = useState();
-    const [font, setFont] = useState();
-
-    const handleColorSelect = (colorId) => {
-        setColor(COLOR.find(color => color.colorId === colorId).hexNumber)
-    };
-    const handleFontSelect = (fontId) => {
-        setFont(FONT.find(font => font.fontId === fontId).font)
-    };
+    // const [color, setColor] = useState();
+    // const [font, setFont] = useState();
+    //
+    // const handleColorSelect = (colorId) => {
+    //     setColor(COLOR.find(color => color.colorId === colorId).hexNumber)
+    // };
+    // const handleFontSelect = (fontId) => {
+    //     setFont(FONT.find(font => font.fontId === fontId).font)
+    // };
 
         return (
             <StyledDropdownMenu>
