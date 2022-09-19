@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 import Result from 'Scenes/Result';
-import {useParams} from "react-router-dom";
-import {saveResumeAction} from "../store/actions/CVReducer";
-import {fetchResumeData} from "../api/ResumeApi/resumeApi";
+import { useParams } from "react-router-dom";
+import { saveResumeAction } from "../store/actions/CVReducer";
+import { fetchResumeData } from "../api/ResumeApi/resumeApi";
+import { useDispatch } from "react-redux";
 
 const StyledResumePreview = styled.div`
   height: calc(100vh - 150px);
@@ -21,7 +22,8 @@ const StyledResumePreview = styled.div`
 
 const ResumePreview = () => {
     let {id} = useParams();
-    const [loadingState, setLoadingState] = useState(!!id)
+    const [loadingState, setLoadingState] = useState(!!id);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (id) {

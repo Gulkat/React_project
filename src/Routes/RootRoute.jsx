@@ -24,6 +24,6 @@ const RootRoute = () => {
             <Route path={'*'} element={'Страница не найдена!'}/>
         </Routes>
     )
-}
+};
 
 export default RootRoute;

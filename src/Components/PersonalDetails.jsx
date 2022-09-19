@@ -103,37 +103,37 @@ const PersonalDetails = () => {
                             <label className={'label'}><span>Имя</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name={'userName'} className={'input'} type={'text'}/>
+                            <FormikInput name={'personalDetails.userName'} className={'input'} type={'text'}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Фамилия</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name={'userSurname'} className={'input'} type={'text'}/>
+                            <FormikInput name={'personalDetails.userSurname'} className={'input'} type={'text'}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Email</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name={'email'} className={'input'} type={'email'}/>
+                            <FormikInput name={'personalDetails.email'} className={'input'} type={'email'}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Телефон</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name= {'phone'} className={'input'} type={'tel'}/>
+                            <FormikInput name= {'personalDetails.phone'} className={'input'} type={'tel'}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Город</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name={'city'} className={'input'} type={'text'}/>
+                            <FormikInput name={'personalDetails.city'} className={'input'} type={'text'}/>
                         </div>
                         <div className={'box'}>
                             <label className={'label'}><span>Должность</span>
                                 <div className={'overlay_background'}></div>
                             </label>
-                            <FormikInput name={'jobTitle'} className={'input'} type={'text'}/>
+                            <FormikInput name={'personalDetails.jobTitle'} className={'input'} type={'text'}/>
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@ const StyledResumeTable = styled.div`
   }
 `
 
-const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSize=6}) => {
+const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSize=6, rowClickHandler}) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [filterString, setFilterString] = useState(searchParams.filterString || "");
     const [page, setPage] = useState(searchParams.page || 0);
@@ -72,7 +72,8 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
 
     const sortTable = (data, sortBy, sortDirection) => {
         return data.sort((a, b) => {
-            return a[sortBy].localeCompare(b[sortBy]) * sortDirection
+            if (a[sortBy] && b[sortBy]) return a[sortBy].localeCompare(b[sortBy]) * sortDirection;
+            return 0
         });
     };
 
@@ -100,9 +101,10 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
     }, [filterString, sortBy, sortDirection, page, tableDataFromProps]);
 
     const getTableBody = (tableData) => {
-        if (tableData && tableData.length) return  tableData.map(entry => (
-                <tr>
+        if (tableData && tableData.length) return tableData.map(entry => (
+                <tr onClick={() => {if (rowClickHandler) rowClickHandler(entry)}}>
                     {columnsFromProps.map(column => {
+                        if (column.cellRenderer) return column.cellRenderer(entry[column.dataKey], entry);
                         return <td>
                             {entry[column.dataKey]}
                         </td>
@@ -117,6 +119,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
         <StyledResumeTable>
             <input className={'inputForFilter'} type={"text"} placeholder={'Поиск...'} onChange={(e) => {setFilterString(e.target.value)}} value={filterString}/>
             <table>
+                <tbody>
                 <tr>
                     {columnsFromProps.map(column => {
                         return <td onClick={handleSortClick(column.dataKey)}>
@@ -130,6 +133,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
                     })}
                 </tr>
                 {getTableBody(tableData)}
+                </tbody>
 
                 {isPaginable &&
                     <tfoot>

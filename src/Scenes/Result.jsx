@@ -100,15 +100,15 @@ const Result = () => {
                                 <h2 className={'titleBox'}>Контакты</h2>
                                 <div className={'contact'}>
                                     <div className={'contactIcon'}><FontAwesomeIcon icon={faEnvelope} /></div>
-                                    <div className={'contactText'}>{renderedResumeData.email}</div>
+                                    <div className={'contactText'}>{renderedResumeData.personalDetails.email}</div>
                                 </div>
                                 <div className={'contact'}>
                                     <div className={'contactIcon'}><FontAwesomeIcon icon={faPhone} /></div>
-                                    <div className={'contactText'}>{renderedResumeData.phone}</div>
+                                    <div className={'contactText'}>{renderedResumeData.personalDetails.phone}</div>
                                 </div>
                                 <div className={'contact'}>
                                     <div className={'contactIcon'}><FontAwesomeIcon icon={faLocationDot} /></div>
-                                    <div className={'contactText'}>{renderedResumeData.city}</div>
+                                    <div className={'contactText'}>{renderedResumeData.personalDetails.city}</div>
                                 </div>
                             </div>
                             <div className={'profileBox'}>
@@ -121,10 +121,10 @@ const Result = () => {
                     </div>
                     <div className={'resultRight'}>
                         <div className={'resultBox'}>
-                            <h1 className={'resultName'}>{renderedResumeData.userName}<span className={'space'}>f</span></h1>
-                            <h1 className={'resultName'}>{renderedResumeData.userSurname}</h1>
+                            <h1 className={'resultName'}>{renderedResumeData.personalDetails.userName}<span className={'space'}>f</span></h1>
+                            <h1 className={'resultName'}>{renderedResumeData.personalDetails.userSurname}</h1>
                         </div>
-                        <p className={'resultSpeciality'}>{renderedResumeData.jobTitle}</p>
+                        <p className={'resultSpeciality'}>{renderedResumeData.personalDetails.jobTitle}</p>
                         <div className={'work'}>
                             <div className={'workBox'}>
                                 <h2 className={'titleBox'}>Обо мне</h2>
