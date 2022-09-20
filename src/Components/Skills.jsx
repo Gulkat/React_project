@@ -9,7 +9,7 @@ import FormikInput from './FormikFields/FormikInput';
 const StyledSkills = styled.div `
   font-family: ${props => props.theme.baseFont};
   box-sizing: border-box;
-  padding: 20px 50px 50px;
+  padding: 55px 50px 20px;
 
   .section {
     text-align: center;
@@ -141,9 +141,9 @@ const Skills = () => {
     const { values, submitForm } = useFormikContext();
 
     return (
-        <StyledSkills>
+        <StyledSkills id={'skills'}>
             <div className={'section'}>
-                <h1 className={'sectionName'} id={'skills'} >Расскажите о своих навыках</h1>
+                <h1 className={'sectionName'}  >Расскажите о своих навыках</h1>
                 <p className={'description'}>Начните с того, в котором вы наиболее опытны</p>
             </div>
 

@@ -6,7 +6,7 @@ import {useFormikContext} from "formik";
 const StyledPersonalDetails = styled.div`
   font-family: ${props => props.theme.baseFont};
   box-sizing: border-box;
-  padding: 20px 50px 50px;
+  padding: 55px 50px 20px;
 
   .section {
     text-align: center;
@@ -91,9 +91,9 @@ const StyledPersonalDetails = styled.div`
 const PersonalDetails = () => {
 
     return (
-        <StyledPersonalDetails>
+        <StyledPersonalDetails id={'personalDetails'}>
             <div className={'section'}>
-                <h1 className={'sectionName'} id={'personalDetails'}>Введите контактную информацию</h1>
+                <h1 className={'sectionName'}>Введите контактную информацию</h1>
                 <p className={'description'}>Это позволит работодателю узнать, как с вами можно связаться</p>
             </div>
 

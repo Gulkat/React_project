@@ -17,11 +17,20 @@ const StyledResumeTable = styled.div`
     font-family: ${props => props.theme.baseFont};
     min-width: 300px;
   }
+  table{
+    font-family: ${props => props.theme.baseFont};
+    text-align: center;
+    border-collapse: collapse;
+  }
+  td{
+    padding: 10px;
+  }
   .headerCell {
     font-size: 20px;
     font-family: ${props => props.theme.baseFont};
     margin: 20px;
   }
+  
   .arrow {
     border: solid black;
     border-width: 0 3px 3px 0;
@@ -35,6 +44,11 @@ const StyledResumeTable = styled.div`
       transform: rotate(45deg);
     }
   }
+
+  .btnTablePagination {
+    
+  }
+  
 `
 
 const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSize=6, rowClickHandler}) => {
@@ -139,13 +153,13 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
                     <tfoot>
                     <tr>
                         <td>
-                            {(page > 0) && <button type={"button"} onClick={() => {setPage(page-1)}}>Prev page</button>}
+                            {(page > 0) && <button className={"btnTablePagination"} type={"button"} onClick={() => {setPage(page-1)}}>Назад</button>}
                         </td>
                         <td>
                             {page}
                         </td>
                         <td>
-                            {((page + 1)*pageSize < filteredData.length) && <button type={"button"} onClick={() => {setPage(page+1)}}>Next page</button>}
+                            {((page + 1)*pageSize < filteredData.length) && <button  className={"btnTablePagination"} type={"button"} onClick={() => {setPage(page+1)}}>Следующая</button>}
                         </td>
                     </tr>
                     </tfoot>

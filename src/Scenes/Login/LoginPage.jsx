@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { Formik, Form } from 'formik';
-import FormikInput from '../Components/FormikFields/FormikInput';
+import FormikInput from '../../Components/FormikFields/FormikInput';
 import { useDispatch } from 'react-redux';
-import { createUserLogInAction } from '../store/actions/userActionCreators';
-import {loginUser} from "../api/ResumeApi/resumeApi";
+import { createUserLogInAction } from '../../store/actions/userActionCreators';
+import {LoginUser} from "../../api/ResumeApi/resumeApi";
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../constants/routes";
 
 
 const StyledLoginPage = styled.div`
@@ -15,7 +17,7 @@ const StyledLoginPage = styled.div`
 
   .loginForm {
     border: 2px solid rgb(230,230,255);
-    height: 400px;
+    height: 500px;
     text-align: center;
     
   }
@@ -68,11 +70,10 @@ const StyledLoginPage = styled.div`
 
 const LoginPage = () => {
     const dispatch = useDispatch();
-    let userId;
 
     const ValidateEmail = (email) => {
         return ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
-    }
+    };
 
     const initialFormValues = {
         email: "",
@@ -93,10 +94,10 @@ const LoginPage = () => {
         }
 
         if (!isValid) return errorsObject
-    }
+    };
 
     const handleSubmit = (formValues) => {
-        loginUser({email: formValues.email, password: formValues.password}).then(() => {
+        LoginUser({email: formValues.email, password: formValues.password}).then(() => {
             dispatch(createUserLogInAction({email: formValues.email, password: formValues.password}));
         });
     };
@@ -110,14 +111,15 @@ const LoginPage = () => {
                     }}>
                 <Form className={'loginForm'}>
                     <h3 className={'formTitle'}>Вход на сайт</h3>
-                    <FormikInput name={'email'} type={'email'} className={'email'} placeholder={'Email'}/>
-                    <FormikInput name={'password'} type={'password'} className={'password'} placeholder={'Password'}/>
+                    <FormikInput name={'email'} type={'email'} placeholder={'Email'}/>
+                    <FormikInput name={'password'} type={'password'} placeholder={'Password'}/>
                     <button type={'submit'} className={'btnSubmit'}>Войти</button>
+                    <Link to={ROUTES.initialPage}>Зарегистрироваться</Link>
                 </Form>
             </Formik>
         </StyledLoginPage>
     )
-}
+};
 
 
-export default LoginPage
+export default LoginPage;

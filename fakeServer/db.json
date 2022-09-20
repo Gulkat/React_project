@@ -1,9 +1,16 @@
 {
   "users": [
     {
+      "userName": "",
       "email": "",
       "password": "",
       "id": 1
+    },
+    {
+      "email": "kateguleshova@gmail.com",
+      "password": "$2a$10$EEfRC.lR1f4/mlJlIYU4H.HB6umsuZqaXUs7HFtysY8wmJV.SRAza",
+      "userName": "Катерина",
+      "id": 2
     }
   ],
   "resumeList": [
@@ -12,11 +19,306 @@
       "jobTitle": "",
       "dateOfCreation": "",
       "updateDate": ""
+    },
+    {
+      "dateOfCreation": "2022-09-20T12:25:36.101Z",
+      "updateDate": "2022-09-20T12:25:36.101Z",
+      "id": 2
+    },
+    {
+      "dateOfCreation": "2022-09-20T12:25:36.101Z",
+      "updateDate": "2022-09-20T12:25:36.101Z",
+      "id": 3
+    },
+    {
+      "dateOfCreation": "2022-09-20T12:25:36.101Z",
+      "updateDate": "2022-09-20T12:25:36.101Z",
+      "id": 4
+    },
+    {
+      "dateOfCreation": "2022-09-20T12:25:36.101Z",
+      "updateDate": "2022-09-20T12:25:36.101Z",
+      "id": 5
+    },
+    {
+      "dateOfCreation": "2022-09-20T12:25:36.101Z",
+      "updateDate": "2022-09-20T12:25:36.101Z",
+      "id": 6
+    },
+    {
+      "dateOfCreation": "2022-09-20T12:25:36.101Z",
+      "updateDate": "2022-09-20T12:25:36.101Z",
+      "id": 7
+    },
+    {
+      "dateOfCreation": "2022-09-20T12:29:39.032Z",
+      "updateDate": "2022-09-20T12:29:39.032Z",
+      "id": 8
+    },
+    {
+      "dateOfCreation": "2022-09-20T12:29:39.032Z",
+      "updateDate": "2022-09-20T12:29:39.032Z",
+      "id": 9
+    },
+    {
+      "dateOfCreation": "2022-09-20T12:29:39.032Z",
+      "updateDate": "2022-09-20T12:29:39.032Z",
+      "id": 10
+    },
+    {
+      "dateOfCreation": "2022-09-20T13:01:47.856Z",
+      "updateDate": "2022-09-20T13:01:47.856Z",
+      "id": 11
+    },
+    {
+      "dateOfCreation": "2022-09-20T13:01:47.856Z",
+      "updateDate": "2022-09-20T13:01:47.856Z",
+      "id": 12
+    },
+    {
+      "dateOfCreation": "2022-09-20T13:01:47.856Z",
+      "updateDate": "2022-09-20T13:01:47.856Z",
+      "id": 13
+    },
+    {
+      "dateOfCreation": "2022-09-20T13:01:47.856Z",
+      "updateDate": "2022-09-20T13:01:47.856Z",
+      "id": 14
+    },
+    {
+      "dateOfCreation": "2022-09-20T13:01:47.856Z",
+      "updateDate": "2022-09-20T13:01:47.856Z",
+      "id": 15
     }
   ],
   "resumeData": [
     {
-      "id": 1
+      "id": 1,
+      "color": "",
+      "font": "",
+      "personalDetails": {
+        "userName": "",
+        "email": "",
+        "phone": "",
+        "city": "",
+        "jobTitle": "",
+        "userSurname": ""
+      },
+      "employment": [
+        {
+          "positionHeld": "",
+          "employer": "",
+          "startDate": "",
+          "endDate": "",
+          "workLocation": "",
+          "responsibilities": ""
+        }
+      ],
+      "education": [
+        {
+          "institution": "",
+          "degree": "",
+          "locationOfTheInstitution": "",
+          "graduationDate": "",
+          "description": ""
+        }
+      ],
+      "skills": [
+        {
+          "skill": ""
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "test@tms.com",
+        "phone": "3980228",
+        "city": "Минск",
+        "jobTitle": "Frontend Developer"
+      },
+      "employment": [
+        {}
+      ],
+      "education": [],
+      "skills": [],
+      "id": 2
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "test@tms.com",
+        "phone": "3980228",
+        "city": "Минск",
+        "jobTitle": "Frontend Developer"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-01",
+          "endDate": "2021-12",
+          "workLocation": "Минск",
+          "responsibilities": "Продажи"
+        }
+      ],
+      "education": [
+        {}
+      ],
+      "skills": [],
+      "id": 3
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "test@tms.com",
+        "phone": "3980228",
+        "city": "Минск",
+        "jobTitle": "Frontend Developer"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-01",
+          "endDate": "2021-12",
+          "workLocation": "Минск",
+          "responsibilities": "Продажи"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2014",
+          "description": "Факультет Маркетинга"
+        }
+      ],
+      "skills": [
+        {}
+      ],
+      "id": 4
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "test@tms.com",
+        "phone": "3980228",
+        "city": "Минск",
+        "jobTitle": "Frontend Developer"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-01",
+          "endDate": "2021-12",
+          "workLocation": "Минск",
+          "responsibilities": "Продажи"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2014",
+          "description": "Факультет Маркетинга"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "HTML"
+        },
+        {}
+      ],
+      "id": 5
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "test@tms.com",
+        "phone": "3980228",
+        "city": "Минск",
+        "jobTitle": "Frontend Developer"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-01",
+          "endDate": "2021-12",
+          "workLocation": "Минск",
+          "responsibilities": "Продажи"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2014",
+          "description": "Факультет Маркетинга"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "HTML"
+        },
+        {
+          "skill": "CSS"
+        }
+      ],
+      "summary": "Будущий крутой специалист",
+      "id": 6
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "test@tms.com",
+        "phone": "3980228",
+        "city": "Минск",
+        "jobTitle": "Frontend Developer"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-01",
+          "endDate": "2021-12",
+          "workLocation": "Минск",
+          "responsibilities": "Продажи"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2014",
+          "description": "Факультет Маркетинга"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "HTML"
+        },
+        {
+          "skill": "CSS"
+        }
+      ],
+      "summary": "Будущий крутой специалист",
+      "color": "3",
+      "font": "2",
+      "id": 7
     }
   ]
 }

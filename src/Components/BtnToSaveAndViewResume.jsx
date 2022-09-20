@@ -11,8 +11,9 @@ const StyledButtonToSaveResume = styled.div`
   justify-content: space-around;
   
   .btnToSaveResume, .btnToViewResume {
-    min-width: 250px;
-    font-size: 20px;
+    max-width: 240px;
+    min-width: 200px;
+    font-size: 18px;
     font-family: ${props => props.theme.baseFont};
     padding: 15px 20px;
     font-weight: 900;
@@ -26,9 +27,9 @@ const StyledButtonToSaveResume = styled.div`
     background-color: rgb(22, 136, 254);
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   }
-  .btnToSaveResume:focus, .btnToViewResume:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px #cbd6ee;
+  .btnToSaveResume:active, .btnToViewResume:active {
+    box-shadow: 0 1px 2px 0 rgb(26 115 232 / 45%), 0 2px 6px 2px rgb(26 115 232 / 30%);
+    background-color: #1a73e8 !important;
   }
   .linkToView {
     text-decoration: none;

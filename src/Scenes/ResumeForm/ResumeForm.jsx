@@ -52,18 +52,6 @@ const ResumeForm = () => {
             isValid = false;
             errorsObject.personalDetails = "Поле заполнено некорректно!";
         }
-        if(!formValues.personalDetails.phone) {
-            isValid = false;
-            errorsObject.personalDetails = "Обязательно для заполнения!";
-        }
-        if(!formValues.personalDetails.city) {
-            isValid = false;
-            errorsObject.personalDetails = "Обязательно для заполнения!";
-        }
-        if(!formValues.personalDetails.jobTitle) {
-            isValid = false;
-            errorsObject.personalDetails = "Обязательно для заполнения!";
-        }
 
         if (!isValid) return errorsObject;
     };
@@ -93,6 +81,7 @@ const ResumeForm = () => {
                         validate={(formValues) => {
                         const errors = validateForm(formValues);
                         if (!errors) dispatch(saveResumeAction(formValues));
+                        console.log('dispatch', saveResumeAction(formValues))
                         }}
                         onSubmit={(formValues) =>{
                             handleSubmit(formValues)

@@ -7,8 +7,9 @@ const StyledEmptyList = styled.div`
   align-items: center;
   .message {
     font-family: ${props => props.theme.baseFont};
-    font-size: 36px;
-    color: darkred;
+    margin-top: 100px ;
+    font-size: 28px;
+    color: ${props => props.theme.accentColor};
   }
 `
 

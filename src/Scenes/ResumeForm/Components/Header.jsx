@@ -2,16 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.div`
+  width: 47%;
   background-color: #f7f7fc;
   margin: 0;
   padding: 0;
+  position: fixed;
+  align-items: center;
+  z-index: 9;
+
+  
+  .headerNav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
   
   .headerMenu {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 20px 0 0 0;
+    padding: 10px 0 10px 10px;
     margin: 0;
+    width: 100%;
+
   }
   .headerItem {
     list-style-type: none;

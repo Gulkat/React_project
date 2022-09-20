@@ -8,6 +8,7 @@ const StyledGlobalErrorBoundary = styled.div`
   flex-direction: column;
   
   .globalErrorTitle {
+    font-family: ${props => props.theme.baseFont};
     margin-top: 100px ;
     font-size: 28px;
     color: ${props => props.theme.accentColor};

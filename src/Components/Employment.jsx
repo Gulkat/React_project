@@ -9,7 +9,8 @@ import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 const StyledEmployment = styled.div`
   font-family: ${props => props.theme.baseFont};
   box-sizing: border-box;
-  padding: 20px 50px 50px;
+  padding: 55px 50px 20px;
+  
   .section {
     text-align: center;
   }
@@ -236,8 +237,8 @@ const Employment = () => {
     const { values, submitForm } = useFormikContext();
 
     return (
-        <StyledEmployment>
-            <div className={'section'} id={'employment'}>
+        <StyledEmployment id={'employment'}>
+            <div className={'section'}>
                 <h1 className={'sectionName'}>Расскажите о своем опыте</h1>
                 <p className={'description'}>Начните с вашей недавней работы</p>
             </div>

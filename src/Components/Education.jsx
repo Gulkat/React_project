@@ -10,7 +10,7 @@ import {userInputtedDate} from "../scripts/date";
 const StyledEducation = styled.div`
   font-family: ${props => props.theme.baseFont};
   box-sizing: border-box;
-  padding: 20px 50px 50px;
+  padding: 55px 50px 20px;
 
   .section {
     text-align: center;
@@ -161,8 +161,8 @@ const Education = () => {
     const { values, submitForm } = useFormikContext()
 
     return (
-        <StyledEducation>
-            <div className={'section'} id={'education'}>
+        <StyledEducation id={'education'}>
+            <div className={'section'}>
                 <h1 className={'sectionName'}>Введите информацию о вашем образовании</h1>
                 <p className={'description'}>Сначала введите ваш последний диплом</p>
             </div>

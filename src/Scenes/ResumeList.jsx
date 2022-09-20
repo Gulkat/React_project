@@ -1,23 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useNavigate, useParams } from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 
 import { fetchResumeList } from '../api/ResumeApi/resumeApi';
 import ResumeTable from './ResumeTable';
 import Loading from '../Components/Loading';
-import EmptyList from '../Components/EmptyList';
+import EmptyList from './Errors/EmptyList';
 import { PATHS } from "../constants/routes";
 import { dateToShowToUser } from "../scripts/date";
+import {ROUTES} from "../constants/routes";
 
 const StyledResumeList = styled.div`
-    width: 80vh;
-    max-width: 900px;
-    margin: 50px auto;
+  width: 80vh;
+  max-width: 900px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
   
-    .nameTable{
-      font-size: 40px;
-      font-family: ${props => props.theme.baseFont};
-      text-align: center;
+  .nameTable{
+    font-size: 40px;
+    font-family: ${props => props.theme.baseFont};
+    text-align: center;
+  }
+  .btnWrapper {
+    margin: 100px auto;
+  }
+  .btnToStart{
+    width: 250px;
+    padding: 15px 20px;
+    font-weight: 900;
+    background-color:${props => props.theme.accentColor};
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+  }
+  .linkToView {
+    font-family: ${props => props.theme.baseFont};
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
   }
     `
 
@@ -58,9 +81,15 @@ const ResumeList = () => {
 
     return (
         <StyledResumeList>
-            <div className={'nameTable'}>Список сохраненных резюме</div>
-
-            {getResumeTable()};
+            <React.Fragment>
+                <div className={'nameTable'}>Список сохраненных резюме</div>
+                {getResumeTable()}
+            </React.Fragment>
+            <div className={'btnWrapper'}>
+                <button type={'button'} className={'btnToStart'}>
+                    <Link to={ROUTES.startPage} className={'linkToView'}>На главную</Link>
+                </button>
+            </div>
         </StyledResumeList>
     );
 };

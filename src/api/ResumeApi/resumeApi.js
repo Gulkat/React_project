@@ -8,4 +8,5 @@ export const addResumeData = (resumeData) => fakeServerInstance.post('/resumeDat
 export const updateResumeData = (dateToSendToServer, id) => fakeServerInstance.patch(`/resumeData/${id}`, {updateDate:dateToSendToServer});
 export const fetchResumeData = (id) => fakeServerInstance.get(`/resumeData/${id}`);
 
-export const loginUser = ({email, password}) => fakeServerInstance.post('/users', {email, password});
+export const addLoginUser = ({userName, email, password}) => fakeServerInstance.post('/users', {userName, email, password});
+export const LoginUser =({email, password}) => fakeServerInstance.post('/login', {email, password});
