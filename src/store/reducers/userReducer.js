@@ -3,7 +3,7 @@ const userReducer = (state={isLoggedIn: false}, action) => {
         case 'userLogIn':
             return {...state, isLoggedIn: true}
         case 'userLogOut':
-            return {...state, isLoggedIn: false}
+            return {isLoggedIn: false}
         default:
             return {...state}
     }

@@ -171,7 +171,7 @@ const Education = () => {
                     name='education'
                     render={arrayHelpers => (
                         <React.Fragment>
-                            <button  type={'submit'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
+                            <button type={'button'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
                                 <span className={'innerBtn'}>
                                     <span className={'iconBtn'}>+</span>
                                     <span className={'titleBtn'}>Добавить образование</span>

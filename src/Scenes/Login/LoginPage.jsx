@@ -99,7 +99,7 @@ const LoginPage = () => {
     const handleSubmit = (formValues) => {
         LoginUser({email: formValues.email, password: formValues.password}).then(() => {
             dispatch(createUserLogInAction({email: formValues.email, password: formValues.password}));
-        });
+        }).catch()
     };
 
     return (

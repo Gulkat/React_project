@@ -16,9 +16,8 @@ const RootRoute = () => {
     return (
         <Routes>
             <Route path={ROUTES.initialPage} element={<MainLayout/>}>
-                <Route path={ROUTES.login} element={<LoginPage/>}/>
                 <Route path={ROUTES.startPage} element={<StartPage/>}/>
-                <Route path={ROUTES.newResume} element={<Wrapper/>}/>
+                <Route path={ROUTES.resumeConstructor} element={<Wrapper/>}/>
                 <Route path={ROUTES.preview} element={<ResumePreview/>}/>
                 <Route path={ROUTES.resumeList} element={<ResumeList/>}>
                     <Route path={ROUTES.resumeID} element={<Wrapper/>}/>

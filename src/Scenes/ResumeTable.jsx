@@ -165,10 +165,9 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
                     </tfoot>
                 }
             </table>
-
         </StyledResumeTable>
-    )
-}
+    );
+};
 
 
-export default ResumeTable
+export default ResumeTable;

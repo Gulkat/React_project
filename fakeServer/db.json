@@ -11,6 +11,12 @@
       "password": "$2a$10$EEfRC.lR1f4/mlJlIYU4H.HB6umsuZqaXUs7HFtysY8wmJV.SRAza",
       "userName": "Катерина",
       "id": 2
+    },
+    {
+      "email": "111@rgg.yy",
+      "password": "$2a$10$S0U562FMlmyixGIvEbTOCOWjptnByIDjFDBEMqljCpyCs4zBZCnmG",
+      "userName": "Катерина",
+      "id": 3
     }
   ],
   "resumeList": [
@@ -89,46 +95,34 @@
       "dateOfCreation": "2022-09-20T13:01:47.856Z",
       "updateDate": "2022-09-20T13:01:47.856Z",
       "id": 15
+    },
+    {
+      "dateOfCreation": "2022-09-20T13:01:47.856Z",
+      "updateDate": "2022-09-20T13:01:47.856Z",
+      "id": 16
+    },
+    {
+      "jobTitle": "Frontend Developer",
+      "dateOfCreation": "2022-09-21T13:36:41.385Z",
+      "updateDate": "2022-09-21T13:36:41.385Z",
+      "id": 17
+    },
+    {
+      "jobTitle": "Frontend Developer",
+      "dateOfCreation": "2022-09-21T13:36:41.385Z",
+      "updateDate": "2022-09-21T13:36:41.385Z",
+      "id": 18
+    },
+    {
+      "jobTitle": "Frontend Developer",
+      "dateOfCreation": "2022-09-21T13:36:41.385Z",
+      "updateDate": "2022-09-21T13:36:41.385Z",
+      "id": 19
     }
   ],
   "resumeData": [
     {
-      "id": 1,
-      "color": "",
-      "font": "",
-      "personalDetails": {
-        "userName": "",
-        "email": "",
-        "phone": "",
-        "city": "",
-        "jobTitle": "",
-        "userSurname": ""
-      },
-      "employment": [
-        {
-          "positionHeld": "",
-          "employer": "",
-          "startDate": "",
-          "endDate": "",
-          "workLocation": "",
-          "responsibilities": ""
-        }
-      ],
-      "education": [
-        {
-          "institution": "",
-          "degree": "",
-          "locationOfTheInstitution": "",
-          "graduationDate": "",
-          "description": ""
-        }
-      ],
-      "skills": [
-        {
-          "skill": ""
-        }
-      ],
-      "summary": ""
+      "id": 1
     },
     {
       "personalDetails": {
@@ -319,6 +313,144 @@
       "color": "3",
       "font": "2",
       "id": 7
+    },
+    {
+      "personalDetails": {
+        "userName": "Василий",
+        "userSurname": "Васильевич",
+        "email": "test@tms.com",
+        "phone": "23445566666",
+        "jobTitle": "Frontend Developer",
+        "city": "Минск"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-02",
+          "endDate": "",
+          "workLocation": "Минск",
+          "currentlyHere": false,
+          "responsibilities": "Продажи"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2020",
+          "description": "Финансы"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "js"
+        },
+        {
+          "skill": "html"
+        },
+        {
+          "skill": "csss"
+        },
+        {
+          "skill": "git"
+        }
+      ],
+      "summary": "Будущий крутой специалист",
+      "id": 8
+    },
+    {
+      "personalDetails": {
+        "userName": "Василий",
+        "userSurname": "Васильевич",
+        "email": "test@tms.com",
+        "phone": "23445566666",
+        "jobTitle": "Frontend Developer",
+        "city": "Минск"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-02",
+          "endDate": "",
+          "workLocation": "Минск",
+          "currentlyHere": false,
+          "responsibilities": "Продажи"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2020",
+          "description": "Финансы"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "js"
+        },
+        {
+          "skill": "html"
+        },
+        {
+          "skill": "csss"
+        },
+        {
+          "skill": "git"
+        }
+      ],
+      "summary": "Будущий крутой специалист",
+      "id": 9
+    },
+    {
+      "personalDetails": {
+        "userName": "Василий",
+        "userSurname": "Васильевич",
+        "email": "test@tms.com",
+        "phone": "23445566666",
+        "jobTitle": "Frontend Developer",
+        "city": "Минск"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-02",
+          "endDate": "",
+          "workLocation": "Минск",
+          "currentlyHere": false,
+          "responsibilities": "Продажи"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2020",
+          "description": "Финансы"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "js"
+        },
+        {
+          "skill": "html"
+        },
+        {
+          "skill": "csss"
+        },
+        {
+          "skill": "git"
+        }
+      ],
+      "summary": "Будущий крутой специалист",
+      "id": 10
     }
   ]
 }

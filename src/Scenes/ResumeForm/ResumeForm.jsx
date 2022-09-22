@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { Form, Formik } from 'formik';
 
@@ -13,9 +13,10 @@ import BtnToSaveAndViewResume from '../../Components/BtnToSaveAndViewResume';
 import { useDispatch, useSelector } from "react-redux";
 import { saveResumeAction } from "../../store/actions/CVReducer";
 import { getRenderedResumeData } from "../../store/selectors/CVSelector";
-import {addResumeData, addResumeList, updateResumeList} from "../../api/ResumeApi/resumeApi";
+import {addResumeData, addResumeList, fetchResumeData, updateResumeList, updateResumeData} from "../../api/ResumeApi/resumeApi";
 import { dateToSendToServer } from '../../scripts/date';
 import { DateTime } from "luxon";
+import {useParams} from "react-router-dom";
 
 const StyledResumeForm = styled.div`
   padding: 0;
@@ -31,10 +32,22 @@ const StyledResumeForm = styled.div`
 const ResumeForm = () => {
     const dispatch = useDispatch();
     const renderedResumeData = useSelector(getRenderedResumeData);
+    const {id} = useParams();
+    const [editMode, setEditMode] = useState(id !== 'new');
+    const [initialFormData, setInitialFormData] = useState(id !== "new" ? null : renderedResumeData);
+
 
     // const ValidateEmail = (email) => {
     //     return ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
     // }
+
+    useEffect(() => {
+        if (editMode) {
+            fetchResumeData(id).then(({data}) => {
+                setInitialFormData(data);
+            })
+        }
+    }, []);
 
     const validateForm = (formValues) => {
         let isValid = true;
@@ -57,19 +70,34 @@ const ResumeForm = () => {
     };
 
     const handleSubmit = (formValues) => {
+        if (editMode) {
+            updateResume(formValues)
+        } else {
+            createNewResume(formValues)
+        }
+    };
+
+    const createNewResume = (formValues) => {
         addResumeData(formValues).then(() => {
             dispatch(saveResumeAction(formValues))
         });
         addResumeList({
-            jobTitle: formValues.jobTitle,
+            jobTitle: formValues.personalDetails.jobTitle,
             dateOfCreation: dateToSendToServer,
             updateDate: dateToSendToServer
         }).then();
+    }
+
+    const updateResume = (formValues) => {
+        updateResumeData(formValues, id).then(() => {
+            dispatch(saveResumeAction(formValues))
+        });
         updateResumeList({
-            jobTitle: formValues.jobTitle,
-            updateDate: dateToSendToServer
+            jobTitle: formValues.personalDetails.jobTitle,
+            updateDate: dateToSendToServer,
+            id: id
         }).then();
-    };
+    }
 
     return (
         <StyledResumeForm>
@@ -77,25 +105,26 @@ const ResumeForm = () => {
                 <Header/>
             </header>
             <main>
-                <Formik initialValues={renderedResumeData}
-                        validate={(formValues) => {
-                        const errors = validateForm(formValues);
-                        if (!errors) dispatch(saveResumeAction(formValues));
-                        console.log('dispatch', saveResumeAction(formValues))
-                        }}
-                        onSubmit={(formValues) =>{
-                            handleSubmit(formValues)
-                        }}>
-                    <Form>
-                        <DropdownMenu/>
-                        <PersonalDetails/>
-                        <Employment/>
-                        <Education/>
-                        <Skills/>
-                        <Summary/>
-                        <BtnToSaveAndViewResume/>
-                    </Form>
-                </Formik>
+                {(!editMode || initialFormData) &&
+                    <Formik initialValues={initialFormData}
+                            validate={(formValues) => {
+                                const errors = validateForm(formValues);
+                                if (!errors) dispatch(saveResumeAction(formValues));
+                            }}
+                            onSubmit={(formValues) =>{
+                                handleSubmit(formValues)
+                            }}>
+                        <Form>
+                            <DropdownMenu/>
+                            <PersonalDetails/>
+                            <Employment/>
+                            <Education/>
+                            <Skills/>
+                            <Summary/>
+                            <BtnToSaveAndViewResume editMode={editMode} id={id}/>
+                        </Form>
+                    </Formik>
+                }
             </main>
         </StyledResumeForm>
     )

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {store} from "../../store/initStore";
 
 const fakeServerInstance = axios.create({
     baseURL:'http://localhost:3004/'
@@ -9,11 +10,14 @@ const fakeServerInstance = axios.create({
 //         return response
 //     },
 //     (response) => {
-//         // GlobalError <div>ServerError</div>
-//         throw new Error(response.error.massage)
+//         store.dispatch({
+//             type: 'setGlobalError',
+//             payload: {message: response.message}
+//         });
+//         throw new Error(response);
 //     }
-//  )
+//  );
 //
-// fakeServerInstance.interceptors.request.use()
+// fakeServerInstance.interceptors.request.use();
 
 export default fakeServerInstance;

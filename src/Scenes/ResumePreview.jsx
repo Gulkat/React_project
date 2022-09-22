@@ -30,9 +30,9 @@ const ResumePreview = () => {
             fetchResumeData(id).then(({data}) => {
                 dispatch(saveResumeAction(data));
                 setLoadingState(false);
-            })
+            });
         }
-    }, [])
+    }, []);
 
     return (
         <StyledResumePreview>
@@ -41,7 +41,7 @@ const ResumePreview = () => {
             </div>
         </StyledResumePreview>
 
-    )
-}
+    );
+};
 
-export default ResumePreview
+export default ResumePreview;

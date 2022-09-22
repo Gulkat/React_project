@@ -247,7 +247,7 @@ const Employment = () => {
                     name='employment'
                     render={arrayHelpers => (
                         <React.Fragment>
-                            <button type={'submit'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
+                            <button type={'button'} className={'addBtn'} onClick={() => {arrayHelpers.push({})}}>
                                 <span className={'innerBtn'}>
                                     <span className={'iconBtn'}>+</span>
                                     <span className={'titleBtn'}>Добавить работу</span>
@@ -280,15 +280,19 @@ const Employment = () => {
                                                         </label>
                                                         <FormikInput className={'inputDate'} type={'month'} placeholder={'Выберите дату'} name={`employment.${index}.startDate`}/>
                                                     </div>
-                                                    <div className={'dateFinish'}>
-                                                        <label className={'labelDateFinish'}><span>Дата окончания</span>
-                                                            <div className={'overlay_background'}></div>
-                                                        </label>
-                                                        <FormikInput className={'inputDate'} type={'month'} placeholder={'Выберите дату'} name={`employment.${index}.endDate`}/>
-                                                    </div>
+
+                                                    {!values.employment[index].currentlyHere &&
+                                                        <div className={'dateFinish'}>
+                                                            <label className={'labelDateFinish'}><span>Дата окончания</span>
+                                                                <div className={'overlay_background'}></div>
+                                                            </label>
+                                                            <FormikInput className={'inputDate'} type={'month'} placeholder={'Выберите дату'} name={`employment.${index}.endDate`}/>
+                                                        </div>
+                                                    }
+
                                                 </div>
                                                 <div className={'checkboxWrap'}>
-                                                    <input name={'start'} type={"checkbox"} className={'check'} id={'currentlyWorkHere'}></input>
+                                                    <FormikInput name={`employment.${index}.currentlyHere`} type={"checkbox"} className={'check'} id={'currentlyWorkHere'}></FormikInput>
                                                     <span className={'labelWrap'}>
                                                         <label htmlFor={'currentlyWorkHere'} className={'labelCheckbox'}>В настоящее время работаю здесь</label>
                                                     </span>

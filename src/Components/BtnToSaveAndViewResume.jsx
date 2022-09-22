@@ -37,16 +37,18 @@ const StyledButtonToSaveResume = styled.div`
   }
 `
 
-const BtnToSaveAndViewResume = () => {
+const BtnToSaveAndViewResume = (props) => {
     return (
         <StyledButtonToSaveResume>
             <button className={'btnToSaveResume'} type={'submit'}>Сохранить резюме</button>
-            <button className={'btnToViewResume'} type={'button'}>
-                <Link to={PATHS.preview(``)} className={'linkToView'}>Посмотреть резюме</Link>
-            </button>
+            {props.editMode &&
+                <button className={'btnToViewResume'} type={'button'}>
+                    <Link to={PATHS.preview(props.id)} className={'linkToView'}>Посмотреть резюме</Link>
+                </button>
+            };
         </StyledButtonToSaveResume>
-    )
-}
+    );
+};
 
-export default BtnToSaveAndViewResume
+export default BtnToSaveAndViewResume;
 

@@ -59,7 +59,7 @@ const ResumeList = () => {
     const getResumeList = () => {
         fetchResumeList().then(({data}) => {
             const preparedDate = data.map ((entry, index) => {
-                return ({...entry, id: index})
+                return ({...entry, id: index + 1})
             })
             setResumeList(preparedDate);
         }).catch(error => console.log(error));
@@ -76,7 +76,7 @@ const ResumeList = () => {
         return <ResumeTable columnsFromProps={columns}
                             tableDataFromProps={resumeList}
                             isPaginable pageSize={5}
-                            rowClickHandler={(rowData) => {navigate(PATHS.preview(rowData.id))}} />
+                            rowClickHandler={(rowData) => {navigate(PATHS.constructor(rowData.id))}} />
     };
 
     return (

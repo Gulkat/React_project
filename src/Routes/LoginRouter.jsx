@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {isLoggedIn} from '../store/selectors/userSelectors';
 import RegisterPage from '../Scenes/Login/RegisterPage';
+import LoginPage from "../Scenes/Login/LoginPage";
 import RootRoute from './RootRoute';
 
 import { ROUTES } from '../constants/routes';
@@ -26,6 +27,7 @@ const LoginRoute = () => {
         <Routes>
             <Route path={ROUTES.initialPage} element={<MainLayout/>}>
                 <Route index element={renderForNotLoggedUser(<RegisterPage/>)}/>
+                <Route path={ROUTES.login} element={renderForNotLoggedUser(<LoginPage/>)}/>
             </Route>
             <Route path={'*'} element={renderForLoggedUser(<RootRoute/>)}/>
         </Routes>

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from "react-router-dom";
-import {ROUTES} from "../constants/routes";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../constants/routes";
+import { PATHS } from "../constants/routes";
 
 const StyledButtonToStart = styled.div`
   display: flex;
@@ -58,11 +59,11 @@ const StartPage = () => {
     return (
         <StyledButtonToStart>
             <button className={'start'}>
-                <Link to={ROUTES.newResume} className={'linkToStart'}>Создать новое резюме</Link>
+                <Link to={PATHS.constructor("new")} className={'linkToStart'}>Создать новое резюме</Link>
             </button>
                 <Link to={ROUTES.resumeList} className={'linkToView'}>Посмотреть сохраненные резюме</Link>
         </StyledButtonToStart>
-    )
-}
+    );
+};
 
-export default StartPage
+export default StartPage;
