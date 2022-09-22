@@ -11,14 +11,20 @@ import {ROUTES} from "../../constants/routes";
 
 
 const StyledLoginPage = styled.div`
-    margin: 100px auto;
-    width: 500px;
-    background-color: #f7f7fc;
+  background-color: #f7f7fc;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 
   .loginForm {
-    border: 2px solid rgb(230,230,255);
+    padding-top: 100px;
     height: 500px;
     text-align: center;
+    width: 500px;
     
   }
   .formTitle {
@@ -47,7 +53,7 @@ const StyledLoginPage = styled.div`
     position: relative;
     border: none;
     background: rgb(33, 150, 243);
-    width: auto;
+    width: 250px;
     will-change: box-shadow;
     border-radius: 4px;
     font-weight: 900;
@@ -65,7 +71,17 @@ const StyledLoginPage = styled.div`
     outline: none;
     box-shadow: 0 0 0 4px #cbd6ee;
   }
-
+  .linkWrapper {
+    margin-top: 30px;
+  }
+  .link {
+    text-decoration: none;
+    font-family: ${props => props.theme.baseFont};
+    color: ${props => props.theme.accentColor};
+  }
+  .link:hover {
+    color: darkred;
+  }
 `
 
 const LoginPage = () => {
@@ -99,7 +115,7 @@ const LoginPage = () => {
     const handleSubmit = (formValues) => {
         LoginUser({email: formValues.email, password: formValues.password}).then(() => {
             dispatch(createUserLogInAction({email: formValues.email, password: formValues.password}));
-        }).catch()
+        }).catch(error => {console.log(error.response.data)})
     };
 
     return (
@@ -114,7 +130,9 @@ const LoginPage = () => {
                     <FormikInput name={'email'} type={'email'} placeholder={'Email'}/>
                     <FormikInput name={'password'} type={'password'} placeholder={'Password'}/>
                     <button type={'submit'} className={'btnSubmit'}>Войти</button>
-                    <Link to={ROUTES.initialPage}>Зарегистрироваться</Link>
+                    <div className={'linkWrapper'}>
+                        <Link to={ROUTES.register} className={'link'}>Зарегистрироваться</Link>
+                    </div>
                 </Form>
             </Formik>
         </StyledLoginPage>

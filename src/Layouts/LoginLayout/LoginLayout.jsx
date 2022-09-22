@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 
-const StyledMainLayout = styled.div`
+const StyledLoginLayout = styled.div`
   width: 100%;
   height: 100%;
   
@@ -20,19 +20,19 @@ const StyledMainLayout = styled.div`
 
 `
 
-class MainLayout extends React.Component {
+class LoginLayout extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
         return (
-            <StyledMainLayout>
+            <StyledLoginLayout>
                 <header><Header/></header>
                 <main className={'content'}><Outlet/></main>
                 <footer><Footer/></footer>
-            </StyledMainLayout>
+            </StyledLoginLayout>
         )
     }
 }
 
-export default MainLayout
+export default LoginLayout;

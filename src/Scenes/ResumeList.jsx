@@ -11,11 +11,15 @@ import { dateToShowToUser } from "../scripts/date";
 import {ROUTES} from "../constants/routes";
 
 const StyledResumeList = styled.div`
-  width: 80vh;
-  max-width: 900px;
-  margin: 50px auto;
+  background-color: #f7f7fc;
+  width: 100%;
+  margin: 0;
   display: flex;
+  height: 100%;
   flex-direction: column;
+  text-align: center;
+  align-items: center;
+
   
   .nameTable{
     font-size: 40px;
@@ -53,7 +57,7 @@ const ResumeList = () => {
         {name:'Дата создания', dataKey: 'dateOfCreation', cellRenderer: (cellData, rowData) => {
             return dateToShowToUser(cellData)
             }},
-        {name:'Дата обновления', dataKey: 'updateDate'}
+        {name:'Дата обновления', dataKey: 'updateDate'},
     ];
 
     const getResumeList = () => {
@@ -85,11 +89,11 @@ const ResumeList = () => {
                 <div className={'nameTable'}>Список сохраненных резюме</div>
                 {getResumeTable()}
             </React.Fragment>
-            <div className={'btnWrapper'}>
-                <button type={'button'} className={'btnToStart'}>
-                    <Link to={ROUTES.startPage} className={'linkToView'}>На главную</Link>
-                </button>
-            </div>
+            {/*<div className={'btnWrapper'}>*/}
+            {/*    <button type={'button'} className={'btnToStart'}>*/}
+            {/*        <Link to={ROUTES.startPage} className={'linkToView'}>На главную</Link>*/}
+            {/*    </button>*/}
+            {/*</div>*/}
         </StyledResumeList>
     );
 };

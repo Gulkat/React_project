@@ -11,14 +11,20 @@ import {ROUTES} from "../../constants/routes";
 
 
 const StyledRegisterPage = styled.div`
-    margin: 100px auto;
-    width: 500px;
-    background-color: #f7f7fc;
+  background-color: #f7f7fc;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 
   .loginForm {
-    border: 2px solid rgb(230,230,255);
+    padding-top: 100px;
     height: 500px;
     text-align: center;
+    width: 500px;
     
   }
   .formTitle {
@@ -73,7 +79,9 @@ const StyledRegisterPage = styled.div`
     font-family: ${props => props.theme.baseFont};
     color: ${props => props.theme.accentColor};
   }
-
+  .link:hover {
+    color: darkred;
+  }
 `
 
 const RegisterPage = () => {

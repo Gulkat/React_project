@@ -10,7 +10,7 @@ const StyledWrapper = styled.div`
   overflow: auto;
 `
 
-const Wrapper = () => {
+const Wrappermain = () => {
 
     return (
         <StyledWrapper>
@@ -21,4 +21,4 @@ const Wrapper = () => {
     )
 }
 
-export default Wrapper
+export default Wrappermain

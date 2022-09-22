@@ -5,6 +5,7 @@ import {FieldArray, useFormikContext} from 'formik';
 import FormikInput from './FormikFields/FormikInput';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
+import moment from "moment";
 
 const StyledEmployment = styled.div`
   font-family: ${props => props.theme.baseFont};

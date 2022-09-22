@@ -200,7 +200,7 @@ const Education = () => {
                                                 <label className={'label'}><span>Год окончания</span>
                                                     <div className={'overlay_background'}></div>
                                                 </label>
-                                                <FormikInput className={'input'} name={`education.${index}.graduationDate`}/>
+                                                <FormikInput className={'input'} type={'year'} name={`education.${index}.graduationDate`}/>
                                             </div>
                                             <div className={'box'}>
                                                 <label className={'label'}><span>Город</span>

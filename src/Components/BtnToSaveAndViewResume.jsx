@@ -45,7 +45,7 @@ const BtnToSaveAndViewResume = (props) => {
                 <button className={'btnToViewResume'} type={'button'}>
                     <Link to={PATHS.preview(props.id)} className={'linkToView'}>Посмотреть резюме</Link>
                 </button>
-            };
+            }
         </StyledButtonToSaveResume>
     );
 };

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useSearchParams } from 'react-router-dom';
 import useThrottle from '../hooks/useThrottledCallBack';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faAnglesLeft, faAnglesRight} from "@fortawesome/free-solid-svg-icons";
 
 const StyledResumeTable = styled.div`
   margin-top: 30px;
@@ -19,16 +21,20 @@ const StyledResumeTable = styled.div`
   }
   table{
     font-family: ${props => props.theme.baseFont};
+    font-size: 20px;
+    line-height: 40px;
     text-align: center;
     border-collapse: collapse;
+    width: 70vw;
   }
-  td{
-    padding: 10px;
-  }
+  //td{
+  //  padding: 10px;
+  //}
   .headerCell {
     font-size: 20px;
     font-family: ${props => props.theme.baseFont};
     margin: 20px;
+    font-weight: bold;
   }
   
   .arrow {
@@ -44,9 +50,25 @@ const StyledResumeTable = styled.div`
       transform: rotate(45deg);
     }
   }
+  tr:hover{
+    cursor: pointer;
+    background-color: #e2e4f0;
+  }
+  tr:nth-child(odd) {
+    background-color: #bcc3e2;
+  }
+  tr:nth-child(odd):hover {
+    background-color: #b3b7c9;
+  }
 
   .btnTablePagination {
-    
+    min-width: 100px;
+    border: none;
+    background-color: #bcc3e2;
+    cursor: pointer;
+    font-family: ${props => props.theme.baseFont};
+    font-size: 18px;
+    font-weight: bold;
   }
   
 `
@@ -153,13 +175,13 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
                     <tfoot>
                     <tr>
                         <td>
-                            {(page > 0) && <button className={"btnTablePagination"} type={"button"} onClick={() => {setPage(page-1)}}>Назад</button>}
+                            {(page > 0) && <button className={"btnTablePagination"} type={"button"} onClick={() => {setPage(page-1)}}> <FontAwesomeIcon icon={faAnglesLeft}/> Назад</button>}
                         </td>
                         <td>
-                            {page}
+                            - {page} -
                         </td>
                         <td>
-                            {((page + 1)*pageSize < filteredData.length) && <button  className={"btnTablePagination"} type={"button"} onClick={() => {setPage(page+1)}}>Следующая</button>}
+                            {((page + 1)*pageSize < filteredData.length) && <button  className={"btnTablePagination"} type={"button"} onClick={() => {setPage(page+1)}}>Следующая <FontAwesomeIcon icon={faAnglesRight}/></button>}
                         </td>
                     </tr>
                     </tfoot>
