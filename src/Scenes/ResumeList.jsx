@@ -57,7 +57,9 @@ const ResumeList = () => {
         {name:'Дата создания', dataKey: 'dateOfCreation', cellRenderer: (cellData, rowData) => {
             return dateToShowToUser(cellData)
             }},
-        {name:'Дата обновления', dataKey: 'updateDate'},
+        {name:'Дата обновления', dataKey: 'updateDate', cellRenderer: (cellData, rowData) => {
+                return dateToShowToUser(cellData)
+            }},
     ];
 
     const getResumeList = () => {
