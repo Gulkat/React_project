@@ -13,6 +13,430 @@
       "id": 2
     }
   ],
-  "resumeList": [],
-  "resumeData": []
+  "resumeList": [
+    {
+      "jobTitle": "Frontend Developer",
+      "dateOfCreation": "2022-09-26T12:26:48.305Z",
+      "updateDate": "2022-09-26T12:26:48.305Z",
+      "id": 1
+    },
+    {
+      "jobTitle": "Frontend Developer",
+      "dateOfCreation": "2022-09-26T12:26:48.305Z",
+      "updateDate": "2022-09-26T12:46:45.611Z",
+      "id": 2
+    },
+    {
+      "jobTitle": "UX",
+      "dateOfCreation": "2022-09-26T12:26:48.305Z",
+      "updateDate": "2022-09-26T12:26:48.305Z",
+      "id": 3
+    },
+    {
+      "jobTitle": "DevOps",
+      "dateOfCreation": "2022-09-26T12:26:48.305Z",
+      "updateDate": "2022-09-26T12:26:48.305Z",
+      "id": 4
+    },
+    {
+      "jobTitle": "DevOps",
+      "dateOfCreation": "2022-09-26T12:54:08.428Z",
+      "updateDate": "2022-09-26T12:54:08.428Z",
+      "id": 5
+    },
+    {
+      "jobTitle": "Frontend Developer",
+      "dateOfCreation": "2022-09-26T12:54:08.428Z",
+      "updateDate": "2022-09-26T12:54:08.428Z",
+      "id": 6
+    }
+  ],
+  "resumeData": [
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "test@tms.com",
+        "city": "Минск",
+        "jobTitle": "Frontend Developer",
+        "phone": "4845959503"
+      },
+      "employment": [
+        {
+          "positionHeld": "Маркетолог",
+          "employer": "Алинмир",
+          "startDate": "2019-02",
+          "endDate": "2021-11",
+          "workLocation": "Минск",
+          "responsibilities": "Анализ рынка"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "graduationDate": "2010",
+          "locationOfTheInstitution": "Минск",
+          "description": "Факультет Маркетинга, маркетолог - экономист"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "HTML"
+        },
+        {
+          "skill": "CSS"
+        },
+        {
+          "skill": "JS"
+        }
+      ],
+      "summary": "Я умею соблюдать правила и стандарты, стремлюсь, чтобы окружающие делали то же самое",
+      "id": 1,
+      "updatedResumeFormData": {
+        "personalDetails": {
+          "userName": "Катерина",
+          "userSurname": "Гулешова",
+          "email": "test@tms.com",
+          "city": "Минск",
+          "jobTitle": "Frontend Developer",
+          "phone": "4845959503"
+        },
+        "employment": [
+          {
+            "positionHeld": "Маркетолог",
+            "employer": "Алинмир",
+            "startDate": "2019-02",
+            "endDate": "2021-11",
+            "workLocation": "Минск",
+            "responsibilities": "Анализ рынка"
+          }
+        ],
+        "education": [
+          {
+            "institution": "БГЭУ",
+            "degree": "Бакалавр",
+            "graduationDate": "2010",
+            "locationOfTheInstitution": "Минск",
+            "description": "Факультет Маркетинга, маркетолог - экономист"
+          }
+        ],
+        "skills": [
+          {
+            "skill": "HTML"
+          },
+          {
+            "skill": "CSS"
+          },
+          {
+            "skill": "JS"
+          }
+        ],
+        "summary": "Я умею соблюдать правила и стандарты, стремлюсь, чтобы окружающие делали то же самое",
+        "id": 1,
+        "color": "3",
+        "font": "3"
+      }
+    },
+    {
+      "personalDetails": {
+        "userName": "Екатерина",
+        "userSurname": "Гулешова",
+        "email": "test@tms.com",
+        "phone": "3980228",
+        "city": "Минск",
+        "jobTitle": "Data Science"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-01",
+          "endDate": "2021-05",
+          "workLocation": "Минск",
+          "responsibilities": "Выписка накладных, счетов, договоров"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2010",
+          "description": "Факультет Маркетинга, маркетолог - экономист"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "HTML"
+        },
+        {
+          "skill": "CSS"
+        },
+        {
+          "skill": "JS"
+        },
+        {}
+      ],
+      "summary": "Будущий крутой специалист",
+      "id": 2,
+      "updatedResumeFormData": {
+        "personalDetails": {
+          "userName": "Катерина",
+          "userSurname": "Гулешова",
+          "email": "test@tms.com",
+          "city": "Минск",
+          "jobTitle": "Frontend Developer",
+          "phone": "4845959503"
+        },
+        "employment": [
+          {
+            "positionHeld": "Маркетолог",
+            "employer": "Алинмир",
+            "startDate": "2019-02",
+            "endDate": "2021-11",
+            "workLocation": "Минск",
+            "responsibilities": "Анализ рынка"
+          }
+        ],
+        "education": [
+          {
+            "institution": "БГЭУ",
+            "degree": "Бакалавр",
+            "graduationDate": "2010",
+            "locationOfTheInstitution": "Минск",
+            "description": "Факультет Маркетинга, маркетолог - экономист"
+          }
+        ],
+        "skills": [
+          {
+            "skill": "HTML"
+          },
+          {
+            "skill": "CSS"
+          },
+          {
+            "skill": "JS"
+          }
+        ],
+        "summary": "Я умею соблюдать правила и стандарты, стремлюсь, чтобы окружающие делали то же самое",
+        "id": 1,
+        "updatedResumeFormData": {
+          "personalDetails": {
+            "userName": "Катерина",
+            "userSurname": "Гулешова",
+            "email": "test@tms.com",
+            "city": "Минск",
+            "jobTitle": "Frontend Developer",
+            "phone": "4845959503"
+          },
+          "employment": [
+            {
+              "positionHeld": "Маркетолог",
+              "employer": "Алинмир",
+              "startDate": "2019-02",
+              "endDate": "2021-11",
+              "workLocation": "Минск",
+              "responsibilities": "Анализ рынка"
+            }
+          ],
+          "education": [
+            {
+              "institution": "БГЭУ",
+              "degree": "Бакалавр",
+              "graduationDate": "2010",
+              "locationOfTheInstitution": "Минск",
+              "description": "Факультет Маркетинга, маркетолог - экономист"
+            }
+          ],
+          "skills": [
+            {
+              "skill": "HTML"
+            },
+            {
+              "skill": "CSS"
+            },
+            {
+              "skill": "JS"
+            }
+          ],
+          "summary": "Я умею соблюдать правила и стандарты, стремлюсь, чтобы окружающие делали то же самое",
+          "id": 1,
+          "color": "3",
+          "font": "3"
+        },
+        "color": "3",
+        "font": "2"
+      }
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "dfdfdfd@fgf.tr",
+        "phone": "8553432323",
+        "city": "Минск",
+        "jobTitle": "UX"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист по работе с клиентами",
+          "employer": "Алинмир",
+          "workLocation": "Минск",
+          "startDate": "2022-01",
+          "endDate": "2022-07",
+          "currentlyHere": true,
+          "responsibilities": "Анализ рынка"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "graduationDate": "2010",
+          "description": "Финансы",
+          "locationOfTheInstitution": "Минск"
+        }
+      ],
+      "skills": [],
+      "color": "3",
+      "font": "3",
+      "id": 3,
+      "updatedResumeFormData": {
+        "personalDetails": {
+          "userName": "Катерина",
+          "userSurname": "Гулешова",
+          "email": "dfdfdfd@fgf.tr",
+          "phone": "8553432323",
+          "city": "Минск",
+          "jobTitle": "UX"
+        },
+        "employment": [
+          {
+            "positionHeld": "Специалист по работе с клиентами",
+            "employer": "Алинмир",
+            "workLocation": "Минск",
+            "startDate": "2022-01",
+            "endDate": "2022-07",
+            "currentlyHere": true,
+            "responsibilities": "Анализ рынка"
+          }
+        ],
+        "education": [
+          {
+            "institution": "БГЭУ",
+            "degree": "Бакалавр",
+            "graduationDate": "2010",
+            "description": "Финансы",
+            "locationOfTheInstitution": "Минск"
+          }
+        ],
+        "skills": [],
+        "color": "4",
+        "font": "2",
+        "id": 3
+      }
+    },
+    {
+      "personalDetails": {
+        "userName": "Василий",
+        "userSurname": "Васильевич",
+        "email": "dfdfdfd@fgf.tr",
+        "phone": "3980228",
+        "city": "Минск",
+        "jobTitle": "DevOps"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2019-05",
+          "endDate": "2021-05",
+          "workLocation": "Минск",
+          "responsibilities": "Продажи"
+        }
+      ],
+      "education": [],
+      "skills": [
+        {
+          "skill": "HTML"
+        },
+        {
+          "skill": "CSS"
+        },
+        {
+          "skill": "JS"
+        }
+      ],
+      "color": "4",
+      "font": "3",
+      "id": 4
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "test@tms.com",
+        "phone": "3980228",
+        "jobTitle": "DevOps",
+        "city": "Минск"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "workLocation": "Минск",
+          "responsibilities": "Выписка накладных, счетов, договоров",
+          "startDate": "2020-01",
+          "currentlyHere": true
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2010",
+          "description": "Факультет Маркетинга, маркетолог - экономист"
+        }
+      ],
+      "skills": [],
+      "id": 5
+    },
+    {
+      "personalDetails": {
+        "userName": "Василий",
+        "userSurname": "Васильевич",
+        "email": "dfdfdfd@fgf.tr",
+        "phone": "23445566666",
+        "jobTitle": "Frontend Developer",
+        "city": "Минск"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист по работе с клиентами",
+          "employer": "Алинмир",
+          "workLocation": "Минск",
+          "responsibilities": "Продажи",
+          "startDate": "2021-01",
+          "endDate": "2022-03"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "locationOfTheInstitution": "Минск",
+          "graduationDate": "2014",
+          "description": "Факультет Маркетинга, маркетолог - экономист"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "js"
+        }
+      ],
+      "id": 6
+    }
+  ]
 }

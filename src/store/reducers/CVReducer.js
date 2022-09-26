@@ -1,9 +1,16 @@
-const CVReducer = (state= {personalDetails: {}, employment: [], education: [], skills: []}, action) => {
+const initialFormData = {
+    personalDetails: {},
+    employment: [],
+    education: [],
+    skills: []
+}
+
+const CVReducer = (state= initialFormData, action) => {
     switch (action.type) {
         case 'updateResume':
             return {...action.payload}
         case 'clearResumeData':
-            return null
+            return initialFormData
         default:
             return {...state}
     }
