@@ -34,7 +34,7 @@ const ResumeForm = () => {
     const renderedResumeData = useSelector(getRenderedResumeData);
     const {id} = useParams();
     const [editMode, setEditMode] = useState(id !== 'new');
-    const [initialFormData, setInitialFormData] = useState(id !== 'new' ? null : renderedResumeData);
+    const [initialFormData, setInitialFormData] = useState(id !== 'new' ? null : renderedResumeData || initialFormData);
     const navigate = useNavigate();
 
     useEffect(() => {

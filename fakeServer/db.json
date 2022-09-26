@@ -5,6 +5,12 @@
       "password": "$2a$10$6xKwijNcvrqCa9slXPQaQOWaVjBkVXD/O9FFZH/f/7ChZ0rJc5sJC",
       "userName": "TMS",
       "id": 1
+    },
+    {
+      "email": "kateguleshova@gmail.com",
+      "password": "$2a$10$LotuellULK.V881ECpnPe.zPAicPe90es91xNA0IEduZxNFFWti0m",
+      "userName": "Катерина",
+      "id": 2
     }
   ],
   "resumeList": [],
