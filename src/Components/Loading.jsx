@@ -19,6 +19,6 @@ const Loading = () => {
             />
         </StyledLoading>
     )
-}
+};
 
-export default Loading
+export default Loading;

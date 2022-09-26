@@ -28,7 +28,7 @@ const FormikInput = (props) => {
                 <StyledErrorForm>{meta.error}</StyledErrorForm>
             }
         </React.Fragment>
-    )
-}
+    );
+};
 
-export default FormikInput
+export default FormikInput;

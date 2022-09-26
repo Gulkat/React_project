@@ -94,7 +94,7 @@ const Summary = () => {
                 <FormikTextarea className={'inputDescription'} type={'text'} name={'summary'}/>
             </div>
         </StyledSummary>
-    )
+    );
 };
 
 

@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { Form, Formik } from 'formik';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import PersonalDetails from 'Components/PersonalDetails';
 import Header from 'Scenes/ResumeForm/Components/Header';
@@ -10,13 +12,12 @@ import DropdownMenu from 'Components/Dropdown/DropdownMenu';
 import Skills from 'Components/Skills';
 import Summary from 'Components/Summary';
 import BtnToSaveAndViewResume from '../../Components/BtnToSaveAndViewResume';
-import { useDispatch, useSelector } from "react-redux";
-import { saveResumeAction } from "../../store/actions/CVReducer";
-import { getRenderedResumeData } from "../../store/selectors/CVSelector";
-import {addResumeData, addResumeList, fetchResumeData, updateResumeList, updateResumeData} from "../../api/ResumeApi/resumeApi";
+import { saveResumeAction } from '../../store/actions/CVReducer';
+import { getRenderedResumeData } from '../../store/selectors/CVSelector';
+import { addResumeData, addResumeList, fetchResumeData, updateResumeList, updateResumeData } from "../../api/ResumeApi/resumeApi";
 import { dateToSendToServer } from '../../scripts/date';
-import { useNavigate, useParams } from "react-router-dom";
-import { PATHS } from "../../constants/routes";
+
+import { PATHS } from '../../constants/routes';
 
 const StyledResumeForm = styled.div`
   padding: 0;
@@ -34,7 +35,7 @@ const ResumeForm = () => {
     const renderedResumeData = useSelector(getRenderedResumeData);
     const {id} = useParams();
     const [editMode, setEditMode] = useState(id !== 'new');
-    const [initialFormData, setInitialFormData] = useState(renderedResumeData);
+    const [initialFormData, setInitialFormData] = useState(editMode ? null : renderedResumeData);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -45,6 +46,7 @@ const ResumeForm = () => {
     useEffect(() => {
         if (editMode) {
             fetchResumeData(id).then(({data}) => {
+                dispatch(saveResumeAction(data));
                 setInitialFormData(data);
             })
         }

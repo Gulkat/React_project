@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledFooter = styled.div`
   background-color: ${props => props.theme.accentColor};
@@ -22,7 +22,7 @@ const Footer = () => {
         <StyledFooter>
             <p className={'footerText'}>И пусть удача всегда будет на вашей стороне!</p>
         </StyledFooter>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

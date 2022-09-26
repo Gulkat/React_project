@@ -31,8 +31,8 @@ class SecondaryLayout extends React.Component {
                 <main className={'content'}><Outlet/></main>
                 <footer><Footer/></footer>
             </StyledSecondaryLayout>
-        )
-    }
+        );
+    };
 }
 
 export default SecondaryLayout;

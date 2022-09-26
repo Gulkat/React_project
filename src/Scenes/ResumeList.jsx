@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import {Link, useNavigate, useParams} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { fetchResumeList } from '../api/ResumeApi/resumeApi';
 import ResumeTable from './ResumeTable';
 import Loading from '../Components/Loading';
 import EmptyList from './Errors/EmptyList';
-import { PATHS } from "../constants/routes";
-import { dateToShowToUser } from "../scripts/date";
-import {ROUTES} from "../constants/routes";
+import { dateToShowToUser } from '../scripts/date';
+
+import { PATHS } from '../constants/routes';
 
 const StyledResumeList = styled.div`
   background-color: #f7f7fc;

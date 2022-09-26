@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useSearchParams } from 'react-router-dom';
-import useThrottle from '../hooks/useThrottledCallBack';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faAnglesLeft, faAnglesRight} from "@fortawesome/free-solid-svg-icons";
+import { faAnglesLeft, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+import useThrottle from '../hooks/useThrottledCallBack';
 
 const StyledResumeTable = styled.div`
   margin-top: 30px;

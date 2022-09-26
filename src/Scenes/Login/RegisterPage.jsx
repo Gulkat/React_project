@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { Formik, Form } from 'formik';
-import FormikInput from '../../Components/FormikFields/FormikInput';
+import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+
+import FormikInput from '../../Components/FormikFields/FormikInput';
 import { createUserLogInAction } from '../../store/actions/userActionCreators';
-import {addLoginUser} from "../../api/ResumeApi/resumeApi";
-import {Link} from "react-router-dom";
-import {ROUTES} from "../../constants/routes";
+import { addLoginUser } from '../../api/ResumeApi/resumeApi';
+
+import { ROUTES } from '../../constants/routes';
 
 
 const StyledRegisterPage = styled.div`
@@ -89,13 +91,13 @@ const RegisterPage = () => {
 
     const ValidateEmail = (email) => {
         return ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
-    }
+    };
 
     const initialFormValues = {
         userName: "",
         email: "",
         password: "",
-    }
+    };
 
     const validateForm = (formValues) => {
         let isValid = true;
@@ -115,7 +117,7 @@ const RegisterPage = () => {
         }
 
         if (!isValid) return errorsObject
-    }
+    };
 
     const handleSubmit = (formValues) => {
         addLoginUser({userName: formValues.userName, email: formValues.email, password: formValues.password}).then(() => {
@@ -143,8 +145,8 @@ const RegisterPage = () => {
                 </Form>
             </Formik>
         </StyledRegisterPage>
-    )
-}
+    );
+};
 
 
 export default RegisterPage;

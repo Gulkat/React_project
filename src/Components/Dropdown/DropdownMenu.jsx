@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import FormikDropdown from './FormikDropdown';
-import {COLOR} from "constants/colorForm";
-import {FONT} from "constants/fontForm";
+import { COLOR } from "constants/colorForm";
+import { FONT } from "constants/fontForm";
 
 const StyledDropdownMenu = styled.div`
   padding: 20px 50px;
@@ -15,16 +15,6 @@ const StyledDropdownMenu = styled.div`
 `
 
 const DropdownMenu = () => {
-    // const [color, setColor] = useState();
-    // const [font, setFont] = useState();
-    //
-    // const handleColorSelect = (colorId) => {
-    //     setColor(COLOR.find(color => color.colorId === colorId).hexNumber)
-    // };
-    // const handleFontSelect = (fontId) => {
-    //     setFont(FONT.find(font => font.fontId === fontId).font)
-    // };
-
         return (
             <StyledDropdownMenu>
                 <div className={'dropdownWrapper'}>

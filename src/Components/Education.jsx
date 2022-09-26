@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {FieldArray, useFormikContext} from 'formik';
+import { FieldArray, useFormikContext } from 'formik';
 import FormikInput from './FormikFields/FormikInput';
-import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {userInputtedDate} from "../scripts/date";
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const StyledEducation = styled.div`
   font-family: ${props => props.theme.baseFont};
@@ -155,7 +154,7 @@ const StyledEducation = styled.div`
     font-family: ${props => props.theme.baseFont};
     padding: 20px 20px 200px 20px;
   }
-  `
+`
 
 const Education = () => {
     const { values, submitForm } = useFormikContext()
@@ -222,7 +221,6 @@ const Education = () => {
                     )}/>
         </StyledEducation>
     )
-}
+};
 
-
-export default Education
+export default Education;

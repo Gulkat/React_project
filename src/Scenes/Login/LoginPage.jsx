@@ -136,7 +136,7 @@ const LoginPage = () => {
                 </Form>
             </Formik>
         </StyledLoginPage>
-    )
+    );
 };
 
 

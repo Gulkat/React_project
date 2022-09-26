@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import FormikInput from './FormikFields/FormikInput';
-import {useFormikContext} from "formik";
 
 const StyledPersonalDetails = styled.div`
   font-family: ${props => props.theme.baseFont};
@@ -138,7 +137,7 @@ const PersonalDetails = () => {
                     </div>
                 </div>
         </StyledPersonalDetails>
-    )
-}
+    );
+};
 
 export default PersonalDetails;

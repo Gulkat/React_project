@@ -2,13 +2,14 @@ import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
-import { ROUTES } from '../constants/routes';
 import ResumeList from '../Scenes/ResumeList';
 import StartPage from '../Scenes/StartPage';
-import ResumePreview from "../Scenes/ResumePreview";
-import NotFound from "../Scenes/Errors/NotFound";
-import SecondaryLayout from "../Layouts/SecondaryLayout/SecondaryLayout";
-import Wrapper from "../Layouts/SecondaryLayout/Components/Wrapper";
+import ResumePreview from '../Scenes/ResumePreview';
+import NotFound from '../Scenes/Errors/NotFound';
+import SecondaryLayout from '../Layouts/SecondaryLayout/SecondaryLayout';
+import Wrapper from '../Layouts/SecondaryLayout/Components/Wrapper';
+
+import { ROUTES } from '../constants/routes';
 
 const RootRoute = () => {
     return (
@@ -23,7 +24,7 @@ const RootRoute = () => {
             </Route>
             <Route path={'*'} element={<NotFound/>}/>
         </Routes>
-    )
+    );
 };
 
 export default RootRoute;

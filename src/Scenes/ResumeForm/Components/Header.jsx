@@ -47,7 +47,7 @@ class Header extends React.Component {
         this.state = {
             RenderComponentState: false
         }
-    }
+    };
 
     render() {
         return (
@@ -62,9 +62,8 @@ class Header extends React.Component {
                     </ul>
                 </nav>
             </StyledHeader>
-
         );
-    }
+    };
 }
 
 export default Header;

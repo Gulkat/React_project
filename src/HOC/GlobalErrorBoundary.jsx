@@ -22,11 +22,11 @@ class GlobalErrorBoundary extends Component {
         this.state = {
             errorFired: false,
         };
-    }
+    };
 
     componentDidCatch() {
         this.setState({errorFired: true});
-    }
+    };
 
     render() {
         if (this.state.errorFired) {

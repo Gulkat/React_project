@@ -28,7 +28,7 @@ const StyledDropdown = styled.div`
   }
 `
 
-function FormikDropdown({options, nameKey, idKey, handleSelect, label, value, name}) {
+function FormikDropdown({options, nameKey, idKey, label, name}) {
     const [field, meta, helpers] = useField(name);
 
     return <StyledDropdown>

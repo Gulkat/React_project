@@ -12,7 +12,7 @@ const useThrottle = (callBack, timeout) => {
             callBack(...args);
             timeoutID = null;
         }, timeout);
-    }, [])
-}
+    }, []);
+};
 
-export default useThrottle
+export default useThrottle;

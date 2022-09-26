@@ -17,8 +17,7 @@ const Wrapper = () => {
             <ResumeForm/>
             <Result/>
         </StyledWrapper>
-
-    )
-}
+    );
+};
 
 export default Wrapper;

@@ -7,6 +7,7 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { getRenderedResumeData } from '../store/selectors/CVSelector';
+
 import { COLOR } from '../constants/colorForm';
 import { FONT } from '../constants/fontForm';
 
@@ -159,6 +160,6 @@ const Result = () => {
                 </div>
             </div>
         </StyledResult>
-    )
-}
+    );
+};
 export default Result;

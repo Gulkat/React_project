@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link, useNavigate} from "react-router-dom";
-import { ROUTES } from "../constants/routes";
-import { PATHS } from "../constants/routes";
-import {useDispatch} from "react-redux";
-import {clearResumeAction, clearResumeData} from "../store/actions/CVReducer";
+
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { clearResumeAction } from '../store/actions/CVReducer';
+
+import { ROUTES } from '../constants/routes';
+import { PATHS } from '../constants/routes';
 
 const StyledButtonToStart = styled.div`
   display: flex;

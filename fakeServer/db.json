@@ -49,6 +49,18 @@
       "dateOfCreation": "2022-09-26T12:54:08.428Z",
       "updateDate": "2022-09-26T12:54:08.428Z",
       "id": 6
+    },
+    {
+      "jobTitle": "Frontend Developer",
+      "dateOfCreation": "2022-09-26T13:04:28.288Z",
+      "updateDate": "2022-09-26T13:04:28.288Z",
+      "id": 7
+    },
+    {
+      "jobTitle": "UX",
+      "dateOfCreation": "2022-09-26T15:03:21.026Z",
+      "updateDate": "2022-09-26T15:03:21.026Z",
+      "id": 8
     }
   ],
   "resumeData": [
@@ -437,6 +449,49 @@
         }
       ],
       "id": 6
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Васильевич",
+        "phone": "3980228",
+        "email": "test@tms.com",
+        "city": "Минск",
+        "jobTitle": "Frontend Developer"
+      },
+      "employment": [
+        {
+          "positionHeld": "sddw"
+        }
+      ],
+      "education": [],
+      "skills": [],
+      "id": 7
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "email": "dfdfdfd@fgf.tr",
+        "phone": "458589696969",
+        "jobTitle": "UX",
+        "city": "Минск"
+      },
+      "employment": [
+        {
+          "positionHeld": "sddw",
+          "employer": "Алинмир",
+          "workLocation": "Минск",
+          "startDate": "2020-01",
+          "endDate": "2020-12",
+          "responsibilities": "Анализ рынка"
+        }
+      ],
+      "education": [],
+      "skills": [],
+      "color": "2",
+      "font": "4",
+      "id": 8
     }
   ]
 }

@@ -16,7 +16,7 @@ const FormikTextarea = (props) => {
     useEffect(() => {
         if (meta.touched && meta.error) {
             ref.current.scrollIntoView({
-                behavior: "smooth",
+                behavior: 'smooth',
             });
         }
     }, [meta.touched, meta.error]);
@@ -28,7 +28,7 @@ const FormikTextarea = (props) => {
                 <StyledErrorForm>{meta.error}</StyledErrorForm>
             }
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default FormikTextarea;

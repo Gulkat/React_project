@@ -177,8 +177,8 @@ const Skills = () => {
                     </React.Fragment>
                 )}/>
             </StyledSkills>
-    )
-}
+    );
+};
 
 
-export default Skills
+export default Skills;
