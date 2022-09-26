@@ -2,6 +2,8 @@ const CVReducer = (state= {personalDetails: {}, employment: [], education: [], s
     switch (action.type) {
         case 'updateResume':
             return {...action.payload}
+        case 'clearResumeData':
+            return {}
         default:
             return {...state}
     }

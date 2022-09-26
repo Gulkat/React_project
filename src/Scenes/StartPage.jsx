@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 import { PATHS } from "../constants/routes";
+import {useDispatch} from "react-redux";
+import {clearResumeAction, clearResumeData} from "../store/actions/CVReducer";
 
 const StyledButtonToStart = styled.div`
   display: flex;
@@ -19,7 +21,7 @@ const StyledButtonToStart = styled.div`
     font-weight: 900;
     border: none;
     background-color: ${props => props.theme.accentColor};
-
+    color: #fff;
     font-family: ${props => props.theme.baseFont};
     font-size: 30px;
     cursor: pointer;
@@ -29,10 +31,6 @@ const StyledButtonToStart = styled.div`
   .start:hover {
     background-color: #7181c7;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-  }
-  .linkToStart {
-    text-decoration: none;
-    color: #fff;
   }
   .linkToView {
     margin-top: 70px ;
@@ -56,10 +54,15 @@ const StyledButtonToStart = styled.div`
 `
 
 const StartPage = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     return (
         <StyledButtonToStart>
-            <button className={'start'}>
-                <Link to={PATHS.constructor("new")} className={'linkToStart'}>Создать новое резюме</Link>
+            <button className={'start'} onClick={(formValues) => {
+                dispatch(clearResumeAction(formValues));
+                navigate(PATHS.constructor('new'))}}>
+                Создать новое резюме
             </button>
                 <Link to={ROUTES.resumeList} className={'linkToView'}>Посмотреть сохраненные резюме</Link>
         </StyledButtonToStart>

@@ -5,7 +5,6 @@ import {isLoggedIn} from '../store/selectors/userSelectors';
 import RegisterPage from '../Scenes/Login/RegisterPage';
 import LoginPage from '../Scenes/Login/LoginPage';
 import RootRoute from './RootRoute';
-
 import { ROUTES } from '../constants/routes';
 import MainLayout from '../Layouts/MainLayout/MainLayout';
 import LoginLayout from '../Layouts/LoginLayout/LoginLayout';

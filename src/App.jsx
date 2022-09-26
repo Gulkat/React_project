@@ -7,7 +7,6 @@ import { PersistGate } from "redux-persist/integration/react";
 import GlobalThemeProvider from 'HOC/GlobalThemeProvider';
 import GlobalErrorBoundary from 'HOC/GlobalErrorBoundary';
 import GlobalThemeWrapper from 'HOC/GlobalThemeWrapper';
-import RootRoute from 'Routes/RootRoute';
 import Loading from 'Components/Loading';
 import LoginRoute from './Routes/LoginRouter';
 
@@ -22,11 +21,9 @@ class App extends React.PureComponent {
                  <Provider store={store}>
                      <PersistGate loading={<Loading/>} persistor={persistor}>
                          <BrowserRouter>
-                             <GlobalThemeProvider>
-                                 <GlobalErrorBoundary>
-                                     <LoginRoute/>
-                                 </GlobalErrorBoundary>
-                             </GlobalThemeProvider>
+                             <GlobalErrorBoundary>
+                                 <LoginRoute/>
+                             </GlobalErrorBoundary>
                          </BrowserRouter>
                      </PersistGate>
                 </Provider>

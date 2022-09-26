@@ -1,1 +1,2 @@
 export const saveResumeAction = (renderedResumeData) => ({type: 'updateResume', payload: renderedResumeData});
+export const clearResumeAction = (clearResumeData) => ({type: 'clearResumeData', payload: clearResumeData});

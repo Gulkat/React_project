@@ -140,7 +140,7 @@ const ResumeTable = ({columnsFromProps, tableDataFromProps, isPaginable, pageSiz
         if (tableData && tableData.length) return tableData.map(entry => (
                 <tr onClick={() => {if (rowClickHandler) rowClickHandler(entry)}}>
                     {columnsFromProps.map(column => {
-                        if (column.cellRenderer) return column.cellRenderer(entry[column.dataKey], entry);
+                        if (column.cellRenderer) return <td> {column.cellRenderer(entry[column.dataKey], entry)}</td>;
                         return <td>
                             {entry[column.dataKey]}
                         </td>

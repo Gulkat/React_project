@@ -15,8 +15,8 @@ import { saveResumeAction } from "../../store/actions/CVReducer";
 import { getRenderedResumeData } from "../../store/selectors/CVSelector";
 import {addResumeData, addResumeList, fetchResumeData, updateResumeList, updateResumeData} from "../../api/ResumeApi/resumeApi";
 import { dateToSendToServer } from '../../scripts/date';
-import { DateTime } from "luxon";
-import {useParams} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { PATHS } from "../../constants/routes";
 
 const StyledResumeForm = styled.div`
   padding: 0;
@@ -34,12 +34,13 @@ const ResumeForm = () => {
     const renderedResumeData = useSelector(getRenderedResumeData);
     const {id} = useParams();
     const [editMode, setEditMode] = useState(id !== 'new');
-    const [initialFormData, setInitialFormData] = useState(id !== "new" ? null : renderedResumeData);
+    const [initialFormData, setInitialFormData] = useState(id !== 'new' ? null : renderedResumeData);
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        if (id !== 'new') setEditMode(true);
+    }, [id]);
 
-    // const ValidateEmail = (email) => {
-    //     return ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
-    // }
 
     useEffect(() => {
         if (editMode) {
@@ -78,7 +79,8 @@ const ResumeForm = () => {
     };
 
     const createNewResume = (formValues) => {
-        addResumeData(formValues).then(() => {
+        addResumeData(formValues).then(({data}) => {
+            navigate(PATHS.constructor(data.id));
             dispatch(saveResumeAction(formValues))
         });
         addResumeList({

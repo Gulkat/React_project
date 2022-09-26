@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import FormikInput from './FormikFields/FormikInput';
+import FormikTextarea from './FormikFields/FormikTextarea';
 
 const StyledSummary = styled.div `
   font-family: ${props => props.theme.baseFont};
@@ -91,13 +91,11 @@ const Summary = () => {
                 <label className={'label'}><span>Краткая информация</span>
                     <div className={'overlay_background'}></div>
                 </label>
-                <FormikInput className={'inputDescription'} type={'text'} name={'summary'}/>
+                <FormikTextarea className={'inputDescription'} type={'text'} name={'summary'}/>
             </div>
-
-
         </StyledSummary>
     )
-}
+};
 
 
-export default Summary
+export default Summary;
