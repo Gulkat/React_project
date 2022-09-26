@@ -29,7 +29,7 @@
     {
       "jobTitle": "UX",
       "dateOfCreation": "2022-09-26T12:26:48.305Z",
-      "updateDate": "2022-09-26T12:26:48.305Z",
+      "updateDate": "2022-09-26T16:18:37.693Z",
       "id": 3
     },
     {
@@ -61,6 +61,12 @@
       "dateOfCreation": "2022-09-26T15:03:21.026Z",
       "updateDate": "2022-09-26T15:03:21.026Z",
       "id": 8
+    },
+    {
+      "jobTitle": "Frontend Developer",
+      "dateOfCreation": "2022-09-26T16:18:37.693Z",
+      "updateDate": "2022-09-26T16:18:37.693Z",
+      "id": 9
     }
   ],
   "resumeData": [
@@ -331,7 +337,7 @@
             "startDate": "2022-01",
             "endDate": "2022-07",
             "currentlyHere": true,
-            "responsibilities": "Анализ рынка"
+            "responsibilities": "Анализ рынкаb ghghghfgfdghfhbd"
           }
         ],
         "education": [
@@ -344,9 +350,43 @@
           }
         ],
         "skills": [],
-        "color": "4",
-        "font": "2",
-        "id": 3
+        "color": "3",
+        "font": "3",
+        "id": 3,
+        "updatedResumeFormData": {
+          "personalDetails": {
+            "userName": "Катерина",
+            "userSurname": "Гулешова",
+            "email": "dfdfdfd@fgf.tr",
+            "phone": "8553432323",
+            "city": "Минск",
+            "jobTitle": "UX"
+          },
+          "employment": [
+            {
+              "positionHeld": "Специалист по работе с клиентами",
+              "employer": "Алинмир",
+              "workLocation": "Минск",
+              "startDate": "2022-01",
+              "endDate": "2022-07",
+              "currentlyHere": true,
+              "responsibilities": "Анализ рынка"
+            }
+          ],
+          "education": [
+            {
+              "institution": "БГЭУ",
+              "degree": "Бакалавр",
+              "graduationDate": "2010",
+              "description": "Финансы",
+              "locationOfTheInstitution": "Минск"
+            }
+          ],
+          "skills": [],
+          "color": "4",
+          "font": "2",
+          "id": 3
+        }
       }
     },
     {
@@ -492,6 +532,50 @@
       "color": "2",
       "font": "4",
       "id": 8
+    },
+    {
+      "personalDetails": {
+        "userName": "Катерина",
+        "userSurname": "Гулешова",
+        "phone": "23445566666",
+        "jobTitle": "Frontend Developer",
+        "email": "test@tms.com",
+        "city": "Минск"
+      },
+      "employment": [
+        {
+          "positionHeld": "Специалист ",
+          "employer": "Конэктро",
+          "startDate": "2020-02",
+          "endDate": "2019-01",
+          "workLocation": "Минск",
+          "responsibilities": "Выписка накладных, счетов, договоров"
+        }
+      ],
+      "education": [
+        {
+          "institution": "БГЭУ",
+          "degree": "Бакалавр",
+          "graduationDate": "2010",
+          "locationOfTheInstitution": "Минск",
+          "description": "Факультет Маркетинга, маркетолог - экономист"
+        }
+      ],
+      "skills": [
+        {
+          "skill": "HTML"
+        },
+        {
+          "skill": "CSS"
+        },
+        {
+          "skill": "JS"
+        }
+      ],
+      "color": "3",
+      "font": "2",
+      "summary": "nlkfjdkfj",
+      "id": 9
     }
   ]
 }
